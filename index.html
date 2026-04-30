@@ -4,10 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Waquar Kaleem</title>
+    <meta name="description" content="Waquar Kaleem — PhD Candidate in Industrial Engineering and Operations Research at Penn State. Research at the intersection of operations research, machine learning, and high-performance computing for transportation, logistics, and supply chains.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --navy: #001E44;
+            --beaver: #1E407C;
+            --pugh: #3EA5DC;
+            --bg: #ffffff;
+            --text: #1d1d1f;
+            --muted: #6e6e73;
+            --subtle: #86868b;
+            --hairline: #e8eaed;
+            --tint: #f5f7fb;
+        }
         * {
             box-sizing: border-box;
         }
@@ -20,56 +32,90 @@
             max-width: 640px;
             margin: 0 auto;
             padding: 96px 24px 64px;
-            color: #000;
-            background: #fff;
+            color: var(--text);
+            background: var(--bg);
             line-height: 1.6;
             font-size: 16px;
             font-weight: 400;
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--navy) 0%, var(--beaver) 50%, var(--pugh) 100%);
+            z-index: 10;
         }
         h1 {
-            font-size: 2.25rem;
+            font-size: 2.5rem;
             font-weight: 600;
-            letter-spacing: -0.04em;
-            margin: 0 0 4px;
-            line-height: 1.1;
+            letter-spacing: -0.045em;
+            margin: 0 0 6px;
+            line-height: 1.05;
+            color: var(--navy);
+            background: linear-gradient(135deg, var(--navy) 0%, var(--beaver) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         .role {
             font-size: 0.9375rem;
-            color: #666;
-            margin: 0 0 40px;
+            color: var(--muted);
+            margin: 0 0 36px;
             letter-spacing: -0.01em;
         }
         .role .school {
-            display: block;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 6px;
             font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
             font-size: 0.8125rem;
-            color: #888;
-            margin-top: 4px;
+            color: var(--beaver);
             letter-spacing: 0;
+            font-weight: 500;
+        }
+        .role .school::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--pugh);
+            margin-right: 8px;
+            box-shadow: 0 0 0 3px rgba(62, 165, 220, 0.18);
         }
         p {
             margin: 0 0 24px;
-            color: #333;
+            color: var(--text);
             letter-spacing: -0.01em;
+        }
+        .lede {
+            font-size: 1.0625rem;
+            line-height: 1.55;
+            color: #2c2c2e;
         }
         .links {
             display: flex;
             flex-wrap: wrap;
             margin: 40px 0 0;
-            border-top: 1px solid #eaeaea;
-            padding-top: 24px;
+            border-top: 1px solid var(--hairline);
+            padding-top: 28px;
         }
         .links a {
+            position: relative;
             display: inline-flex;
             align-items: center;
-            color: #000;
+            color: var(--navy);
             text-decoration: none;
             font-size: 0.9375rem;
             font-weight: 500;
-            margin-right: 24px;
-            padding: 4px 0;
+            margin-right: 28px;
+            padding: 6px 0;
             letter-spacing: -0.01em;
-            transition: color 120ms ease;
+            transition: color 160ms ease;
         }
         .links a::after {
             content: "\2197";
@@ -77,34 +123,52 @@
             margin-left: 4px;
             font-family: "Geist Mono", ui-monospace, monospace;
             font-size: 0.875rem;
-            color: #888;
-            transition: transform 120ms ease, color 120ms ease;
+            color: var(--subtle);
+            transition: transform 160ms ease, color 160ms ease;
+        }
+        .links a::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 2px;
+            width: 100%;
+            height: 1.5px;
+            background: var(--pugh);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
         }
         .links a:hover {
-            color: #666;
+            color: var(--beaver);
         }
         .links a:hover::after {
             transform: translate(2px, -2px);
-            color: #000;
+            color: var(--pugh);
+        }
+        .links a:hover::before {
+            transform: scaleX(1);
         }
         .notice {
             font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
             font-size: 0.8125rem;
-            color: #888;
-            margin-top: 80px;
+            color: var(--subtle);
+            margin-top: 72px;
             padding-top: 24px;
-            border-top: 1px solid #eaeaea;
+            border-top: 1px solid var(--hairline);
             letter-spacing: 0;
+        }
+        .notice .accent {
+            color: var(--pugh);
         }
         @media (max-width: 480px) {
             body {
                 padding: 64px 20px 48px;
             }
             h1 {
-                font-size: 1.875rem;
+                font-size: 2rem;
             }
             .links a {
-                margin-right: 16px;
+                margin-right: 20px;
             }
         }
     </style>
@@ -112,10 +176,10 @@
 <body>
     <h1>Waquar Kaleem</h1>
     <p class="role">PhD Candidate, Industrial Engineering and Operations Research
-        <span class="school">Pennsylvania State University</span>
+        <br><span class="school">Pennsylvania State University</span>
     </p>
 
-    <p>My research lies at the intersection of operations research, machine learning,
+    <p class="lede">My research lies at the intersection of operations research, machine learning,
     and high-performance computing for transportation, logistics, and supply chains.</p>
 
     <div class="links">
@@ -125,6 +189,6 @@
         <a href="https://linkedin.com/in/waquarkaleem">LinkedIn</a>
     </div>
 
-    <p class="notice">// personal website under construction</p>
+    <p class="notice"><span class="accent">//</span> personal website under construction</p>
 </body>
 </html>
