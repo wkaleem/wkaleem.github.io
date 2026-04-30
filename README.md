@@ -8,5 +8,5 @@ The Pennsylvania State University
 Research at the intersection of operations research, machine learning, and high-performance computing for transportation, logistics, and supply chains.
 
 **Contact:** wzk5140@psu.edu
-**Scholar:** https://scholar.google.com/citations?user=F8d4AS4AAAAJ
+**Scholar:** https://scholar.google.com/citations?hl=en&user=F8d4AS4AAAAJ&view_op=list_works&sortby=pubdate
 **LinkedIn:** https://www.linkedin.com/in/waquarkaleem
