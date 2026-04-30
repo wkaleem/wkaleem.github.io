@@ -4,56 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Waquar Kaleem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: "Geist", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
             max-width: 640px;
-            margin: 80px auto;
-            padding: 0 24px;
-            color: #222;
+            margin: 0 auto;
+            padding: 96px 24px 64px;
+            color: #000;
+            background: #fff;
             line-height: 1.6;
+            font-size: 16px;
+            font-weight: 400;
         }
         h1 {
-            font-size: 2em;
-            margin-bottom: 0.2em;
+            font-size: 2.25rem;
             font-weight: 600;
+            letter-spacing: -0.04em;
+            margin: 0 0 4px;
+            line-height: 1.1;
         }
         .role {
+            font-size: 0.9375rem;
             color: #666;
-            font-size: 1em;
-            margin-top: 0;
-            margin-bottom: 1.5em;
+            margin: 0 0 40px;
+            letter-spacing: -0.01em;
+        }
+        .role .school {
+            display: block;
+            font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.8125rem;
+            color: #888;
+            margin-top: 4px;
+            letter-spacing: 0;
         }
         p {
-            margin: 1em 0;
-        }
-        a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
+            margin: 0 0 24px;
+            color: #333;
+            letter-spacing: -0.01em;
         }
         .links {
-            margin: 2em 0;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 40px 0 0;
+            border-top: 1px solid #eaeaea;
+            padding-top: 24px;
         }
         .links a {
-            margin-right: 1em;
+            display: inline-flex;
+            align-items: center;
+            color: #000;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            margin-right: 24px;
+            padding: 4px 0;
+            letter-spacing: -0.01em;
+            transition: color 120ms ease;
+        }
+        .links a::after {
+            content: "\2197";
+            display: inline-block;
+            margin-left: 4px;
+            font-family: "Geist Mono", ui-monospace, monospace;
+            font-size: 0.875rem;
+            color: #888;
+            transition: transform 120ms ease, color 120ms ease;
+        }
+        .links a:hover {
+            color: #666;
+        }
+        .links a:hover::after {
+            transform: translate(2px, -2px);
+            color: #000;
         }
         .notice {
+            font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.8125rem;
             color: #888;
-            font-style: italic;
-            font-size: 0.95em;
-            margin-top: 3em;
-            padding-top: 1em;
-            border-top: 1px solid #eee;
+            margin-top: 80px;
+            padding-top: 24px;
+            border-top: 1px solid #eaeaea;
+            letter-spacing: 0;
+        }
+        @media (max-width: 480px) {
+            body {
+                padding: 64px 20px 48px;
+            }
+            h1 {
+                font-size: 1.875rem;
+            }
+            .links a {
+                margin-right: 16px;
+            }
         }
     </style>
 </head>
 <body>
     <h1>Waquar Kaleem</h1>
-    <p class="role">PhD Candidate, Industrial Engineering and Operations Research<br>
-    Pennsylvania State University</p>
+    <p class="role">PhD Candidate, Industrial Engineering and Operations Research
+        <span class="school">Pennsylvania State University</span>
+    </p>
 
     <p>My research lies at the intersection of operations research, machine learning,
     and high-performance computing for transportation, logistics, and supply chains.</p>
@@ -61,10 +121,10 @@
     <div class="links">
         <a href="mailto:waquarkaleem@gmail.com">Email</a>
         <a href="https://github.com/wkaleem">GitHub</a>
-        <a href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID">Google Scholar</a>
+        <a href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID">Scholar</a>
         <a href="https://linkedin.com/in/waquarkaleem">LinkedIn</a>
     </div>
 
-    <p class="notice">Personal website under construction.</p>
+    <p class="notice">// personal website under construction</p>
 </body>
 </html>
