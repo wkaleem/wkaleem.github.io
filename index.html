@@ -361,6 +361,84 @@
             gap: 8px;
         }
         footer .accent { color: var(--pugh); }
+
+        /* ---- Content lists ---- */
+        .news-list { list-style: none; padding: 0; margin: 0; }
+        .news-list li {
+            display: grid; grid-template-columns: 110px 1fr; gap: 16px;
+            padding: 10px 0; border-bottom: 1px solid var(--hairline);
+        }
+        .news-list li:last-child { border-bottom: none; }
+        .news-date {
+            font-family: "Geist Mono", ui-monospace, monospace;
+            font-size: 0.8125rem; color: var(--faint); padding-top: 3px;
+        }
+        @media (max-width: 560px) {
+            .news-list li { grid-template-columns: 1fr; gap: 2px; }
+        }
+        .thrusts { list-style: none; padding: 0; margin: 0 0 18px; }
+        .thrusts li {
+            padding: 12px 0 12px 18px; border-left: 2px solid var(--pugh);
+            margin-bottom: 12px; background: var(--tint);
+            padding-right: 14px; border-radius: 0 6px 6px 0;
+        }
+        .thrusts strong { color: var(--navy); font-weight: 600; display: block; margin-bottom: 2px; }
+        .thrusts span { font-size: 0.9375rem; color: var(--muted); }
+        .pubs { list-style: none; padding: 0; margin: 0; counter-reset: pub; }
+        .pubs li {
+            padding: 0 0 18px 0; margin-bottom: 18px;
+            border-bottom: 1px solid var(--hairline); font-size: 0.9375rem;
+        }
+        .pubs li:last-child { border-bottom: none; }
+        .pub-title { color: var(--text); font-weight: 500; display: block; }
+        .pub-authors { color: var(--muted); font-size: 0.875rem; }
+        .pub-venue { color: var(--subtle); font-style: italic; font-size: 0.875rem; }
+        .pub-meta {
+            font-family: "Geist Mono", ui-monospace, monospace;
+            font-size: 0.75rem; margin-top: 3px; display: block;
+        }
+        .pub-meta a { color: var(--beaver); text-decoration: none; }
+        .pub-meta a:hover { color: var(--pugh); }
+        .me { font-weight: 700; color: var(--navy); }
+        .badge {
+            display: inline-block; font-family: "Geist Mono", ui-monospace, monospace;
+            font-size: 0.6875rem; padding: 2px 8px; border-radius: 999px;
+            background: var(--tint); color: var(--beaver); margin-left: 6px;
+            border: 1px solid var(--hairline); vertical-align: 1px;
+        }
+        h3.sub {
+            font-size: 0.8125rem; font-weight: 600; color: var(--subtle);
+            text-transform: uppercase; letter-spacing: 0.06em;
+            margin: 28px 0 14px; font-family: "Geist Mono", ui-monospace, monospace;
+        }
+        h3.sub:first-child { margin-top: 0; }
+        .talks { list-style: none; padding: 0; margin: 0; }
+        .talks li { margin-bottom: 16px; font-size: 0.9375rem; }
+        .talk-title { color: var(--text); display: block; margin-bottom: 3px; }
+        .talk-venue {
+            color: var(--subtle); font-size: 0.875rem; display: block; padding-left: 14px;
+            border-left: 1px solid var(--hairline); margin-top: 2px;
+        }
+        .teach { margin-bottom: 26px; }
+        .teach-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+        .teach-role { font-weight: 600; color: var(--navy); font-size: 0.9375rem; }
+        .teach-term {
+            font-family: "Geist Mono", ui-monospace, monospace;
+            font-size: 0.75rem; color: var(--faint);
+        }
+        .teach-course { font-size: 0.9375rem; color: var(--muted); margin: 4px 0 0; }
+        .quote {
+            margin: 8px 0 0; padding: 10px 14px; background: var(--tint);
+            border-radius: 6px; font-size: 0.875rem; color: var(--muted); font-style: italic;
+        }
+        .cv-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 20px; border-radius: 999px; background: var(--navy);
+            color: #fff; text-decoration: none; font-weight: 500; font-size: 0.9375rem;
+            transition: background 140ms ease;
+        }
+        .cv-btn:hover { background: var(--beaver); }
+
     </style>
 </head>
 <body>
@@ -415,36 +493,153 @@
 
         <section id="news">
             <h2>News</h2>
-            <p class="empty">// updates coming soon</p>
+            <ul class="news-list">
+                <li><span class="news-date">Aug 2026</span><span>Presented work on approximate dynamic programming for truckload freight markets to the Transportation and Mobility Group at Argonne National Laboratory.</span></li>
+                <li><span class="news-date">Jul 2026</span><span>Spoke on neural embedded mixed-integer optimization at the <strong>INFORMS TSL Conference</strong> at MIT.</span></li>
+                <li><span class="news-date">2026</span><span>Selected for the <strong>Argonne Training Program on Extreme-Scale Computing</strong> (ATPESC), U.S. Department of Energy.</span></li>
+                <li><span class="news-date">2026</span><span>Named a <strong>top ten finalist</strong> for the Lee Schipper Memorial Scholarship, Volvo Research and Educational Foundations.</span></li>
+                <li><span class="news-date">2026</span><span>First-author paper on extreme-scale EV charging infrastructure planning published in <em>Transportation Research Part B</em>.</span></li>
+                <li><span class="news-date">2025</span><span>Selected as an <strong>IISE Future Faculty Fellow</strong>.</span></li>
+                <li><span class="news-date">2025</span><span>Paper accepted at the <strong>NeurIPS</strong> Workshop on Differentiable Learning of Combinatorial Algorithms.</span></li>
+            </ul>
         </section>
 
         <section id="research">
             <h2>Research</h2>
-            <p class="empty">// updates coming soon</p>
+            <p style="margin:0 0 22px;color:var(--muted);font-size:0.9375rem;">I build models and algorithms that place trained machine learning models inside large-scale discrete optimization, so that planning, routing, and pricing decisions can be made at the size real networks reach. Three directions:</p>
+            <ul class="thrusts">
+                <li><strong>Matching, scheduling, and pricing in freight markets</strong><span>Approximate dynamic programming for truckload markets, where a broker clears loads against carriers and learns what capacity is worth as demand arrives.</span></li>
+                <li><strong>AI-integrated discrete optimization at scale</strong><span>Neural surrogates embedded as constraints in mixed-integer programs, with decomposition and parallel methods that solve the result on real instances.</span></li>
+                <li><strong>Electrified freight and last-mile delivery</strong><span>Charging infrastructure planning and depot scheduling under uncertainty, from facility siting to grid-connected charge schedules.</span></li>
+            </ul>
         </section>
 
         <section id="publications">
             <h2>Publications</h2>
-            <p class="empty">// see <a href="https://scholar.google.com/citations?hl=en&user=F8d4AS4AAAAJ&view_op=list_works&sortby=pubdate" style="color:var(--beaver);">Google Scholar</a> while this section is under construction</p>
+            <h3 class="sub">Refereed Journal Articles</h3>
+            <ul class="pubs">
+                <li><span class="pub-title">Extreme-scale EV charging infrastructure planning for last-mile delivery using high-performance parallel computing</span>
+                    <span class="pub-authors"><span class="me">W. Kaleem</span>, T. Cokyasar, J. Larson, O. Verbas, T. H. Bhuiyan, A. Subramanyam</span><br>
+                    <span class="pub-venue">Transportation Research Part B: Methodological</span>, 205, 103403, 2026
+                    <span class="pub-meta"><a href="https://doi.org/10.1016/j.trb.2026.103403">doi:10.1016/j.trb.2026.103403</a></span></li>
+                <li><span class="pub-title">A branch-and-cut algorithm for routing a heterogeneous drone-ground vehicle fleet to deliver time-sensitive products</span>
+                    <span class="pub-authors">S. H. Hosseini Dolatabadi, T. H. Bhuiyan, <span class="me">W. Kaleem</span>, A. Subramanyam, T. Cokyasar</span><br>
+                    <span class="pub-venue">Transportation Research Part C: Emerging Technologies</span>, 183, 105454, 2026
+                    <span class="pub-meta"><a href="https://doi.org/10.1016/j.trc.2025.105454">doi:10.1016/j.trc.2025.105454</a></span></li>
+                <li><span class="pub-title">A hybrid machine learning approach based study of production forecasting and factors influencing the multiphase flow through surface chokes</span><span class="badge">most cited since 2023</span>
+                    <span class="pub-authors"><span class="me">W. Kaleem</span>, S. Tewari, M. Fogat, D. A. Martyushev</span><br>
+                    <span class="pub-venue">Petroleum</span>, 10(2), 354&ndash;371, 2024
+                    <span class="pub-meta"><a href="https://doi.org/10.1016/j.petlm.2023.06.001">doi:10.1016/j.petlm.2023.06.001</a></span></li>
+                <li><span class="pub-title">Statistical feature engineering using discrete wavelet transform for improving the prediction of compressional and shear sonic travel time logs</span>
+                    <span class="pub-authors"><span class="me">W. Kaleem</span>, K. A. Khan, A. Saxena</span><br>
+                    <span class="pub-venue">Petroleum Science and Technology</span>, 43(3), 219&ndash;240, 2023
+                    <span class="pub-meta"><a href="https://doi.org/10.1080/10916466.2023.2292781">doi:10.1080/10916466.2023.2292781</a></span></li>
+                <li><span class="pub-title">Impact of low salinity water injection on CO<sub>2</sub> storage and oil recovery for improved CO<sub>2</sub> utilization</span>
+                    <span class="pub-authors">K. R. Chaturvedi, D. Ravilla, <span class="me">W. Kaleem</span>, P. Jadhawar, T. Sharma</span><br>
+                    <span class="pub-venue">Chemical Engineering Science</span>, 229, 116127, 2021
+                    <span class="pub-meta"><a href="https://doi.org/10.1016/j.ces.2020.116127">doi:10.1016/j.ces.2020.116127</a></span></li>
+                <li><span class="pub-title">Luminescent N, S-doped carbon nanodot: an effective two-fluorophore system of pyridone and thiazolopyridone</span>
+                    <span class="pub-authors"><span class="me">W. Kaleem</span>, A. Kumar, D. Panda</span><br>
+                    <span class="pub-venue">The Journal of Physical Chemistry C</span>, 122(46), 26722&ndash;26732, 2018
+                    <span class="pub-meta"><a href="https://doi.org/10.1021/acs.jpcc.8b08249">doi:10.1021/acs.jpcc.8b08249</a></span></li>
+            </ul>
+
+            <h3 class="sub">Refereed Conference Proceedings</h3>
+            <ul class="pubs">
+                <li><span class="pub-title">Neural embedded mixed-integer optimization for location-routing problems</span>
+                    <span class="pub-authors"><span class="me">W. Kaleem</span>, D. Lee, C. Kwon, A. Subramanyam</span><br>
+                    <span class="pub-venue">NeurIPS Workshop on Differentiable Learning of Combinatorial Algorithms</span>, 2025
+                    <span class="pub-meta"><a href="https://openreview.net/forum?id=WCILzWMXq9">openreview.net/forum?id=WCILzWMXq9</a></span></li>
+                <li><span class="pub-title">Neural embedded optimization for integrated location and routing problems</span><span class="badge">Best Paper</span>
+                    <span class="pub-authors"><span class="me">W. Kaleem</span>, H. Ayala, A. Subramanyam</span><br>
+                    <span class="pub-venue">IISE Annual Conference Proceedings</span>, 1&ndash;6, 2024 &middot; Best Paper Award, IISE Logistics and Supply Chain Division</li>
+            </ul>
+
+            <h3 class="sub">Under Review</h3>
+            <ul class="pubs">
+                <li><span class="pub-title">Neural embedded mixed-integer optimization for location-routing problems</span>
+                    <span class="pub-authors"><span class="me">W. Kaleem</span>, D. Lee, C. Kwon, A. Subramanyam</span><br>
+                    <span class="pub-venue">Under review at Transportation Research Part E</span></li>
+            </ul>
+
+            <h3 class="sub">Software</h3>
+            <ul class="pubs">
+                <li><span class="pub-title">NEO-LRP &mdash; neural embedded optimization for location-routing problems</span>
+                    <span class="pub-authors"><span class="me">W. Kaleem</span>, D. Lee, C. Kwon, A. Subramanyam</span>
+                    <span class="pub-meta"><a href="https://github.com/Subramanyam-Lab/NEO-LRP">github.com/Subramanyam-Lab/NEO-LRP</a></span></li>
+                <li><span class="pub-title">Contributor, with accepted pull requests, to open-source optimization packages</span>
+                    <span class="pub-meta"><a href="https://github.com/jump-dev/cuOpt.jl">cuOpt.jl</a> &nbsp;&middot;&nbsp; <a href="https://github.com/inria-UFF/VRPSolverEasy">VRPSolverEasy</a></span></li>
+            </ul>
         </section>
 
         <section id="talks">
             <h2>Talks</h2>
-            <p class="empty">// updates coming soon</p>
+            <h3 class="sub">Conference Talks</h3>
+            <ul class="talks">
+                <li><span class="talk-title">Neural embedded mixed-integer optimization for location-routing problems</span>
+                    <span class="talk-venue">INFORMS TSL Conference, MIT, Cambridge, MA &middot; July 2026</span>
+                    <span class="talk-venue">INFORMS Computing Society Conference, Toronto &middot; March 2025</span></li>
+                <li><span class="talk-title">Optimization over deep ReLU networks using penalty methods</span>
+                    <span class="talk-venue">INFORMS Annual Meeting, Atlanta, GA &middot; October 2025</span></li>
+                <li><span class="talk-title">Extreme-scale EV charging infrastructure planning for last-mile delivery</span>
+                    <span class="talk-venue">INFORMS Computing Society Conference, Toronto &middot; March 2025</span></li>
+                <li><span class="talk-title">Neural embedded optimization for sets</span>
+                    <span class="talk-venue">IISE Annual Conference, Montreal &middot; May 2024</span>
+                    <span class="talk-venue">INFORMS Optimization Society Conference, Houston, TX &middot; March 2024</span></li>
+                <li><span class="talk-title">Neural embedded optimization for integrated location and routing problems</span>
+                    <span class="talk-venue">IISE Annual Conference, Montreal &middot; May 2024</span></li>
+            </ul>
+            <h3 class="sub">Seminars and Symposia</h3>
+            <ul class="talks">
+                <li><span class="talk-title">Approximate dynamic programming for matching, scheduling, and pricing in truckload freight markets</span>
+                    <span class="talk-venue">Transportation and Mobility Group, Argonne National Laboratory &middot; August 2026</span></li>
+                <li><span class="talk-title">Extreme-scale EV charging infrastructure planning for last-mile delivery</span>
+                    <span class="talk-venue">Summer Argonne Student Symposium (SASSy), Lemont, IL &middot; August 2024</span></li>
+            </ul>
+            <h3 class="sub">Posters</h3>
+            <ul class="talks">
+                <li><span class="talk-title">Offline model-based routing optimization with MIP-representable deep set surrogates</span>
+                    <span class="talk-venue">Mixed Integer Programming Workshop, Stamford, CT &middot; May 2026</span></li>
+            </ul>
         </section>
 
         <section id="teaching">
             <h2>Teaching</h2>
-            <p class="empty">// updates coming soon</p>
+            <div class="teach">
+                <div class="teach-head"><span class="teach-role">Lab Instructor and Teaching Assistant</span><span class="teach-term">Penn State &middot; Fall 2024</span></div>
+                <p class="teach-course"><strong>IE 418</strong> &mdash; Advanced Human-Computer Interaction in the Age of AI. Led two weekly lab sections on AI interaction design, chatbot building, and workflow automation for more than sixty students.</p>
+                <p class="quote">&ldquo;Waquar has been the most helpful especially during lab sessions which were clear and inclusive.&rdquo;</p>
+            </div>
+            <div class="teach">
+                <div class="teach-head"><span class="teach-role">Learning Assistant</span><span class="teach-term">Penn State &middot; Spring 2025</span></div>
+                <p class="teach-course"><strong>CMPEN/EE 454</strong> &mdash; Computer Vision. Facilitated collaborative problem solving in class and held regular office hours.</p>
+                <p class="quote">&ldquo;Thank you for all of your help and guidance in EE 454. You were very kind and I appreciate all of your guidance!&rdquo;</p>
+            </div>
+            <div class="teach">
+                <div class="teach-head"><span class="teach-role">Graduate Teaching Assistant</span><span class="teach-term">Penn State &middot; Spring 2025</span></div>
+                <p class="teach-course"><strong>IE 402</strong> &mdash; Engineering Economy. Graded and held weekly office hours for more than thirty students, and assisted with course material preparation.</p>
+            </div>
+            <div class="teach">
+                <div class="teach-head"><span class="teach-role">Undergraduate Teaching Assistant</span><span class="teach-term">RGIPT &middot; Spring 2020</span></div>
+                <p class="teach-course"><strong>MTH 210A</strong> &mdash; Numerical and Statistical Methods.</p>
+            </div>
+            <h3 class="sub">Mentorship</h3>
+            <ul class="talks">
+                <li><span class="talk-title">Eduardo Lopez Ledezma &middot; undergraduate researcher, Penn State, 2023&ndash;2026</span>
+                    <span class="talk-venue">Neural embedded optimization for vehicle routing problems. Now FTR Trader, Engelhart Commodities Trading Partners.</span></li>
+                <li><span class="talk-title">Rudradip Khanra &middot; undergraduate researcher, RGIPT, 2025&ndash;2026</span>
+                    <span class="talk-venue">Machine learning methods for production forecasting.</span></li>
+            </ul>
         </section>
 
         <section id="cv">
             <h2>CV</h2>
-            <p class="empty">// updates coming soon</p>
+            <p style="margin:0 0 18px;color:var(--muted);font-size:0.9375rem;">Full curriculum vitae, updated August 2026.</p>
+            <a class="cv-btn" href="Waquar_Kaleem_CV.pdf">Download CV (PDF)</a>
         </section>
 
         <footer>
-            <span><span class="accent">//</span> personal website under construction</span>
+            <span><span class="accent">//</span> Penn State IE&amp;OR &middot; last updated August 2026</span>
             <span>&copy; 2026 Waquar Kaleem</span>
         </footer>
 
