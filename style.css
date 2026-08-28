@@ -46,6 +46,10 @@ a:focus-visible, button:focus-visible {
     border-radius: 2px;
 }
 
+/* The skip target takes focus programmatically, so it should not draw a ring of
+   its own. Real keyboard focus on links and buttons is still outlined above. */
+main:focus { outline: none; }
+
 /* Off-screen until focused, then the first stop on the page. */
 .skip {
     position: absolute;
