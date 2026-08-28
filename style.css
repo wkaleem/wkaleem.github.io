@@ -329,6 +329,21 @@ dl.news dd { margin: 0 0 10px 6.5em; }
     dl.news dd { margin-left: 0; margin-bottom: 14px; }
 }
 
+/* A jump list for the two pages long enough that a reader would otherwise scroll
+   blind. Wraps like the site nav, and every target carries scroll-margin so a
+   heading is never hidden under the top of the viewport. */
+.pageindex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 2px 4px;
+    margin: 0 0 22px;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+.pageindex .sep { color: var(--faint); }
+main h2[id], main h3[id] { scroll-margin-top: 12px; }
+
 .back { font-size: 0.9375rem; margin-top: 30px; }
 
 /* Move between research areas without going back to the home page first. */
