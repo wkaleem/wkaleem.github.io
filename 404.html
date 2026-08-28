@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <script>
+        /* We resolve the theme before first paint so the page never flashes the wrong one. */
+        (function () {
+            var stored = null;
+            try { stored = localStorage.getItem("theme"); } catch (e) {}
+            var dark = stored === "dark" || stored === "light" ? stored === "dark"
+                : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+        })();
+    </script>
+    <title>Page not found &mdash; Waquar Kaleem</title>
+    <meta name="description" content="That page does not exist. Links to the rest of the site.">
+    <meta name="author" content="Waquar Kaleem">
+    <meta name="robots" content="noindex,follow">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Page not found &mdash; Waquar Kaleem">
+    <meta property="og:description" content="That page does not exist. Links to the rest of the site.">
+    <meta property="og:url" content="https://wkaleem.github.io/404.html">
+    <meta property="og:site_name" content="Waquar Kaleem">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Page not found &mdash; Waquar Kaleem">
+    <meta name="twitter:description" content="That page does not exist. Links to the rest of the site.">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%224%22%20fill%3D%22%230a4a8f%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2222%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2214%22%20fill%3D%22%23fdfcf8%22%3EWK%3C%2Ftext%3E%3C%2Fsvg%3E">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <a class="skip" href="#main">Skip to content</a>
+
+    <nav class="topnav" aria-label="Site sections">
+        <span class="links"><a href="/">Home</a> <span class="sep">&middot;</span> <a href="/#research">Research</a> <span class="sep">&middot;</span> <a href="/publications/">Publications</a> <span class="sep">&middot;</span> <a href="/talks/">Talks</a> <span class="sep">&middot;</span> <a href="/teaching/">Teaching</a> <span class="sep">&middot;</span> <a href="/cv/">CV</a></span>
+        <span class="right"><button type="button" id="theme-toggle" class="linkbtn">dark mode</button></span>
+    </nav>
+
+    <main id="main" tabindex="-1">
+    <div class="head compact">
+        <h1><a href="/">Waquar Kaleem</a></h1>
+        <p class="role">PhD Candidate, Industrial Engineering and Operations Research &middot; Penn State</p>
+    </div>
+
+    <h2>Page not found</h2>
+    <p>There is nothing at that address. It may have moved when the site was
+    reorganised, or the link may have been mistyped.</p>
+    <p>Everything on the site is one click away.</p>
+    <ul class="plain">
+        <li><a href="/">Home</a>, with the research overview and recent news.</li>
+        <li><a href="/publications/">Publications</a>, grouped by research area.</li>
+        <li><a href="/talks/">Talks</a>, conference talks, seminars and posters.</li>
+        <li><a href="/teaching/">Teaching</a> and mentorship.</li>
+        <li><a href="/cv/">CV</a>, with education, research experience, funding and awards.</li>
+    </ul>
+    <p>If a link on another site sent you here, I would be glad to know.
+    Write to <a href="mailto:wzk5140@psu.edu">wzk5140@psu.edu</a>.</p>
+
+    </main>
+
+    <footer>
+        Curriculum vitae [<a href="/Waquar_Kaleem_CV.pdf">pdf</a>]. Page last modified August 2026.
+    </footer>
+
+    <script src="/site.js"></script>
+
+</body>
+</html>
