@@ -29,3 +29,15 @@
 
     label();
 })();
+
+/* The page's own last-modified date, taken from the response header GitHub Pages
+   sends, so it cannot go stale the way a hand-written date does. Prints nothing if
+   the header is missing or scripting is off, which is better than a wrong claim. */
+(function () {
+    var el = document.getElementById("updated");
+    if (!el) return;
+    var d = new Date(document.lastModified);
+    if (isNaN(d.getTime())) return;
+    el.textContent = " Page updated " +
+        d.toLocaleDateString("en-US", { month: "long", year: "numeric" }) + ".";
+})();
