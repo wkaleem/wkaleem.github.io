@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <script>
+        /* We resolve the theme before first paint so the page never flashes the wrong one. */
+        (function () {
+            var stored = null;
+            try { stored = localStorage.getItem("theme"); } catch (e) {}
+            var dark = stored === "dark" || stored === "light" ? stored === "dark"
+                : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+        })();
+    </script>
+    <title>Talks &mdash; Waquar Kaleem</title>
+    <meta name="description" content="Conference talks, seminars, and posters by Waquar Kaleem.">
+    <meta name="author" content="Waquar Kaleem">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://wkaleem.github.io/talks/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Talks &mdash; Waquar Kaleem">
+    <meta property="og:description" content="Conference talks, seminars, and posters by Waquar Kaleem.">
+    <meta property="og:url" content="https://wkaleem.github.io/talks/">
+    <meta property="og:site_name" content="Waquar Kaleem">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Talks &mdash; Waquar Kaleem">
+    <meta name="twitter:description" content="Conference talks, seminars, and posters by Waquar Kaleem.">
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <div class="topnav">
+        <a href="/">Home</a><span class="sep">&middot;</span><a href="/#research">Research</a><span class="sep">&middot;</span><a href="/publications/">Publications</a><span class="sep">&middot;</span><span class="here">Talks</span><span class="sep">&middot;</span><a href="/teaching/">Teaching</a><span class="sep">&middot;</span><a href="/Waquar_Kaleem_CV.pdf">CV</a>
+        <span class="right"><a href="#" id="theme-toggle">dark mode</a></span>
+    </div>
+
+    <div class="head compact">
+        <h1><a href="/">Waquar Kaleem</a></h1>
+        <p class="role">PhD Candidate, Industrial Engineering and Operations Research &middot; Penn State</p>
+    </div>
+
+    <h2>Talks</h2>
+
+    <h3>Conference talks</h3>
+    <ul class="talks">
+        <li>Neural embedded mixed-integer optimization for location-routing problems.
+            <span class="where">INFORMS TSL Conference, MIT, Cambridge, MA. July 2026.</span>
+            <span class="where">INFORMS Computing Society Conference, Toronto. March 2025.</span></li>
+        <li>Optimization over deep ReLU networks using penalty methods.
+            <span class="where">INFORMS Annual Meeting, Atlanta, GA. October 2025.</span></li>
+        <li>Extreme-scale EV charging infrastructure planning for last-mile delivery.
+            <span class="where">INFORMS Computing Society Conference, Toronto. March 2025.</span></li>
+        <li>Neural embedded optimization for sets.
+            <span class="where">IISE Annual Conference, Montreal. May 2024.</span>
+            <span class="where">INFORMS Optimization Society Conference, Houston, TX. March 2024.</span></li>
+        <li>Neural embedded optimization for integrated location and routing problems.
+            <span class="where">IISE Annual Conference, Montreal. May 2024.</span></li>
+    </ul>
+
+    <h3>Seminars and symposia</h3>
+    <ul class="talks">
+        <li>Approximate dynamic programming for matching, scheduling, and pricing in truckload freight markets.
+            <span class="where">Transportation and Mobility Group, Argonne National Laboratory. August 2026.</span></li>
+        <li>Extreme-scale EV charging infrastructure planning for last-mile delivery.
+            <span class="where">Summer Argonne Student Symposium, Lemont, IL. August 2024.</span></li>
+    </ul>
+
+    <h3>Posters</h3>
+    <ul class="talks">
+        <li>Offline model-based routing optimization with MIP-representable deep set surrogates.
+            <span class="where">Mixed Integer Programming Workshop, Stamford, CT. May 2026.</span></li>
+    </ul>
+
+    <footer>
+        Curriculum vitae [<a href="/Waquar_Kaleem_CV.pdf">pdf</a>]. Page last modified August 2026.
+    </footer>
+
+    <script src="/site.js"></script>
+
+</body>
+</html>

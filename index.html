@@ -3,24 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waquar Kaleem &mdash; PhD Candidate, Penn State IE&amp;OR</title>
-    <meta name="description" content="Waquar Kaleem is a PhD Candidate in Industrial Engineering and Operations Research at The Pennsylvania State University. Research at the intersection of operations research, machine learning, and high-performance computing for transportation, logistics, and supply chains.">
+    <meta name="color-scheme" content="light dark">
+    <script>
+        /* We resolve the theme before first paint so the page never flashes the wrong one. */
+        (function () {
+            var stored = null;
+            try { stored = localStorage.getItem("theme"); } catch (e) {}
+            var dark = stored === "dark" || stored === "light" ? stored === "dark"
+                : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+        })();
+    </script>
+    <title>Waquar Kaleem</title>
+    <meta name="description" content="Waquar Kaleem is a PhD candidate in Industrial Engineering and Operations Research at The Pennsylvania State University. Research at the intersection of operations research, machine learning, and high-performance computing for transportation, logistics, and supply chains.">
     <meta name="author" content="Waquar Kaleem">
-    <meta name="keywords" content="Waquar Kaleem, Penn State, PhD, Industrial Engineering, Operations Research, Machine Learning, High-Performance Computing, Transportation, Logistics, Vehicle Routing, Optimization">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://wkaleem.github.io/">
 
     <meta property="og:type" content="profile">
-    <meta property="og:title" content="Waquar Kaleem &mdash; PhD Candidate, Penn State IE&amp;OR">
-    <meta property="og:description" content="Research at the intersection of operations research, machine learning, and high-performance computing for transportation, logistics, and supply chains.">
+    <meta property="og:title" content="Waquar Kaleem">
+    <meta property="og:description" content="Waquar Kaleem is a PhD candidate in Industrial Engineering and Operations Research at The Pennsylvania State University. Research at the intersection of operations research, machine learning, and high-performance computing for transportation, logistics, and supply chains.">
     <meta property="og:url" content="https://wkaleem.github.io/">
     <meta property="og:site_name" content="Waquar Kaleem">
-    <meta property="profile:first_name" content="Waquar">
-    <meta property="profile:last_name" content="Kaleem">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Waquar Kaleem &mdash; PhD Candidate, Penn State IE&amp;OR">
-    <meta name="twitter:description" content="Research at the intersection of operations research, machine learning, and high-performance computing for transportation, logistics, and supply chains.">
+    <meta name="twitter:title" content="Waquar Kaleem">
+    <meta name="twitter:description" content="Waquar Kaleem is a PhD candidate in Industrial Engineering and Operations Research at The Pennsylvania State University. Research at the intersection of operations research, machine learning, and high-performance computing for transportation, logistics, and supply chains.">
 
     <script type="application/ld+json">
     {
@@ -62,588 +70,154 @@
     }
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --navy: #001E44;
-            --beaver: #1E407C;
-            --pugh: #3EA5DC;
-            --bg: #ffffff;
-            --text: #1d1d1f;
-            --muted: #4a4a52;
-            --subtle: #6e6e73;
-            --faint: #86868b;
-            --hairline: #e8eaed;
-            --tint: #f5f7fb;
-        }
-        * { box-sizing: border-box; }
-        html {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        body {
-            font-family: "Geist", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-            margin: 0;
-            color: var(--text);
-            background: var(--bg);
-            line-height: 1.6;
-            font-size: 16px;
-            font-weight: 400;
-        }
-
-        /* ---- Header ---- */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background: rgba(255, 255, 255, 0.85);
-            -webkit-backdrop-filter: saturate(180%) blur(12px);
-            backdrop-filter: saturate(180%) blur(12px);
-            border-top: 4px solid;
-            border-image: linear-gradient(90deg, var(--navy) 0%, var(--beaver) 50%, var(--pugh) 100%) 1;
-            box-shadow: 0 1px 0 var(--hairline);
-        }
-        .nav {
-            display: flex;
-            align-items: center;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 16px 32px;
-            gap: 24px;
-            font-size: 0.9375rem;
-        }
-        .brand {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--navy);
-            text-decoration: none;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            white-space: nowrap;
-        }
-        .brand .mark {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            border-radius: 6px;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--beaver) 100%);
-            color: #fff;
-            font-family: "Geist Mono", ui-monospace, monospace;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-        }
-        .brand-name {
-            color: var(--text);
-            margin-left: 4px;
-        }
-        .nav-spacer { flex: 1; }
-        .nav-links {
-            display: flex;
-            gap: 22px;
-            align-items: center;
-        }
-        .nav-links a {
-            color: var(--muted);
-            text-decoration: none;
-            font-weight: 500;
-            letter-spacing: -0.01em;
-            transition: color 140ms ease;
-            position: relative;
-        }
-        .nav-links a:hover { color: var(--navy); }
-        .nav-links a.cv {
-            padding: 6px 14px;
-            border: 1px solid var(--hairline);
-            border-radius: 999px;
-            color: var(--navy);
-            transition: background 140ms ease, border-color 140ms ease;
-        }
-        .nav-links a.cv:hover {
-            background: var(--navy);
-            color: #fff;
-            border-color: var(--navy);
-        }
-        @media (max-width: 820px) {
-            .nav { padding: 14px 20px; gap: 16px; }
-            .nav-links { display: none; }
-        }
-
-        /* ---- Layout ---- */
-        main {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 56px 32px 96px;
-        }
-
-        /* ---- Hero ---- */
-        .hero {
-            display: grid;
-            grid-template-columns: 1fr 180px;
-            gap: 40px;
-            align-items: center;
-            margin-bottom: 48px;
-        }
-        .hero-text {
-            text-align: center;
-        }
-        h1 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            letter-spacing: -0.04em;
-            margin: 0 0 6px;
-            line-height: 1.1;
-            color: var(--navy);
-            background: linear-gradient(135deg, var(--navy) 0%, var(--beaver) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero .title {
-            font-size: 1.0625rem;
-            color: var(--muted);
-            margin: 0 0 6px;
-            font-weight: 500;
-        }
-        .hero .affil {
-            font-size: 1rem;
-            margin: 2px 0;
-            color: var(--text);
-        }
-        .hero .affil a {
-            color: var(--text);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: color 140ms ease, border-color 140ms ease;
-        }
-        .hero .affil a:hover {
-            color: var(--beaver);
-            border-bottom-color: var(--pugh);
-        }
-        .hero .email {
-            font-size: 0.9375rem;
-            margin-top: 12px;
-            font-family: "Geist Mono", ui-monospace, monospace;
-        }
-        .hero .email a {
-            color: var(--navy);
-            text-decoration: none;
-        }
-        .hero .email a:hover {
-            color: var(--pugh);
-        }
-        .socials {
-            margin-top: 18px;
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-        }
-        .socials a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--muted);
-            transition: color 140ms ease, transform 140ms ease;
-            text-decoration: none;
-        }
-        .socials a:hover {
-            color: var(--navy);
-            transform: translateY(-1px);
-        }
-        .socials svg {
-            width: 22px;
-            height: 22px;
-        }
-        .photo {
-            position: relative;
-            aspect-ratio: 4 / 5;
-            border-radius: 10px;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--beaver) 60%, var(--pugh) 100%);
-            box-shadow: 0 4px 20px rgba(0, 30, 68, 0.15), 0 1px 2px rgba(0, 30, 68, 0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .photo .initials {
-            color: rgba(255, 255, 255, 0.95);
-            font-family: "Geist", sans-serif;
-            font-size: 3rem;
-            font-weight: 600;
-            letter-spacing: -0.04em;
-        }
-        .photo::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at 30% 20%, rgba(255,255,255,0.2), transparent 40%),
-                radial-gradient(circle at 80% 90%, rgba(62,165,220,0.4), transparent 50%);
-            pointer-events: none;
-        }
-        @media (max-width: 640px) {
-            .hero {
-                grid-template-columns: 1fr;
-                gap: 28px;
-            }
-            .photo {
-                max-width: 200px;
-                margin: 0 auto;
-            }
-            h1 { font-size: 1.875rem; }
-            main { padding: 40px 20px 64px; }
-        }
-
-        /* ---- Bio ---- */
-        .bio {
-            font-size: 1.0625rem;
-            line-height: 1.65;
-            color: var(--text);
-            margin: 0 0 64px;
-            letter-spacing: -0.005em;
-        }
-        .bio a {
-            color: var(--beaver);
-            text-decoration: none;
-            border-bottom: 1px solid var(--hairline);
-            transition: border-color 140ms ease, color 140ms ease;
-        }
-        .bio a:hover {
-            color: var(--navy);
-            border-bottom-color: var(--pugh);
-        }
-
-        /* ---- Section ---- */
-        section {
-            margin-bottom: 56px;
-            scroll-margin-top: 100px;
-        }
-        section h2 {
-            font-size: 1.375rem;
-            font-weight: 600;
-            color: var(--navy);
-            letter-spacing: -0.02em;
-            margin: 0 0 20px;
-            display: flex;
-            align-items: baseline;
-            gap: 12px;
-        }
-        section h2::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: var(--hairline);
-            transform: translateY(-4px);
-        }
-        .empty {
-            color: var(--faint);
-            font-style: italic;
-            font-size: 0.9375rem;
-            margin: 0;
-        }
-
-        /* ---- Footer ---- */
-        footer {
-            border-top: 1px solid var(--hairline);
-            padding: 32px 0 16px;
-            margin-top: 32px;
-            font-family: "Geist Mono", ui-monospace, monospace;
-            font-size: 0.8125rem;
-            color: var(--faint);
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        footer .accent { color: var(--pugh); }
-
-        /* ---- Content lists ---- */
-        .news-list { list-style: none; padding: 0; margin: 0; }
-        .news-list li {
-            display: grid; grid-template-columns: 110px 1fr; gap: 16px;
-            padding: 10px 0; border-bottom: 1px solid var(--hairline);
-        }
-        .news-list li:last-child { border-bottom: none; }
-        .news-date {
-            font-family: "Geist Mono", ui-monospace, monospace;
-            font-size: 0.8125rem; color: var(--faint); padding-top: 3px;
-        }
-        @media (max-width: 560px) {
-            .news-list li { grid-template-columns: 1fr; gap: 2px; }
-        }
-        .thrusts { list-style: none; padding: 0; margin: 0 0 18px; }
-        .thrusts li {
-            padding: 12px 0 12px 18px; border-left: 2px solid var(--pugh);
-            margin-bottom: 12px; background: var(--tint);
-            padding-right: 14px; border-radius: 0 6px 6px 0;
-        }
-        .thrusts strong { color: var(--navy); font-weight: 600; display: block; margin-bottom: 2px; }
-        .thrusts span { font-size: 0.9375rem; color: var(--muted); }
-        .pubs { list-style: none; padding: 0; margin: 0; counter-reset: pub; }
-        .pubs li {
-            padding: 0 0 18px 0; margin-bottom: 18px;
-            border-bottom: 1px solid var(--hairline); font-size: 0.9375rem;
-        }
-        .pubs li:last-child { border-bottom: none; }
-        .pub-title { color: var(--text); font-weight: 500; display: block; }
-        .pub-authors { color: var(--muted); font-size: 0.875rem; }
-        .pub-venue { color: var(--subtle); font-style: italic; font-size: 0.875rem; }
-        .pub-meta {
-            font-family: "Geist Mono", ui-monospace, monospace;
-            font-size: 0.75rem; margin-top: 3px; display: block;
-        }
-        .pub-meta a { color: var(--beaver); text-decoration: none; }
-        .pub-meta a:hover { color: var(--pugh); }
-        .me { font-weight: 700; color: var(--navy); }
-        .badge {
-            display: inline-block; font-family: "Geist Mono", ui-monospace, monospace;
-            font-size: 0.6875rem; padding: 2px 8px; border-radius: 999px;
-            background: var(--tint); color: var(--beaver); margin-left: 6px;
-            border: 1px solid var(--hairline); vertical-align: 1px;
-        }
-        h3.sub {
-            font-size: 0.8125rem; font-weight: 600; color: var(--subtle);
-            text-transform: uppercase; letter-spacing: 0.06em;
-            margin: 28px 0 14px; font-family: "Geist Mono", ui-monospace, monospace;
-        }
-        h3.sub:first-child { margin-top: 0; }
-        .talks { list-style: none; padding: 0; margin: 0; }
-        .talks li { margin-bottom: 16px; font-size: 0.9375rem; }
-        .talk-title { color: var(--text); display: block; margin-bottom: 3px; }
-        .talk-venue {
-            color: var(--subtle); font-size: 0.875rem; display: block; padding-left: 14px;
-            border-left: 1px solid var(--hairline); margin-top: 2px;
-        }
-        .teach { margin-bottom: 26px; }
-        .teach-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-        .teach-role { font-weight: 600; color: var(--navy); font-size: 0.9375rem; }
-        .teach-term {
-            font-family: "Geist Mono", ui-monospace, monospace;
-            font-size: 0.75rem; color: var(--faint);
-        }
-        .teach-course { font-size: 0.9375rem; color: var(--muted); margin: 4px 0 0; }
-        .quote {
-            margin: 8px 0 0; padding: 10px 14px; background: var(--tint);
-            border-radius: 6px; font-size: 0.875rem; color: var(--muted); font-style: italic;
-        }
-        .cv-btn {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 10px 20px; border-radius: 999px; background: var(--navy);
-            color: #fff; text-decoration: none; font-weight: 500; font-size: 0.9375rem;
-            transition: background 140ms ease;
-        }
-        .cv-btn:hover { background: var(--beaver); }
-
-    </style>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-    <header>
-        <div class="nav">
-            <a href="/" class="brand">
-                <span class="brand-name">Waquar Kaleem</span>
-            </a>
-            <div class="nav-spacer"></div>
-            <div class="nav-links">
-                <a href="#news">News</a>
-                <a href="#research">Research</a>
-                <a href="#publications">Publications</a>
-                <a href="#talks">Talks</a>
-                <a href="#teaching">Teaching</a>
-                <a href="#cv" class="cv">CV</a>
+    <div class="topnav">
+        <span class="here">Home</span><span class="sep">&middot;</span><a href="/#research">Research</a><span class="sep">&middot;</span><a href="/publications/">Publications</a><span class="sep">&middot;</span><a href="/talks/">Talks</a><span class="sep">&middot;</span><a href="/teaching/">Teaching</a><span class="sep">&middot;</span><a href="/Waquar_Kaleem_CV.pdf">CV</a>
+        <span class="right"><a href="#" id="theme-toggle">dark mode</a></span>
+    </div>
+
+    <div class="head">
+        <div class="frame">WK</div>
+        <h1>Waquar Kaleem</h1>
+        <p class="role">PhD Candidate, Industrial Engineering and Operations Research</p>
+        <p><a href="https://www.psu.edu/">The Pennsylvania State University</a></p>
+        <p class="links"><a href="mailto:wzk5140@psu.edu">wzk5140@psu.edu</a></p>
+        <p class="icons">
+            <a href="https://scholar.google.com/citations?hl=en&amp;user=F8d4AS4AAAAJ&amp;view_op=list_works&amp;sortby=pubdate" title="Google Scholar" aria-label="Google Scholar"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" aria-hidden="true"><path fill="currentColor" d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87c.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47l-145.03 44.56z"/></svg></a>
+            <a href="https://github.com/wkaleem" title="GitHub" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385c.6.105.825-.255.825-.57c0-.285-.015-1.23-.015-2.235c-3.015.555-3.795-.735-4.035-1.41c-.135-.345-.72-1.41-1.23-1.695c-.42-.225-1.02-.78-.015-.795c.945-.015 1.62.87 1.845 1.23c1.08 1.815 2.805 1.305 3.495.99c.105-.78.42-1.305.765-1.605c-2.67-.3-5.46-1.335-5.46-5.925c0-1.305.465-2.385 1.23-3.225c-.12-.3-.54-1.53.12-3.18c0 0 1.005-.315 3.3 1.23c.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23c.66 1.65.24 2.88.12 3.18c.765.84 1.23 1.905 1.23 3.225c0 4.605-2.805 5.625-5.475 5.925c.435.375.81 1.095.81 2.22c0 1.605-.015 2.895-.015 3.3c0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12Z" clip-rule="evenodd"/></svg></a>
+            <a href="https://www.linkedin.com/in/waquarkaleem" title="LinkedIn" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M1 2.838A1.838 1.838 0 0 1 2.838 1H21.16A1.837 1.837 0 0 1 23 2.838V21.16A1.838 1.838 0 0 1 21.161 23H2.838A1.838 1.838 0 0 1 1 21.161V2.838Zm8.708 6.55h2.979v1.496c.43-.86 1.53-1.634 3.183-1.634c3.169 0 3.92 1.713 3.92 4.856v5.822h-3.207v-5.106c0-1.79-.43-2.8-1.522-2.8c-1.515 0-2.145 1.089-2.145 2.8v5.106H9.708V9.388Zm-5.5 10.403h3.208V9.25H4.208v10.54ZM7.875 5.812a2.063 2.063 0 1 1-4.125 0a2.063 2.063 0 0 1 4.125 0Z" clip-rule="evenodd"/></svg></a>
+            <a href="https://openreview.net/profile?id=~Waquar_Kaleem1" title="OpenReview" aria-label="OpenReview"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8a8 8 0 0 1-8 8Zm.5-12a4.5 4.5 0 1 0 0 9a4.5 4.5 0 0 0 0-9Zm0 7a2.5 2.5 0 1 1 0-5a2.5 2.5 0 0 1 0 5Z"/></svg></a>
+        </p>
+    </div>
+
+    <section id="about">
+        <h2>About</h2>
+        <p>I am a PhD candidate in Industrial Engineering and Operations Research at Penn State. I build models and algorithms that put trained machine learning models inside large-scale discrete optimization, so that planning, routing, and pricing decisions can be made at the size real freight networks reach.</p>
+        <p>My work has appeared in <span class="venue">Transportation Research Part B</span> and <span class="venue">Transportation Research Part C</span>, at the NeurIPS Workshop on Differentiable Learning of Combinatorial Algorithms, and in the IISE Annual Conference Proceedings, where it received the Best Paper Award of the Logistics and Supply Chain Division.</p>
+        <p>I was selected for the Argonne Training Program on Extreme-Scale Computing, named an IISE Future Faculty Fellow, and reached the final ten for the Lee Schipper Memorial Scholarship of the Volvo Research and Educational Foundations.</p>
+    </section>
+
+    <section id="research">
+        <h2>Research</h2>
+        <p>My research sits at the intersection of operations research, machine learning, and high-performance computing for transportation, logistics, and supply chains. It runs along three connected directions.</p>
+        <div class="cards">
+            <div class="card">
+                <a class="plate" href="/research/ai-optimization/"><svg class="fig" viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of a neural network feeding a routing model">
+  <g fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55">
+    <line x1="34" y1="38" x2="74" y2="30"/><line x1="34" y1="38" x2="74" y2="62"/>
+    <line x1="34" y1="75" x2="74" y2="30"/><line x1="34" y1="75" x2="74" y2="62"/>
+    <line x1="34" y1="75" x2="74" y2="95"/><line x1="34" y1="112" x2="74" y2="62"/>
+    <line x1="34" y1="112" x2="74" y2="95"/>
+    <line x1="74" y1="30" x2="114" y2="52"/><line x1="74" y1="62" x2="114" y2="52"/>
+    <line x1="74" y1="62" x2="114" y2="90"/><line x1="74" y1="95" x2="114" y2="90"/>
+  </g>
+  <g fill="currentColor">
+    <circle cx="34" cy="38" r="4"/><circle cx="34" cy="75" r="4"/><circle cx="34" cy="112" r="4"/>
+    <circle cx="74" cy="30" r="4"/><circle cx="74" cy="62" r="4"/><circle cx="74" cy="95" r="4"/>
+    <circle cx="114" cy="52" r="4"/><circle cx="114" cy="90" r="4"/>
+  </g>
+  <g fill="none" stroke="currentColor" stroke-width="1.3">
+    <path d="M140 71 h30" /><path d="M164 66 l6 5 l-6 5" />
+  </g>
+  <g fill="none" stroke="currentColor" stroke-width="1.2">
+    <path d="M212 96 L188 60 L216 34 L252 44 L268 78 L240 104 Z" opacity="0.75"/>
+    <path d="M212 96 L240 104" opacity="0.75"/>
+  </g>
+  <g fill="currentColor">
+    <rect x="207" y="91" width="10" height="10"/>
+    <circle cx="188" cy="60" r="3.4"/><circle cx="216" cy="34" r="3.4"/>
+    <circle cx="252" cy="44" r="3.4"/><circle cx="268" cy="78" r="3.4"/>
+    <circle cx="240" cy="104" r="3.4"/>
+  </g>
+</svg></a>
+                <h3><a href="/research/ai-optimization/">AI-integrated discrete optimization at scale</a></h3>
+                <p>Neural surrogates embedded as constraints in mixed-integer programs.</p>
+            </div>
+            <div class="card">
+                <a class="plate" href="/research/freight-markets/"><svg class="fig" viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of loads matched to carriers over time">
+  <g stroke="currentColor" stroke-width="1.1" fill="none" opacity="0.5">
+    <line x1="26" y1="126" x2="296" y2="126"/>
+    <path d="M290 122 l6 4 l-6 4"/>
+    <line x1="70" y1="122" x2="70" y2="130"/><line x1="118" y1="122" x2="118" y2="130"/>
+    <line x1="166" y1="122" x2="166" y2="130"/><line x1="214" y1="122" x2="214" y2="130"/>
+    <line x1="262" y1="122" x2="262" y2="130"/>
+  </g>
+  <g fill="currentColor" opacity="0.85">
+    <rect x="56" y="26" width="28" height="11"/>
+    <rect x="104" y="44" width="28" height="11"/>
+    <rect x="152" y="26" width="28" height="11"/>
+    <rect x="200" y="53" width="28" height="11"/>
+    <rect x="248" y="35" width="28" height="11"/>
+  </g>
+  <g fill="none" stroke="currentColor" stroke-width="1.15">
+    <path d="M70 37 V78 H118"/>
+    <path d="M118 55 V95 H166"/>
+    <path d="M166 37 V78 H214"/>
+    <path d="M214 64 V95 H262"/>
+    <path d="M262 46 V78"/>
+  </g>
+  <g fill="currentColor">
+    <circle cx="118" cy="78" r="3.6"/><circle cx="166" cy="95" r="3.6"/>
+    <circle cx="214" cy="78" r="3.6"/><circle cx="262" cy="95" r="3.6"/>
+    <circle cx="262" cy="78" r="3.6"/>
+  </g>
+</svg></a>
+                <h3><a href="/research/freight-markets/">Matching, scheduling, and pricing in freight markets</a></h3>
+                <p>Approximate dynamic programming for truckload markets.</p>
+            </div>
+            <div class="card">
+                <a class="plate" href="/research/electrified-freight/"><svg class="fig" viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of a charging depot and a state-of-charge curve">
+  <g fill="none" stroke="currentColor" stroke-width="1.2">
+    <path d="M28 108 V56 l30 -20 l30 20 V108 Z"/>
+    <path d="M28 108 H132"/>
+  </g>
+  <g fill="none" stroke="currentColor" stroke-width="1.15" opacity="0.85">
+    <rect x="98" y="80" width="13" height="22"/>
+    <rect x="119" y="80" width="13" height="22"/>
+    <path d="M104.5 80 V70 h21 V80"/>
+  </g>
+  <g fill="currentColor" opacity="0.8">
+    <rect x="43" y="72" width="12" height="12"/>
+    <rect x="62" y="72" width="12" height="12"/>
+  </g>
+  <g stroke="currentColor" stroke-width="1.1" fill="none" opacity="0.5">
+    <line x1="164" y1="108" x2="296" y2="108"/>
+    <line x1="164" y1="108" x2="164" y2="30"/>
+  </g>
+  <path d="M164 104 C 196 100, 206 62, 232 54 C 258 46, 274 42, 294 40"
+        fill="none" stroke="currentColor" stroke-width="1.6"/>
+  <g fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"
+     stroke-dasharray="3 3">
+    <line x1="164" y1="40" x2="294" y2="40"/>
+  </g>
+</svg></a>
+                <h3><a href="/research/electrified-freight/">Electrified freight and last-mile delivery</a></h3>
+                <p>Charging infrastructure planning and depot scheduling under uncertainty.</p>
             </div>
         </div>
-    </header>
+    </section>
 
-    <main>
+    <section id="news">
+        <h2>News</h2>
+        <dl class="news">
+            <dt>Aug 2026</dt><dd>Presented work on approximate dynamic programming for truckload freight markets to the Transportation and Mobility Group at Argonne National Laboratory.</dd>
+            <dt>Jul 2026</dt><dd>Spoke on neural embedded mixed-integer optimization at the INFORMS TSL Conference at MIT.</dd>
+            <dt>2026</dt><dd>Selected for the Argonne Training Program on Extreme-Scale Computing, U.S. Department of Energy.</dd>
+            <dt>2026</dt><dd>Named a top ten finalist for the Lee Schipper Memorial Scholarship, Volvo Research and Educational Foundations.</dd>
+            <dt>2026</dt><dd>First-author paper on extreme-scale EV charging infrastructure planning published in <span class="venue">Transportation Research Part B</span>.</dd>
+            <dt>2025</dt><dd>Selected as an IISE Future Faculty Fellow.</dd>
+            <dt>2025</dt><dd>Paper accepted at the NeurIPS Workshop on Differentiable Learning of Combinatorial Algorithms.</dd>
+        </dl>
+    </section>
 
-        <div class="hero">
-            <div class="hero-text">
-                <h1>Waquar Kaleem</h1>
-                <p class="title">PhD Candidate</p>
-                <p class="affil"><a href="https://www.psu.edu/">The Pennsylvania State University</a></p>
-                <p class="affil"><a href="https://www.ime.psu.edu/">Industrial and Manufacturing Engineering</a></p>
-                <p class="email"><a href="mailto:wzk5140@psu.edu">wzk5140@psu.edu</a></p>
-                <div class="socials">
-                    <a href="https://scholar.google.com/citations?hl=en&user=F8d4AS4AAAAJ&view_op=list_works&sortby=pubdate" title="Google Scholar" aria-label="Google Scholar">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87c.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47l-145.03 44.56z"/></svg>
-                    </a>
-                    <a href="https://github.com/wkaleem" title="GitHub" aria-label="GitHub">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385c.6.105.825-.255.825-.57c0-.285-.015-1.23-.015-2.235c-3.015.555-3.795-.735-4.035-1.41c-.135-.345-.72-1.41-1.23-1.695c-.42-.225-1.02-.78-.015-.795c.945-.015 1.62.87 1.845 1.23c1.08 1.815 2.805 1.305 3.495.99c.105-.78.42-1.305.765-1.605c-2.67-.3-5.46-1.335-5.46-5.925c0-1.305.465-2.385 1.23-3.225c-.12-.3-.54-1.53.12-3.18c0 0 1.005-.315 3.3 1.23c.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23c.66 1.65.24 2.88.12 3.18c.765.84 1.23 1.905 1.23 3.225c0 4.605-2.805 5.625-5.475 5.925c.435.375.81 1.095.81 2.22c0 1.605-.015 2.895-.015 3.3c0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12Z" clip-rule="evenodd"/></svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/waquarkaleem" title="LinkedIn" aria-label="LinkedIn">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M1 2.838A1.838 1.838 0 0 1 2.838 1H21.16A1.837 1.837 0 0 1 23 2.838V21.16A1.838 1.838 0 0 1 21.161 23H2.838A1.838 1.838 0 0 1 1 21.161V2.838Zm8.708 6.55h2.979v1.496c.43-.86 1.53-1.634 3.183-1.634c3.169 0 3.92 1.713 3.92 4.856v5.822h-3.207v-5.106c0-1.79-.43-2.8-1.522-2.8c-1.515 0-2.145 1.089-2.145 2.8v5.106H9.708V9.388Zm-5.5 10.403h3.208V9.25H4.208v10.54ZM7.875 5.812a2.063 2.063 0 1 1-4.125 0a2.063 2.063 0 0 1 4.125 0Z" clip-rule="evenodd"/></svg>
-                    </a>
-                    <a href="https://openreview.net/profile?id=~Waquar_Kaleem1" title="OpenReview" aria-label="OpenReview">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8a8 8 0 0 1-8 8Zm.5-12a4.5 4.5 0 1 0 0 9a4.5 4.5 0 0 0 0-9Zm0 7a2.5 2.5 0 1 1 0-5a2.5 2.5 0 0 1 0 5Z"/></svg>
-                    </a>
-                </div>
-            </div>
-            <div class="photo">
-                <span class="initials">WK</span>
-            </div>
-        </div>
+    <footer>
+        Curriculum vitae [<a href="/Waquar_Kaleem_CV.pdf">pdf</a>]. Page last modified August 2026.
+    </footer>
 
-        <p class="bio">My research lies at the intersection of operations research, machine learning, and high-performance computing for transportation, logistics, and supply chains.</p>
-
-        <section id="news">
-            <h2>News</h2>
-            <ul class="news-list">
-                <li><span class="news-date">Aug 2026</span><span>Presented work on approximate dynamic programming for truckload freight markets to the Transportation and Mobility Group at Argonne National Laboratory.</span></li>
-                <li><span class="news-date">Jul 2026</span><span>Spoke on neural embedded mixed-integer optimization at the <strong>INFORMS TSL Conference</strong> at MIT.</span></li>
-                <li><span class="news-date">2026</span><span>Selected for the <strong>Argonne Training Program on Extreme-Scale Computing</strong> (ATPESC), U.S. Department of Energy.</span></li>
-                <li><span class="news-date">2026</span><span>Named a <strong>top ten finalist</strong> for the Lee Schipper Memorial Scholarship, Volvo Research and Educational Foundations.</span></li>
-                <li><span class="news-date">2026</span><span>First-author paper on extreme-scale EV charging infrastructure planning published in <em>Transportation Research Part B</em>.</span></li>
-                <li><span class="news-date">2025</span><span>Selected as an <strong>IISE Future Faculty Fellow</strong>.</span></li>
-                <li><span class="news-date">2025</span><span>Paper accepted at the <strong>NeurIPS</strong> Workshop on Differentiable Learning of Combinatorial Algorithms.</span></li>
-            </ul>
-        </section>
-
-        <section id="research">
-            <h2>Research</h2>
-            <p style="margin:0 0 22px;color:var(--muted);font-size:0.9375rem;">I build models and algorithms that place trained machine learning models inside large-scale discrete optimization, so that planning, routing, and pricing decisions can be made at the size real networks reach. Three directions:</p>
-            <ul class="thrusts">
-                <li><strong>Matching, scheduling, and pricing in freight markets</strong><span>Approximate dynamic programming for truckload markets, where a broker clears loads against carriers and learns what capacity is worth as demand arrives.</span></li>
-                <li><strong>AI-integrated discrete optimization at scale</strong><span>Neural surrogates embedded as constraints in mixed-integer programs, with decomposition and parallel methods that solve the result on real instances.</span></li>
-                <li><strong>Electrified freight and last-mile delivery</strong><span>Charging infrastructure planning and depot scheduling under uncertainty, from facility siting to grid-connected charge schedules.</span></li>
-            </ul>
-        </section>
-
-        <section id="publications">
-            <h2>Publications</h2>
-            <h3 class="sub">Refereed Journal Articles</h3>
-            <ul class="pubs">
-                <li><span class="pub-title">Extreme-scale EV charging infrastructure planning for last-mile delivery using high-performance parallel computing</span>
-                    <span class="pub-authors"><span class="me">W. Kaleem</span>, T. Cokyasar, J. Larson, O. Verbas, T. H. Bhuiyan, A. Subramanyam</span><br>
-                    <span class="pub-venue">Transportation Research Part B: Methodological</span>, 205, 103403, 2026
-                    <span class="pub-meta"><a href="https://doi.org/10.1016/j.trb.2026.103403">doi:10.1016/j.trb.2026.103403</a></span></li>
-                <li><span class="pub-title">A branch-and-cut algorithm for routing a heterogeneous drone-ground vehicle fleet to deliver time-sensitive products</span>
-                    <span class="pub-authors">S. H. Hosseini Dolatabadi, T. H. Bhuiyan, <span class="me">W. Kaleem</span>, A. Subramanyam, T. Cokyasar</span><br>
-                    <span class="pub-venue">Transportation Research Part C: Emerging Technologies</span>, 183, 105454, 2026
-                    <span class="pub-meta"><a href="https://doi.org/10.1016/j.trc.2025.105454">doi:10.1016/j.trc.2025.105454</a></span></li>
-                <li><span class="pub-title">A hybrid machine learning approach based study of production forecasting and factors influencing the multiphase flow through surface chokes</span><span class="badge">most cited since 2023</span>
-                    <span class="pub-authors"><span class="me">W. Kaleem</span>, S. Tewari, M. Fogat, D. A. Martyushev</span><br>
-                    <span class="pub-venue">Petroleum</span>, 10(2), 354&ndash;371, 2024
-                    <span class="pub-meta"><a href="https://doi.org/10.1016/j.petlm.2023.06.001">doi:10.1016/j.petlm.2023.06.001</a></span></li>
-                <li><span class="pub-title">Statistical feature engineering using discrete wavelet transform for improving the prediction of compressional and shear sonic travel time logs</span>
-                    <span class="pub-authors"><span class="me">W. Kaleem</span>, K. A. Khan, A. Saxena</span><br>
-                    <span class="pub-venue">Petroleum Science and Technology</span>, 43(3), 219&ndash;240, 2023
-                    <span class="pub-meta"><a href="https://doi.org/10.1080/10916466.2023.2292781">doi:10.1080/10916466.2023.2292781</a></span></li>
-                <li><span class="pub-title">Impact of low salinity water injection on CO<sub>2</sub> storage and oil recovery for improved CO<sub>2</sub> utilization</span>
-                    <span class="pub-authors">K. R. Chaturvedi, D. Ravilla, <span class="me">W. Kaleem</span>, P. Jadhawar, T. Sharma</span><br>
-                    <span class="pub-venue">Chemical Engineering Science</span>, 229, 116127, 2021
-                    <span class="pub-meta"><a href="https://doi.org/10.1016/j.ces.2020.116127">doi:10.1016/j.ces.2020.116127</a></span></li>
-                <li><span class="pub-title">Luminescent N, S-doped carbon nanodot: an effective two-fluorophore system of pyridone and thiazolopyridone</span>
-                    <span class="pub-authors"><span class="me">W. Kaleem</span>, A. Kumar, D. Panda</span><br>
-                    <span class="pub-venue">The Journal of Physical Chemistry C</span>, 122(46), 26722&ndash;26732, 2018
-                    <span class="pub-meta"><a href="https://doi.org/10.1021/acs.jpcc.8b08249">doi:10.1021/acs.jpcc.8b08249</a></span></li>
-            </ul>
-
-            <h3 class="sub">Refereed Conference Proceedings</h3>
-            <ul class="pubs">
-                <li><span class="pub-title">Neural embedded mixed-integer optimization for location-routing problems</span>
-                    <span class="pub-authors"><span class="me">W. Kaleem</span>, D. Lee, C. Kwon, A. Subramanyam</span><br>
-                    <span class="pub-venue">NeurIPS Workshop on Differentiable Learning of Combinatorial Algorithms</span>, 2025
-                    <span class="pub-meta"><a href="https://openreview.net/forum?id=WCILzWMXq9">openreview.net/forum?id=WCILzWMXq9</a></span></li>
-                <li><span class="pub-title">Neural embedded optimization for integrated location and routing problems</span><span class="badge">Best Paper</span>
-                    <span class="pub-authors"><span class="me">W. Kaleem</span>, H. Ayala, A. Subramanyam</span><br>
-                    <span class="pub-venue">IISE Annual Conference Proceedings</span>, 1&ndash;6, 2024 &middot; Best Paper Award, IISE Logistics and Supply Chain Division</li>
-            </ul>
-
-            <h3 class="sub">Under Review</h3>
-            <ul class="pubs">
-                <li><span class="pub-title">Neural embedded mixed-integer optimization for location-routing problems</span>
-                    <span class="pub-authors"><span class="me">W. Kaleem</span>, D. Lee, C. Kwon, A. Subramanyam</span><br>
-                    <span class="pub-venue">Under review at Transportation Research Part E</span></li>
-            </ul>
-
-            <h3 class="sub">Software</h3>
-            <ul class="pubs">
-                <li><span class="pub-title">NEO-LRP &mdash; neural embedded optimization for location-routing problems</span>
-                    <span class="pub-authors"><span class="me">W. Kaleem</span>, D. Lee, C. Kwon, A. Subramanyam</span>
-                    <span class="pub-meta"><a href="https://github.com/Subramanyam-Lab/NEO-LRP">github.com/Subramanyam-Lab/NEO-LRP</a></span></li>
-                <li><span class="pub-title">Contributor, with accepted pull requests, to open-source optimization packages</span>
-                    <span class="pub-meta"><a href="https://github.com/jump-dev/cuOpt.jl">cuOpt.jl</a> &nbsp;&middot;&nbsp; <a href="https://github.com/inria-UFF/VRPSolverEasy">VRPSolverEasy</a></span></li>
-            </ul>
-        </section>
-
-        <section id="talks">
-            <h2>Talks</h2>
-            <h3 class="sub">Conference Talks</h3>
-            <ul class="talks">
-                <li><span class="talk-title">Neural embedded mixed-integer optimization for location-routing problems</span>
-                    <span class="talk-venue">INFORMS TSL Conference, MIT, Cambridge, MA &middot; July 2026</span>
-                    <span class="talk-venue">INFORMS Computing Society Conference, Toronto &middot; March 2025</span></li>
-                <li><span class="talk-title">Optimization over deep ReLU networks using penalty methods</span>
-                    <span class="talk-venue">INFORMS Annual Meeting, Atlanta, GA &middot; October 2025</span></li>
-                <li><span class="talk-title">Extreme-scale EV charging infrastructure planning for last-mile delivery</span>
-                    <span class="talk-venue">INFORMS Computing Society Conference, Toronto &middot; March 2025</span></li>
-                <li><span class="talk-title">Neural embedded optimization for sets</span>
-                    <span class="talk-venue">IISE Annual Conference, Montreal &middot; May 2024</span>
-                    <span class="talk-venue">INFORMS Optimization Society Conference, Houston, TX &middot; March 2024</span></li>
-                <li><span class="talk-title">Neural embedded optimization for integrated location and routing problems</span>
-                    <span class="talk-venue">IISE Annual Conference, Montreal &middot; May 2024</span></li>
-            </ul>
-            <h3 class="sub">Seminars and Symposia</h3>
-            <ul class="talks">
-                <li><span class="talk-title">Approximate dynamic programming for matching, scheduling, and pricing in truckload freight markets</span>
-                    <span class="talk-venue">Transportation and Mobility Group, Argonne National Laboratory &middot; August 2026</span></li>
-                <li><span class="talk-title">Extreme-scale EV charging infrastructure planning for last-mile delivery</span>
-                    <span class="talk-venue">Summer Argonne Student Symposium (SASSy), Lemont, IL &middot; August 2024</span></li>
-            </ul>
-            <h3 class="sub">Posters</h3>
-            <ul class="talks">
-                <li><span class="talk-title">Offline model-based routing optimization with MIP-representable deep set surrogates</span>
-                    <span class="talk-venue">Mixed Integer Programming Workshop, Stamford, CT &middot; May 2026</span></li>
-            </ul>
-        </section>
-
-        <section id="teaching">
-            <h2>Teaching</h2>
-            <div class="teach">
-                <div class="teach-head"><span class="teach-role">Lab Instructor and Teaching Assistant</span><span class="teach-term">Penn State &middot; Fall 2024</span></div>
-                <p class="teach-course"><strong>IE 418</strong> &mdash; Advanced Human-Computer Interaction in the Age of AI. Led two weekly lab sections on AI interaction design, chatbot building, and workflow automation for more than sixty students.</p>
-                <p class="quote">&ldquo;Waquar has been the most helpful especially during lab sessions which were clear and inclusive.&rdquo;</p>
-            </div>
-            <div class="teach">
-                <div class="teach-head"><span class="teach-role">Learning Assistant</span><span class="teach-term">Penn State &middot; Spring 2025</span></div>
-                <p class="teach-course"><strong>CMPEN/EE 454</strong> &mdash; Computer Vision. Facilitated collaborative problem solving in class and held regular office hours.</p>
-                <p class="quote">&ldquo;Thank you for all of your help and guidance in EE 454. You were very kind and I appreciate all of your guidance!&rdquo;</p>
-            </div>
-            <div class="teach">
-                <div class="teach-head"><span class="teach-role">Graduate Teaching Assistant</span><span class="teach-term">Penn State &middot; Spring 2025</span></div>
-                <p class="teach-course"><strong>IE 402</strong> &mdash; Engineering Economy. Graded and held weekly office hours for more than thirty students, and assisted with course material preparation.</p>
-            </div>
-            <div class="teach">
-                <div class="teach-head"><span class="teach-role">Undergraduate Teaching Assistant</span><span class="teach-term">RGIPT &middot; Spring 2020</span></div>
-                <p class="teach-course"><strong>MTH 210A</strong> &mdash; Numerical and Statistical Methods.</p>
-            </div>
-            <h3 class="sub">Mentorship</h3>
-            <ul class="talks">
-                <li><span class="talk-title">Eduardo Lopez Ledezma &middot; undergraduate researcher, Penn State, 2023&ndash;2026</span>
-                    <span class="talk-venue">Neural embedded optimization for vehicle routing problems. Now FTR Trader, Engelhart Commodities Trading Partners.</span></li>
-                <li><span class="talk-title">Rudradip Khanra &middot; undergraduate researcher, RGIPT, 2025&ndash;2026</span>
-                    <span class="talk-venue">Machine learning methods for production forecasting.</span></li>
-            </ul>
-        </section>
-
-        <section id="cv">
-            <h2>CV</h2>
-            <p style="margin:0 0 18px;color:var(--muted);font-size:0.9375rem;">Full curriculum vitae, updated August 2026.</p>
-            <a class="cv-btn" href="Waquar_Kaleem_CV.pdf">Download CV (PDF)</a>
-        </section>
-
-        <footer>
-            <span><span class="accent">//</span> Penn State IE&amp;OR &middot; last updated August 2026</span>
-            <span>&copy; 2026 Waquar Kaleem</span>
-        </footer>
-
-    </main>
+    <script src="/site.js"></script>
 
 </body>
 </html>

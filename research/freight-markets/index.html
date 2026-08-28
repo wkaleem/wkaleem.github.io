@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <script>
+        /* We resolve the theme before first paint so the page never flashes the wrong one. */
+        (function () {
+            var stored = null;
+            try { stored = localStorage.getItem("theme"); } catch (e) {}
+            var dark = stored === "dark" || stored === "light" ? stored === "dark"
+                : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+        })();
+    </script>
+    <title>Matching, scheduling, and pricing in freight markets &mdash; Waquar Kaleem</title>
+    <meta name="description" content="Approximate dynamic programming for truckload markets.">
+    <meta name="author" content="Waquar Kaleem">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://wkaleem.github.io/research/freight-markets/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Matching, scheduling, and pricing in freight markets &mdash; Waquar Kaleem">
+    <meta property="og:description" content="Approximate dynamic programming for truckload markets.">
+    <meta property="og:url" content="https://wkaleem.github.io/research/freight-markets/">
+    <meta property="og:site_name" content="Waquar Kaleem">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Matching, scheduling, and pricing in freight markets &mdash; Waquar Kaleem">
+    <meta name="twitter:description" content="Approximate dynamic programming for truckload markets.">
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <div class="topnav">
+        <a href="/">Home</a><span class="sep">&middot;</span><span class="here">Research</span><span class="sep">&middot;</span><a href="/publications/">Publications</a><span class="sep">&middot;</span><a href="/talks/">Talks</a><span class="sep">&middot;</span><a href="/teaching/">Teaching</a><span class="sep">&middot;</span><a href="/Waquar_Kaleem_CV.pdf">CV</a>
+        <span class="right"><a href="#" id="theme-toggle">dark mode</a></span>
+    </div>
+
+    <div class="head compact">
+        <h1><a href="/">Waquar Kaleem</a></h1>
+        <p class="role">PhD Candidate, Industrial Engineering and Operations Research &middot; Penn State</p>
+    </div>
+
+    <h2>Matching, scheduling, and pricing in freight markets</h2>
+    <p class="figwrap"><svg class="fig lead" viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of loads matched to carriers over time">
+  <g stroke="currentColor" stroke-width="1.1" fill="none" opacity="0.5">
+    <line x1="26" y1="126" x2="296" y2="126"/>
+    <path d="M290 122 l6 4 l-6 4"/>
+    <line x1="70" y1="122" x2="70" y2="130"/><line x1="118" y1="122" x2="118" y2="130"/>
+    <line x1="166" y1="122" x2="166" y2="130"/><line x1="214" y1="122" x2="214" y2="130"/>
+    <line x1="262" y1="122" x2="262" y2="130"/>
+  </g>
+  <g fill="currentColor" opacity="0.85">
+    <rect x="56" y="26" width="28" height="11"/>
+    <rect x="104" y="44" width="28" height="11"/>
+    <rect x="152" y="26" width="28" height="11"/>
+    <rect x="200" y="53" width="28" height="11"/>
+    <rect x="248" y="35" width="28" height="11"/>
+  </g>
+  <g fill="none" stroke="currentColor" stroke-width="1.15">
+    <path d="M70 37 V78 H118"/>
+    <path d="M118 55 V95 H166"/>
+    <path d="M166 37 V78 H214"/>
+    <path d="M214 64 V95 H262"/>
+    <path d="M262 46 V78"/>
+  </g>
+  <g fill="currentColor">
+    <circle cx="118" cy="78" r="3.6"/><circle cx="166" cy="95" r="3.6"/>
+    <circle cx="214" cy="78" r="3.6"/><circle cx="262" cy="95" r="3.6"/>
+    <circle cx="262" cy="78" r="3.6"/>
+  </g>
+</svg></p>
+
+    <p>A broker in a truckload market sees loads arrive over time and has to decide which carrier serves each one, when it is scheduled, and what it is priced at. The decisions are not independent. Committing a carrier now changes what capacity is left when the next load appears, so the problem is sequential rather than a sequence of separate assignments.</p>
+    <p>I treat it as an approximate dynamic program. The market is cleared exactly at each decision point, and a value function approximation carries forward what remaining capacity is worth, learned from the duals the clearing problem itself produces. Hours-of-service rules and multi-load chains make the scheduling subproblem combinatorial in its own right, which is where most of the algorithmic work sits.</p>
+    <p class="tag">Papers from this line are in preparation.</p>
+
+    <h3>Talks</h3>
+        <ul class="talks">
+            <li>Approximate dynamic programming for matching, scheduling, and pricing in truckload freight markets.
+                <span class="where">Transportation and Mobility Group, Argonne National Laboratory. August 2026.</span></li>
+        </ul>
+
+    <p class="back"><a href="/#research">&larr; back to research</a></p>
+
+    <footer>
+        Curriculum vitae [<a href="/Waquar_Kaleem_CV.pdf">pdf</a>]. Page last modified August 2026.
+    </footer>
+
+    <script src="/site.js"></script>
+
+</body>
+</html>

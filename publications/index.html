@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <script>
+        /* We resolve the theme before first paint so the page never flashes the wrong one. */
+        (function () {
+            var stored = null;
+            try { stored = localStorage.getItem("theme"); } catch (e) {}
+            var dark = stored === "dark" || stored === "light" ? stored === "dark"
+                : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+        })();
+    </script>
+    <title>Publications &mdash; Waquar Kaleem</title>
+    <meta name="description" content="Refereed journal articles, conference papers, and software by Waquar Kaleem.">
+    <meta name="author" content="Waquar Kaleem">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://wkaleem.github.io/publications/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Publications &mdash; Waquar Kaleem">
+    <meta property="og:description" content="Refereed journal articles, conference papers, and software by Waquar Kaleem.">
+    <meta property="og:url" content="https://wkaleem.github.io/publications/">
+    <meta property="og:site_name" content="Waquar Kaleem">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Publications &mdash; Waquar Kaleem">
+    <meta name="twitter:description" content="Refereed journal articles, conference papers, and software by Waquar Kaleem.">
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <div class="topnav">
+        <a href="/">Home</a><span class="sep">&middot;</span><a href="/#research">Research</a><span class="sep">&middot;</span><span class="here">Publications</span><span class="sep">&middot;</span><a href="/talks/">Talks</a><span class="sep">&middot;</span><a href="/teaching/">Teaching</a><span class="sep">&middot;</span><a href="/Waquar_Kaleem_CV.pdf">CV</a>
+        <span class="right"><a href="#" id="theme-toggle">dark mode</a></span>
+    </div>
+
+    <div class="head compact">
+        <h1><a href="/">Waquar Kaleem</a></h1>
+        <p class="role">PhD Candidate, Industrial Engineering and Operations Research &middot; Penn State</p>
+    </div>
+
+    <h2>Publications</h2>
+    <p class="count">Six refereed journal articles, two refereed conference papers, one under review. Full list on <a href="https://scholar.google.com/citations?hl=en&amp;user=F8d4AS4AAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Google Scholar</a>.</p>
+
+    <h3 class="area">AI-integrated discrete optimization</h3>
+        <ul class="plain">
+            <li><span class="me">W. Kaleem</span>, D. Lee, C. Kwon, A. Subramanyam.
+                &ldquo;Neural embedded mixed-integer optimization for location-routing problems.&rdquo;
+                Under review at <span class="venue">Transportation Research Part E</span>, 2026.</li>
+            <li><span class="me">W. Kaleem</span>, D. Lee, C. Kwon, A. Subramanyam.
+                &ldquo;Neural embedded mixed-integer optimization for location-routing problems.&rdquo;
+                <span class="venue">NeurIPS Workshop on Differentiable Learning of Combinatorial Algorithms</span>, 2025.
+                [<a href="https://openreview.net/forum?id=WCILzWMXq9">openreview</a>]</li>
+            <li><span class="me">W. Kaleem</span>, H. Ayala, A. Subramanyam.
+                &ldquo;Neural embedded optimization for integrated location and routing problems.&rdquo;
+                <span class="venue">IISE Annual Conference Proceedings</span>, 1&ndash;6, 2024.
+                <span class="tag">Best Paper Award, IISE Logistics and Supply Chain Division.</span></li>
+            <li><span class="me">W. Kaleem</span>, D. Lee, C. Kwon, A. Subramanyam.
+                NEO-LRP, neural embedded optimization for location-routing problems. Software.
+                [<a href="https://github.com/Subramanyam-Lab/NEO-LRP">github</a>]</li>
+        </ul>
+
+    <h3 class="area">Electrified freight and last-mile delivery</h3>
+        <ul class="plain">
+            <li><span class="me">W. Kaleem</span>, T. Cokyasar, J. Larson, O. Verbas, T. H. Bhuiyan, A. Subramanyam.
+                &ldquo;Extreme-scale EV charging infrastructure planning for last-mile delivery using high-performance parallel computing.&rdquo;
+                <span class="venue">Transportation Research Part B: Methodological</span>, 205:103403, 2026.
+                [<a href="https://doi.org/10.1016/j.trb.2026.103403">doi</a>]</li>
+            <li>S. H. Hosseini Dolatabadi, T. H. Bhuiyan, <span class="me">W. Kaleem</span>, A. Subramanyam, T. Cokyasar.
+                &ldquo;A branch-and-cut algorithm for routing a heterogeneous drone-ground vehicle fleet to deliver time-sensitive products.&rdquo;
+                <span class="venue">Transportation Research Part C: Emerging Technologies</span>, 183:105454, 2026.
+                [<a href="https://doi.org/10.1016/j.trc.2025.105454">doi</a>]</li>
+        </ul>
+
+    <h3 class="area">Software</h3>
+        <ul class="plain">
+            <li>Contributor, with accepted pull requests, to open-source optimization packages.
+                [<a href="https://github.com/jump-dev/cuOpt.jl">cuOpt.jl</a>]
+                [<a href="https://github.com/inria-UFF/VRPSolverEasy">VRPSolverEasy</a>]</li>
+        </ul>
+
+    <h3 class="area">Earlier work in energy systems and materials</h3>
+        <ul class="plain">
+            <li><span class="me">W. Kaleem</span>, S. Tewari, M. Fogat, D. A. Martyushev.
+                &ldquo;A hybrid machine learning approach based study of production forecasting and factors influencing the multiphase flow through surface chokes.&rdquo;
+                <span class="venue">Petroleum</span>, 10(2):354&ndash;371, 2024.
+                [<a href="https://doi.org/10.1016/j.petlm.2023.06.001">doi</a>]</li>
+            <li><span class="me">W. Kaleem</span>, K. A. Khan, A. Saxena.
+                &ldquo;Statistical feature engineering using discrete wavelet transform for improving the prediction of compressional and shear sonic travel time logs.&rdquo;
+                <span class="venue">Petroleum Science and Technology</span>, 43(3):219&ndash;240, 2023.
+                [<a href="https://doi.org/10.1080/10916466.2023.2292781">doi</a>]</li>
+            <li>K. R. Chaturvedi, D. Ravilla, <span class="me">W. Kaleem</span>, P. Jadhawar, T. Sharma.
+                &ldquo;Impact of low salinity water injection on CO<sub>2</sub> storage and oil recovery for improved CO<sub>2</sub> utilization.&rdquo;
+                <span class="venue">Chemical Engineering Science</span>, 229:116127, 2021.
+                [<a href="https://doi.org/10.1016/j.ces.2020.116127">doi</a>]</li>
+            <li><span class="me">W. Kaleem</span>, A. Kumar, D. Panda.
+                &ldquo;Luminescent N, S-doped carbon nanodot, an effective two-fluorophore system of pyridone and thiazolopyridone.&rdquo;
+                <span class="venue">The Journal of Physical Chemistry C</span>, 122(46):26722&ndash;26732, 2018.
+                [<a href="https://doi.org/10.1021/acs.jpcc.8b08249">doi</a>]</li>
+        </ul>
+
+    <footer>
+        Curriculum vitae [<a href="/Waquar_Kaleem_CV.pdf">pdf</a>]. Page last modified August 2026.
+    </footer>
+
+    <script src="/site.js"></script>
+
+</body>
+</html>

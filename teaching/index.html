@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <script>
+        /* We resolve the theme before first paint so the page never flashes the wrong one. */
+        (function () {
+            var stored = null;
+            try { stored = localStorage.getItem("theme"); } catch (e) {}
+            var dark = stored === "dark" || stored === "light" ? stored === "dark"
+                : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+        })();
+    </script>
+    <title>Teaching &mdash; Waquar Kaleem</title>
+    <meta name="description" content="Teaching and mentorship by Waquar Kaleem at Penn State and RGIPT.">
+    <meta name="author" content="Waquar Kaleem">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://wkaleem.github.io/teaching/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Teaching &mdash; Waquar Kaleem">
+    <meta property="og:description" content="Teaching and mentorship by Waquar Kaleem at Penn State and RGIPT.">
+    <meta property="og:url" content="https://wkaleem.github.io/teaching/">
+    <meta property="og:site_name" content="Waquar Kaleem">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Teaching &mdash; Waquar Kaleem">
+    <meta name="twitter:description" content="Teaching and mentorship by Waquar Kaleem at Penn State and RGIPT.">
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <div class="topnav">
+        <a href="/">Home</a><span class="sep">&middot;</span><a href="/#research">Research</a><span class="sep">&middot;</span><a href="/publications/">Publications</a><span class="sep">&middot;</span><a href="/talks/">Talks</a><span class="sep">&middot;</span><span class="here">Teaching</span><span class="sep">&middot;</span><a href="/Waquar_Kaleem_CV.pdf">CV</a>
+        <span class="right"><a href="#" id="theme-toggle">dark mode</a></span>
+    </div>
+
+    <div class="head compact">
+        <h1><a href="/">Waquar Kaleem</a></h1>
+        <p class="role">PhD Candidate, Industrial Engineering and Operations Research &middot; Penn State</p>
+    </div>
+
+    <h2>Teaching</h2>
+    <div class="course">
+        <p class="what">IE 418, Advanced Human-Computer Interaction in the Age of AI
+            <span class="when">&mdash; Lab Instructor and Teaching Assistant, Penn State, Fall 2024</span></p>
+        <p>Led two weekly lab sections on AI interaction design, chatbot building, and workflow automation for more than sixty students.</p>
+        <blockquote>&ldquo;Waquar has been the most helpful especially during lab sessions which were clear and inclusive.&rdquo;</blockquote>
+    </div>
+    <div class="course">
+        <p class="what">CMPEN/EE 454, Computer Vision
+            <span class="when">&mdash; Learning Assistant, Penn State, Spring 2025</span></p>
+        <p>Facilitated collaborative problem solving in class and held regular office hours.</p>
+        <blockquote>&ldquo;Thank you for all of your help and guidance in EE 454. You were very kind and I appreciate all of your guidance!&rdquo;</blockquote>
+    </div>
+    <div class="course">
+        <p class="what">IE 402, Engineering Economy
+            <span class="when">&mdash; Graduate Teaching Assistant, Penn State, Spring 2025</span></p>
+        <p>Graded and held weekly office hours for more than thirty students, and assisted with course material preparation.</p>
+    </div>
+    <div class="course">
+        <p class="what">MTH 210A, Numerical and Statistical Methods
+            <span class="when">&mdash; Undergraduate Teaching Assistant, RGIPT, Spring 2020</span></p>
+    </div>
+
+    <h3>Mentorship</h3>
+    <ul class="talks">
+        <li>Eduardo Lopez Ledezma, undergraduate researcher, Penn State, 2023&ndash;2026.
+            <span class="where">Neural embedded optimization for vehicle routing problems. Now FTR Trader, Engelhart Commodities Trading Partners.</span></li>
+        <li>Rudradip Khanra, undergraduate researcher, RGIPT, 2025&ndash;2026.
+            <span class="where">Machine learning methods for production forecasting.</span></li>
+    </ul>
+
+    <footer>
+        Curriculum vitae [<a href="/Waquar_Kaleem_CV.pdf">pdf</a>]. Page last modified August 2026.
+    </footer>
+
+    <script src="/site.js"></script>
+
+</body>
+</html>
