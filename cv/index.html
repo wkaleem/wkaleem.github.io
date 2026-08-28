@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <script>
+        /* We resolve the theme before first paint so the page never flashes the wrong one. */
+        (function () {
+            var stored = null;
+            try { stored = localStorage.getItem("theme"); } catch (e) {}
+            var dark = stored === "dark" || stored === "light" ? stored === "dark"
+                : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+        })();
+    </script>
+    <title>CV &mdash; Waquar Kaleem</title>
+    <meta name="description" content="Education, honors and awards, and funded projects of Waquar Kaleem, PhD candidate in Industrial Engineering and Operations Research at Penn State.">
+    <meta name="author" content="Waquar Kaleem">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://wkaleem.github.io/cv/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="CV &mdash; Waquar Kaleem">
+    <meta property="og:description" content="Education, honors and awards, and funded projects of Waquar Kaleem, PhD candidate in Industrial Engineering and Operations Research at Penn State.">
+    <meta property="og:url" content="https://wkaleem.github.io/cv/">
+    <meta property="og:site_name" content="Waquar Kaleem">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="CV &mdash; Waquar Kaleem">
+    <meta name="twitter:description" content="Education, honors and awards, and funded projects of Waquar Kaleem, PhD candidate in Industrial Engineering and Operations Research at Penn State.">
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <div class="topnav">
+        <a href="/">Home</a><span class="sep">&middot;</span><a href="/#research">Research</a><span class="sep">&middot;</span><a href="/publications/">Publications</a><span class="sep">&middot;</span><a href="/talks/">Talks</a><span class="sep">&middot;</span><a href="/teaching/">Teaching</a><span class="sep">&middot;</span><span class="here">CV</span>
+        <span class="right"><a href="#" id="theme-toggle">dark mode</a></span>
+    </div>
+
+    <div class="head compact">
+        <h1><a href="/">Waquar Kaleem</a></h1>
+        <p class="role">PhD Candidate, Industrial Engineering and Operations Research &middot; Penn State</p>
+    </div>
+
+    <div class="sechead"><h2>Curriculum vitae</h2><a class="more" href="/Waquar_Kaleem_CV.pdf">full CV, pdf &rarr;</a></div>
+
+    <h3>Education</h3>
+    <div class="course">
+        <p class="what">PhD, Industrial Engineering and Operations Research
+            <span class="when">The Pennsylvania State University, 2022&ndash;2027 expected</span></p>
+        <p>Advised by Anirudh Subramanyam. Dissertation, <span class="venue">Scalable AI-integrated optimization for electrified transportation and logistics</span>. Committee: Paul Griffin, Aron Laszka, S. Ilgin Guler, Changhyun Kwon.</p>
+    </div>
+    <div class="course">
+        <p class="what">MS, Industrial Engineering and Operations Research
+            <span class="when">The Pennsylvania State University, 2024</span></p>
+        <p>Earned en route to the PhD.</p>
+    </div>
+    <div class="course">
+        <p class="what">BTech, Petroleum Engineering
+            <span class="when">Rajiv Gandhi Institute of Petroleum Technology, India, 2020</span></p>
+        <p>Thesis, <span class="venue">Machine learning for lithology and hydrocarbon zone identification from well log data</span>. Director&rsquo;s Gold Medal, awarded to one graduating student across all disciplines.</p>
+    </div>
+
+    <h3>Funded projects</h3>
+    <ul class="plain">
+        <li>Offline model-based discrete optimization, theory, algorithms, and applications to service systems.
+            <span class="tag">Harold and Inge Marcus Endowment for the Technion and Penn State IE Partnership, $24,000, 2024&ndash;2026.</span></li>
+        <li>Climate-resilient electric bus infrastructure planning.
+            <span class="tag">Lee Schipper Memorial Scholarship, Volvo Research and Educational Foundations, Global Scholar track, $12,500, 2026. Top ten finalist.</span></li>
+    </ul>
+
+    <h3>Honors and awards</h3>
+    <dl class="news">
+        <dt>2026</dt><dd>Argonne Training Program on Extreme-Scale Computing, U.S. Department of Energy.</dd>
+        <dt>2026</dt><dd>Top ten finalist, Lee Schipper Memorial Scholarship, Volvo Research and Educational Foundations, Global Scholar track.</dd>
+        <dt>2025&ndash;2026</dt><dd>IISE Future Faculty Fellow, selected nationally.</dd>
+        <dt>2025</dt><dd>Marcus Graduate Student Scholarship, Penn State, $10,000, one of six awarded from twenty-two nominees.</dd>
+        <dt>2025</dt><dd>Honorable Mention, Poster Award, Penn State AI Hub.</dd>
+        <dt>2025</dt><dd>Travel Award, Mixed Integer Programming Workshop.</dd>
+        <dt>2024</dt><dd>Best Paper Award, IISE Logistics and Supply Chain Division.</dd>
+        <dt>2020</dt><dd>Director&rsquo;s Gold Medal, RGIPT, awarded to one graduating student across all disciplines.</dd>
+        <dt>2019</dt><dd>S.&nbsp;N. Bose Scholar, Indo-US Science and Technology Forum, sole petroleum engineering student selected from India.</dd>
+        <dt>2019</dt><dd>DAAD WISE Research Scholarship, Germany.</dd>
+        <dt>2019</dt><dd>AAPG L. Austin Weeks Undergraduate Research Grant.</dd>
+        <dt>2019</dt><dd>Second Runner-Up, Best Paper, SPE South Asia Regional Student Paper Contest.</dd>
+    </dl>
+
+    <footer>
+        Curriculum vitae [<a href="/Waquar_Kaleem_CV.pdf">pdf</a>]. Page last modified August 2026.
+    </footer>
+
+    <script src="/site.js"></script>
+
+</body>
+</html>

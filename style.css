@@ -236,7 +236,14 @@ ul.talks li { margin-bottom: 12px; }
 ul.talks .where { display: block; color: var(--muted); font-size: 0.9375rem; }
 .course { margin-bottom: 16px; }
 .course .what { font-weight: bold; }
-.course .when { color: var(--faint); font-size: 0.9375rem; font-weight: normal; }
+/* The institution and dates sit on their own line so a long title cannot leave
+   them stranded mid-phrase on the wrap. */
+.course .when {
+    display: block;
+    color: var(--faint);
+    font-size: 0.9375rem;
+    font-weight: normal;
+}
 blockquote {
     margin: 6px 0 0;
     padding-left: 14px;
