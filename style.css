@@ -4,7 +4,7 @@
     --bg: #fdfcf8;
     --text: #1c1b18;
     --muted: #4a4740;
-    --faint: #7a766c;
+    --faint: #726e63;
     --rule: #d9d4c6;
     --link: #0a4a8f;
     --visited: #6a3a8f;
@@ -34,6 +34,42 @@
 }
 
 html { -webkit-text-size-adjust: 100%; }
+
+/* Keyboard users must be able to see where they are. */
+a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Off-screen until focused, then the first stop on the page. */
+.skip {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--bg);
+    color: var(--link);
+    padding: 10px 14px;
+    border: 1px solid var(--rule);
+    z-index: 10;
+}
+.skip:focus {
+    left: 8px;
+    top: 8px;
+}
+
+/* A control that reads as a link but is announced as the button it is. */
+.linkbtn {
+    background: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: var(--link);
+    text-decoration: underline;
+    cursor: pointer;
+}
+.linkbtn:hover { text-decoration: none; }
 body {
     font-family: Georgia, "Iowan Old Style", "Times New Roman", Times, serif;
     background: var(--bg);
@@ -182,10 +218,10 @@ a.card:hover .card-media { color: var(--link); }
 a.card svg.fig { display: block; width: 100%; height: auto; }
 a.card .card-title {
     display: block;
+    margin: 11px 0 4px;
     font-weight: bold;
     font-size: 0.9375rem;
     line-height: 1.35;
-    margin: 11px 0 4px;
 }
 a.card:hover .card-title { color: var(--link); }
 a.card .card-text {
@@ -267,6 +303,30 @@ dl.news dd { margin: 0 0 10px 6.5em; }
 }
 
 .back { font-size: 0.9375rem; margin-top: 30px; }
+
+/* Move between research areas without going back to the home page first. */
+.pager {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+    margin-top: 34px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule);
+    font-size: 0.9375rem;
+}
+.pager a { text-decoration: none; }
+.pager a:hover .what { text-decoration: underline; }
+.pager .next { text-align: right; }
+.pager .all { color: var(--muted); align-self: center; white-space: nowrap; }
+.pager .all:hover { text-decoration: underline; }
+.pager .dir { display: block; color: var(--faint); font-size: 0.8125rem; }
+.pager .what { display: block; max-width: 15em; }
+@media (max-width: 560px) {
+    .pager { flex-direction: column; gap: 12px; }
+    .pager .next { text-align: left; }
+    .pager .what { max-width: none; }
+}
 
 footer {
     margin-top: 42px;

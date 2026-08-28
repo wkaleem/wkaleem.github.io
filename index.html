@@ -74,11 +74,14 @@
 </head>
 <body>
 
-    <div class="topnav">
-        <span class="here">Home</span><span class="sep">&middot;</span><a href="/#research">Research</a><span class="sep">&middot;</span><a href="/publications/">Publications</a><span class="sep">&middot;</span><a href="/talks/">Talks</a><span class="sep">&middot;</span><a href="/teaching/">Teaching</a><span class="sep">&middot;</span><a href="/cv/">CV</a>
-        <span class="right"><a href="#" id="theme-toggle">dark mode</a></span>
-    </div>
+    <a class="skip" href="#main">Skip to content</a>
 
+    <nav class="topnav" aria-label="Site sections">
+        <a href="/" class="here" aria-current="page">Home</a><span class="sep">&middot;</span><a href="/#research">Research</a><span class="sep">&middot;</span><a href="/publications/">Publications</a><span class="sep">&middot;</span><a href="/talks/">Talks</a><span class="sep">&middot;</span><a href="/teaching/">Teaching</a><span class="sep">&middot;</span><a href="/cv/">CV</a>
+        <span class="right"><button type="button" id="theme-toggle" class="linkbtn">dark mode</button></span>
+    </nav>
+
+    <main id="main">
     <div class="head">
         <div class="frame">WK</div>
         <h1>Waquar Kaleem</h1>
@@ -133,7 +136,7 @@
     <circle cx="240" cy="104" r="3.4"/>
   </g>
 </svg></span>
-                <span class="card-title">AI-integrated discrete optimization at scale</span>
+                <h3 class="card-title">AI-integrated discrete optimization at scale</h3>
                 <span class="card-text">Neural surrogates embedded as constraints in mixed-integer programs.</span>
                 <span class="card-more">read more &rarr;</span>
             </a>
@@ -166,7 +169,7 @@
     <circle cx="262" cy="78" r="3.6"/>
   </g>
 </svg></span>
-                <span class="card-title">Matching, scheduling, and pricing in freight markets</span>
+                <h3 class="card-title">Matching, scheduling, and pricing in freight markets</h3>
                 <span class="card-text">Approximate dynamic programming for truckload markets.</span>
                 <span class="card-more">read more &rarr;</span>
             </a>
@@ -196,7 +199,7 @@
     <line x1="164" y1="40" x2="294" y2="40"/>
   </g>
 </svg></span>
-                <span class="card-title">Electrified freight and last-mile delivery</span>
+                <h3 class="card-title">Electrified freight and last-mile delivery</h3>
                 <span class="card-text">Charging infrastructure planning and depot scheduling under uncertainty.</span>
                 <span class="card-more">read more &rarr;</span>
             </a>
@@ -215,6 +218,8 @@
             <dt>2025</dt><dd>Paper accepted at the NeurIPS Workshop on Differentiable Learning of Combinatorial Algorithms.</dd>
         </dl>
     </section>
+
+    </main>
 
     <footer>
         Curriculum vitae [<a href="/Waquar_Kaleem_CV.pdf">pdf</a>]. Page last modified August 2026.

@@ -9,8 +9,7 @@
             root.getAttribute("data-theme") === "dark" ? "light mode" : "dark mode";
     }
 
-    button.addEventListener("click", function (event) {
-        event.preventDefault();
+    button.addEventListener("click", function () {
         var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
         root.setAttribute("data-theme", next);
         try { localStorage.setItem("theme", next); } catch (e) {}

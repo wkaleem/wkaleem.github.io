@@ -34,11 +34,14 @@
 </head>
 <body>
 
-    <div class="topnav">
-        <a href="/">Home</a><span class="sep">&middot;</span><span class="here">Research</span><span class="sep">&middot;</span><a href="/publications/">Publications</a><span class="sep">&middot;</span><a href="/talks/">Talks</a><span class="sep">&middot;</span><a href="/teaching/">Teaching</a><span class="sep">&middot;</span><a href="/cv/">CV</a>
-        <span class="right"><a href="#" id="theme-toggle">dark mode</a></span>
-    </div>
+    <a class="skip" href="#main">Skip to content</a>
 
+    <nav class="topnav" aria-label="Site sections">
+        <a href="/">Home</a><span class="sep">&middot;</span><a href="/#research" class="here" aria-current="page">Research</a><span class="sep">&middot;</span><a href="/publications/">Publications</a><span class="sep">&middot;</span><a href="/talks/">Talks</a><span class="sep">&middot;</span><a href="/teaching/">Teaching</a><span class="sep">&middot;</span><a href="/cv/">CV</a>
+        <span class="right"><button type="button" id="theme-toggle" class="linkbtn">dark mode</button></span>
+    </nav>
+
+    <main id="main">
     <div class="head compact">
         <h1><a href="/">Waquar Kaleem</a></h1>
         <p class="role">PhD Candidate, Industrial Engineering and Operations Research &middot; Penn State</p>
@@ -84,7 +87,13 @@
                 <span class="where">Transportation and Mobility Group, Argonne National Laboratory. August 2026.</span></li>
         </ul>
 
-    <p class="back"><a href="/#research">&larr; back to research</a></p>
+    <nav class="pager" aria-label="Research areas">
+        <a class="prev" href="/research/ai-optimization/"><span class="dir">&larr; previous</span><span class="what">AI-integrated discrete optimization at scale</span></a>
+        <a class="all" href="/#research">all research</a>
+        <a class="next" href="/research/electrified-freight/"><span class="dir">next &rarr;</span><span class="what">Electrified freight and last-mile delivery</span></a>
+    </nav>
+
+    </main>
 
     <footer>
         Curriculum vitae [<a href="/Waquar_Kaleem_CV.pdf">pdf</a>]. Page last modified August 2026.
