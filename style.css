@@ -174,7 +174,9 @@ h1 a:hover { text-decoration: underline; }
     margin: -1px;
     padding: 0;
     overflow: hidden;
-    clip: rect(0 0 0 0);
+    /* The deprecated clip is kept for older engines; clip-path is the modern
+       form. Commas are the separator the grammar requires. */
+    clip: rect(0, 0, 0, 0);
     clip-path: inset(50%);
     white-space: nowrap;
     border: 0;
