@@ -86,16 +86,22 @@ a:hover { text-decoration: none; }
 p { margin: 0 0 12px; }
 
 /* ---- Top line ---- */
+/* A wrapping flex row rather than a float. Under the float the last link could be
+   pushed past the right edge on a narrow screen, leaving CV present but unreachable. */
 .topnav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 12px;
     font-size: 0.9375rem;
     padding-bottom: 14px;
     margin-bottom: 26px;
     border-bottom: 1px solid var(--rule);
 }
-.topnav .sep { color: var(--faint); margin: 0 5px; }
+.topnav .links { min-width: 0; }
+.topnav .sep { color: var(--faint); }
 .topnav .here { color: var(--muted); }
-.topnav .right { float: right; }
-.topnav::after { content: ""; display: block; clear: both; }
+.topnav .right { margin-left: auto; }
 
 /* ---- Identity ---- */
 .head { overflow: hidden; margin-bottom: 26px; }
@@ -326,6 +332,29 @@ dl.news dd { margin: 0 0 10px 6.5em; }
     .pager { flex-direction: column; gap: 12px; }
     .pager .next { text-align: left; }
     .pager .what { max-width: none; }
+}
+
+/* Committees print candidate material and pass it round. We drop the controls,
+   force ink-friendly colours, and spell out where a link actually goes. */
+@media print {
+    :root {
+        --bg: #ffffff;
+        --text: #000000;
+        --muted: #222222;
+        --faint: #444444;
+        --rule: #999999;
+        --link: #000000;
+        --visited: #000000;
+        --panel: #ffffff;
+    }
+    body { max-width: none; font-size: 11pt; padding: 0; }
+    .topnav, .skip, .pager, .back, .card-more { display: none; }
+    a { text-decoration: none; }
+    a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9pt; word-break: break-all; }
+    h2, h3 { page-break-after: avoid; }
+    li, .course, blockquote { page-break-inside: avoid; }
+    a.card { border: 1px solid #999999; }
+    h2::after, .sechead::after { display: none; }
 }
 
 footer {
