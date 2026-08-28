@@ -417,6 +417,27 @@ main h2[id], main h3[id] { scroll-margin-top: 12px; }
     .topnav, .skip, .pager, .back, .card-more { display: none; }
     a { text-decoration: none; }
     a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9pt; word-break: break-all; }
+    /* Site-internal links are dead on paper unless the destination is spelled out.
+       In-page anchors are skipped, and the masthead name is left clean. */
+    a[href^="/"]::after {
+        content: " (https://wkaleem.github.io" attr(href) ")";
+        font-size: 9pt;
+        word-break: break-all;
+    }
+    h1 a[href^="/"]::after { content: ""; }
+    /* On paper an icon is unreadable, so the label that is hidden on screen is
+       revealed and the row becomes a legible list of profiles. */
+    .head .icons .visually-hidden {
+        position: static;
+        width: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        clip-path: none;
+    }
+    .head .icons svg { display: none; }
+    .head .icons a { display: block; margin: 0 0 2px; }
     h2, h3 { page-break-after: avoid; }
     li, .course, blockquote { page-break-inside: avoid; }
     a.card { border: 1px solid #999999; }
