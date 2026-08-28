@@ -284,6 +284,15 @@ ul.plain li { margin-bottom: 12px; }
 .venue { font-style: italic; }
 .tag { color: var(--faint); font-size: 0.875rem; }
 
+/* A one-line note on what a paper did, compressed from the paper's own abstract.
+   Used only on research pages, where a reader has already gone deep. */
+.contrib {
+    display: block;
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 0.875rem;
+}
+
 /* ---- Talks, teaching, news ---- */
 ul.talks { list-style: none; margin: 0; padding: 0; }
 ul.talks li { margin-bottom: 12px; }
