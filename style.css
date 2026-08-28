@@ -339,19 +339,22 @@ blockquote {
     color: var(--muted);
     font-size: 0.9375rem;
 }
-dl.news { margin: 0; }
-dl.news dt {
-    float: left;
-    width: 6.5em;
-    clear: left;
+/* News and awards are lists of items whose date is metadata, not name-value
+   groups. A dl would need a unique term per entry and several share a year. */
+ul.news { list-style: none; margin: 0; padding: 0; }
+ul.news li {
+    display: grid;
+    grid-template-columns: 6.5em 1fr;
+    gap: 0 0;
+    margin-bottom: 10px;
+}
+ul.news .when {
     color: var(--faint);
     font-size: 0.9375rem;
     padding-top: 1px;
 }
-dl.news dd { margin: 0 0 10px 6.5em; }
 @media (max-width: 30em) {
-    dl.news dt { float: none; width: auto; }
-    dl.news dd { margin-left: 0; margin-bottom: 14px; }
+    ul.news li { grid-template-columns: 1fr; margin-bottom: 14px; }
 }
 
 /* A jump list for the two pages long enough that a reader would otherwise scroll
