@@ -77,7 +77,7 @@
     <p>Many planning problems pair a decision that is discrete with a cost that is only known through data. The usual response is to call the learned model as a black box inside a search, which gives the optimizer no structure to reason with. I take the other route and represent the trained network exactly inside a mixed-integer program, so the cost becomes part of the model the solver sees rather than an oracle it queries.</p>
     <p>Doing this honestly makes the formulation large, so the work runs on to the methods that keep it solvable. That means decomposition, penalty methods for optimizing over deep rectified linear networks, and parallel implementations that reach instance sizes a single solver call cannot. The line began with integrated location and routing, where the routing cost of a cluster of customers is learned once and then reused inside the siting decision.</p>
 
-    <h3>Publications</h3>
+    <div class="sechead"><h3>Publications</h3><a class="more" href="/publications/">all publications &rarr;</a></div>
         <ul class="plain">
             <li><span class="me">W. Kaleem</span>, D. Lee, C. Kwon, A. Subramanyam.
                 &ldquo;Neural embedded mixed-integer optimization for location-routing problems.&rdquo;
@@ -95,7 +95,7 @@
                 [<a href="https://github.com/Subramanyam-Lab/NEO-LRP">github</a>]</li>
         </ul>
 
-    <h3>Talks</h3>
+    <div class="sechead"><h3>Talks</h3><a class="more" href="/talks/">all talks &rarr;</a></div>
         <ul class="talks">
             <li>Neural embedded mixed-integer optimization for location-routing problems.
                 <span class="where">INFORMS TSL Conference, MIT, Cambridge, MA. July 2026.</span>
