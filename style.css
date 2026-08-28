@@ -163,6 +163,22 @@ h1 a:hover { text-decoration: underline; }
 .head .icons a:visited { color: var(--link); }
 .head .icons a:hover { color: var(--text); }
 .head .icons svg { width: 19px; height: 19px; display: block; }
+
+/* Real text inside each icon link, clipped from view but present in the document.
+   aria-label serves screen readers only; text browsers, translation tools and older
+   assistive technology read content. This covers all of them. */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
 .head.compact { margin-bottom: 22px; }
 .head.compact h1 { font-size: 1.375rem; }
 .head.compact .role { font-size: 0.9375rem; }
