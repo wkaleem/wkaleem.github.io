@@ -302,6 +302,10 @@ ul.plain li { margin-bottom: 12px; }
 ul.talks { list-style: none; margin: 0; padding: 0; }
 ul.talks li { margin-bottom: 12px; }
 ul.talks .where { display: block; color: var(--muted); font-size: 0.9375rem; }
+/* Degrees, positions and courses are parallel entries, so they are a list. The
+   marker and indent are removed; only the semantics are wanted. */
+ul.entries { list-style: none; margin: 0; padding: 0; }
+
 .course { margin-bottom: 16px; }
 .course .what { font-weight: bold; }
 /* The institution and dates sit on their own line so a long title cannot leave
