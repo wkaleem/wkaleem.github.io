@@ -109,7 +109,11 @@ p { margin: 0 0 12px; }
 .topnav .links { min-width: 0; }
 .topnav .sep { color: var(--faint); }
 .topnav .here { color: var(--muted); }
-.topnav .right { margin-left: auto; }
+/* The theme control is hidden until we know scripting is available. The inline
+   head script stamps data-theme before first paint, so its presence is the hook,
+   and a reader without JavaScript is never offered a button that cannot work. */
+.topnav .right { display: none; margin-left: auto; }
+:root[data-theme] .topnav .right { display: block; }
 
 /* ---- Identity ---- */
 .head { overflow: hidden; margin-bottom: 26px; }
