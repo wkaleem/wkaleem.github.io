@@ -85,7 +85,9 @@ body {
     font-family: Georgia, "Iowan Old Style", "Times New Roman", Times, serif;
     background: var(--bg);
     color: var(--text);
-    font-size: 17px;
+    /* Relative, so a reader who raises their browser font size scales the body
+       text with everything else. 1.0625rem is 17px at the 16px default. */
+    font-size: 1.0625rem;
     line-height: 1.6;
     margin: 0 auto;
     max-width: 42em;
