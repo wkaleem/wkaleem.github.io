@@ -33,6 +33,10 @@
     }
 }
 
+/* Padding and borders count inside a declared width. Without this a figure at
+   width 100% plus padding and a border overflows its column on a narrow screen. */
+*, *::before, *::after { box-sizing: border-box; }
+
 html { -webkit-text-size-adjust: 100%; }
 
 /* Keyboard users must be able to see where they are. */
