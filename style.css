@@ -80,7 +80,13 @@ main:focus { outline: none; }
     text-decoration: underline;
     cursor: pointer;
 }
-.linkbtn:hover { text-decoration: none; }
+.linkbtn:hover { color: var(--text); }
+.linkbtn { text-decoration: none; display: block; line-height: 0; }
+.linkbtn svg { width: 20px; height: 20px; display: block; }
+/* A moon offers the dark theme, a sun offers the light one. Only the icon for the
+   theme a reader can switch to is shown. */
+:root[data-theme="dark"] .i-moon { display: none; }
+:root:not([data-theme="dark"]) .i-sun { display: none; }
 body {
     font-family: Georgia, "Iowan Old Style", "Times New Roman", Times, serif;
     background: var(--bg);
@@ -160,13 +166,8 @@ p { margin: 0 0 12px; }
 main > h1:first-child,
 main > .sechead:first-child > h1 { margin-top: 0; }
 
-/* A sub-page carries the name only, as a line that leads home. The photograph, the
-   role and the profile links belong on the front page and nowhere else. */
-.head.compact { margin-bottom: 20px; padding-bottom: 12px; }
-.head .who { font-size: 1.0625rem; }
-.head .who a { color: var(--text); text-decoration: none; }
-.head .who a:visited { color: var(--text); }
-.head .who a:hover { text-decoration: underline; }
+/* The photograph sits beside the name on the front page. That is the only page that
+   carries it: a sub-page is about its own contents, not about whose site it is. */
 .head .portrait {
     float: right;
     width: 190px;

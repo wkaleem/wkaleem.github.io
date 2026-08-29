@@ -4,9 +4,14 @@
     var query = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
     if (!button) return;
 
+    /* The icons live in the markup, so only the hidden name is rewritten. Writing
+       textContent here would delete them. */
     function label() {
-        button.textContent =
-            root.getAttribute("data-theme") === "dark" ? "light mode" : "dark mode";
+        var name = button.querySelector(".visually-hidden");
+        if (name) {
+            name.textContent =
+                root.getAttribute("data-theme") === "dark" ? "light mode" : "dark mode";
+        }
     }
 
     button.addEventListener("click", function () {
