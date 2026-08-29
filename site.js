@@ -41,3 +41,31 @@
     el.textContent = " Page updated " +
         d.toLocaleDateString("en-US", { month: "long", year: "numeric" }) + ".";
 })();
+
+/* Sections rise as they come into view. The staging class is set here rather than in
+   the head, so that a page whose script never arrives is never left staged and
+   invisible: no script, nothing hidden. Anything already on screen is marked shown in
+   the same tick, before the browser paints, so the opening view does not flash. */
+(function () {
+    if (!("IntersectionObserver" in window)) return;
+    var items = document.querySelectorAll("main .reveal");
+    if (!items.length) return;
+
+    var fold = window.innerHeight || document.documentElement.clientHeight;
+    var waiting = [];
+    for (var i = 0; i < items.length; i++) {
+        if (items[i].getBoundingClientRect().top < fold) items[i].classList.add("shown");
+        else waiting.push(items[i]);
+    }
+    document.documentElement.className = "js-reveal";
+    if (!waiting.length) return;
+
+    var watcher = new IntersectionObserver(function (entries) {
+        for (var j = 0; j < entries.length; j++) {
+            if (!entries[j].isIntersecting) continue;
+            entries[j].target.classList.add("shown");
+            watcher.unobserve(entries[j].target);
+        }
+    }, { rootMargin: "0px 0px -8% 0px" });
+    for (var k = 0; k < waiting.length; k++) watcher.observe(waiting[k]);
+})();

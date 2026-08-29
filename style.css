@@ -91,7 +91,7 @@ body {
     line-height: 1.6;
     margin: 0 auto;
     max-width: 57em;
-    padding: 28px 22px 64px;
+    padding: 16px 22px 64px;
 }
 a { color: var(--link); text-decoration: underline; }
 a:visited { color: var(--visited); }
@@ -101,13 +101,20 @@ p { margin: 0 0 12px; }
 /* ---- Top line ---- */
 /* A wrapping flex row rather than a float. Under the float the last link could be
    pushed past the right edge on a narrow screen, leaving CV present but unreachable. */
+/* The top line holds its place as the page scrolls, so a reader who has gone deep
+   into a long page still has a way out without scrolling back to find it. Its own
+   top padding comes out of the body, so the page sits exactly where it did. */
 .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: var(--bg);
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
     gap: 4px 12px;
     font-size: 0.9375rem;
-    padding-bottom: 14px;
+    padding: 12px 0 14px;
     margin-bottom: 26px;
     border-bottom: 1px solid var(--rule);
 }
@@ -201,6 +208,23 @@ ul.profile svg { width: 17px; height: 17px; flex: none; }
     .head .frame, .head img.portrait { float: none; margin: 0 0 14px; }
 }
 
+/* ---- Movement ---- */
+@media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+    /* Both classes are required. js-reveal is written before first paint, and only
+       when IntersectionObserver exists to undo it, so content can never be left
+       staged and invisible. */
+    .js-reveal .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+    }
+    .js-reveal .reveal.shown {
+        opacity: 1;
+        transform: none;
+    }
+}
+
 /* ---- Sections ---- */
 h2 {
     position: relative;
@@ -240,7 +264,7 @@ h2::after, .sechead::after {
 .sechead h2::after, .sechead h3::after { display: none; }
 .sechead .more { font-size: 0.875rem; white-space: nowrap; }
 h3.area { font-style: italic; font-weight: normal; color: var(--muted); }
-section { scroll-margin-top: 16px; }
+section { scroll-margin-top: 64px; }
 
 /* ---- Research cards, three across ---- */
 .cards {
@@ -385,7 +409,7 @@ ul.news .when {
     line-height: 1.5;
 }
 .pageindex .sep { color: var(--faint); }
-main h2[id], main h3[id] { scroll-margin-top: 12px; }
+main h2[id], main h3[id] { scroll-margin-top: 64px; }
 
 .back { font-size: 0.9375rem; margin-top: 30px; }
 
@@ -442,6 +466,7 @@ main h2[id], main h3[id] { scroll-margin-top: 12px; }
        the labels alone make a legible list of profiles. */
     .shell { display: block; }
     .head { overflow: hidden; }
+    .reveal { opacity: 1 !important; transform: none !important; }
     ul.profile svg { display: none; }
     ul.profile a { display: block; }
     ul.profile li { margin-bottom: 2px; }
