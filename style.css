@@ -210,7 +210,6 @@ ul.profile svg { width: 17px; height: 17px; flex: none; }
 
 /* ---- Movement ---- */
 @media (prefers-reduced-motion: no-preference) {
-    html { scroll-behavior: smooth; }
     /* Both classes are required. js-reveal is written before first paint, and only
        when IntersectionObserver exists to undo it, so content can never be left
        staged and invisible. */
