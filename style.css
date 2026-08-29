@@ -12,26 +12,26 @@
     --elevate: rgba(0, 0, 0, 0.09);
 }
 :root[data-theme="dark"] {
-    --bg: #16150f;
-    --text: #e6e2d6;
-    --muted: #b3ae9f;
-    --faint: #8b8677;
-    --rule: #33302a;
-    --link: #86b9e8;
-    --visited: #c0a3dd;
-    --panel: #1d1c15;
+    --bg: #0f1723;
+    --text: #dfe6ef;
+    --muted: #a8b4c4;
+    --faint: #7d8b9d;
+    --rule: #26313f;
+    --link: #8cc0f0;
+    --visited: #c3a9e2;
+    --panel: #16202e;
     --elevate: rgba(0, 0, 0, 0.55);
 }
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-        --bg: #16150f;
-        --text: #e6e2d6;
-        --muted: #b3ae9f;
-        --faint: #8b8677;
-        --rule: #33302a;
-        --link: #86b9e8;
-        --visited: #c0a3dd;
-        --panel: #1d1c15;
+        --bg: #0f1723;
+        --text: #dfe6ef;
+        --muted: #a8b4c4;
+        --faint: #7d8b9d;
+        --rule: #26313f;
+        --link: #8cc0f0;
+        --visited: #c3a9e2;
+        --panel: #16202e;
         --elevate: rgba(0, 0, 0, 0.55);
     }
 }
@@ -99,9 +99,16 @@ body {
     max-width: 44em;
     padding: 16px 22px 64px;
 }
-a { color: var(--link); text-decoration: underline; }
+/* A link is marked by weight rather than by a rule under it. Weight is a cue that
+   does not depend on colour, which is what a link in running text needs, and it
+   leaves the prose unbroken. The underline returns on hover and on focus. */
+a {
+    color: var(--link);
+    text-decoration: none;
+    font-weight: 700;
+}
 a:visited { color: var(--visited); }
-a:hover { text-decoration: none; }
+a:hover { text-decoration: underline; }
 p { margin: 0 0 12px; }
 
 /* ---- Top line ---- */
@@ -131,11 +138,12 @@ p { margin: 0 0 12px; }
     gap: 2px 19px;
 }
 .topnav .links a {
+    font-weight: normal;
     text-decoration: none;
     padding: 3px 0;
     border-bottom: 2px solid transparent;
 }
-.topnav .links a:hover { border-bottom-color: var(--rule); }
+.topnav .links a:hover { border-bottom-color: var(--rule); text-decoration: none; }
 /* The current page is named by a rule beneath it. Colour alone would carry the
    information for sighted readers only, and would also fight the link colour. */
 .topnav .here {
@@ -318,6 +326,9 @@ a.card {
     background: var(--panel);
     padding: 12px 13px 14px;
     transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+    /* The card is one big link, so its body text opts out of the link weight;
+       only the title carries it. */
+    font-weight: normal;
 }
 a.card:visited { color: inherit; }
 a.card:hover {
@@ -405,13 +416,6 @@ ul.entries { list-style: none; margin: 0; padding: 0; }
     font-size: 0.9375rem;
     font-weight: normal;
 }
-blockquote {
-    margin: 6px 0 0;
-    padding-left: 14px;
-    border-left: 2px solid var(--rule);
-    color: var(--muted);
-    font-size: 0.9375rem;
-}
 /* News and awards are lists of items whose date is metadata, not name-value
    groups. A dl would need a unique term per entry and several share a year. */
 ul.news { list-style: none; margin: 0; padding: 0; }
@@ -443,6 +447,7 @@ ul.news .when {
     line-height: 1.5;
 }
 .pageindex .sep { color: var(--faint); }
+.pageindex a { font-weight: normal; }
 main h2[id], main h3[id] { scroll-margin-top: 64px; }
 
 .back { font-size: 0.9375rem; margin-top: 30px; }
@@ -518,7 +523,7 @@ main h2[id], main h3[id] { scroll-margin-top: 64px; }
     ul.profile a { display: block; }
     ul.profile li { margin-bottom: 2px; }
     h2, h3 { page-break-after: avoid; }
-    li, .course, blockquote { page-break-inside: avoid; }
+    li, .course { page-break-inside: avoid; }
     a.card { border: 1px solid #999999; }
     h2::after, .sechead::after { display: none; }
 }
