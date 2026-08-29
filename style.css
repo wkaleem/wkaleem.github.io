@@ -148,6 +148,24 @@ p { margin: 0 0 12px; }
 .topnav .right { display: none; margin-left: auto; }
 :root[data-theme] .topnav .right { display: block; }
 
+/* ---- Banner ---- */
+/* One photograph across the top of the home page. Decorative, so its alt is empty:
+   it carries nothing a reader would otherwise miss, and announcing it would only get
+   in the way. Hidden on paper, where it would waste half a page. */
+.banner {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 3;
+    object-fit: cover;
+    margin: 0 0 30px;
+    border-radius: 3px;
+    border: 1px solid var(--rule);
+}
+@media (max-width: 35em) {
+    .banner { aspect-ratio: 16 / 5; margin-bottom: 22px; }
+}
+
 /* ---- Shell ---- */
 /* The identity column sits beside the content rather than above it. Grid rather
    than a float, so the two columns cannot overlap, and the sidebar can come first
@@ -504,6 +522,7 @@ main h2[id], main h3[id] { scroll-margin-top: 64px; }
         --panel: #ffffff;
     }
     body { max-width: none; font-size: 11pt; padding: 0; }
+    .banner { display: none; }
     .topnav, .skip, .pager, .back, .card-more { display: none; }
     a { text-decoration: none; }
     a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9pt; word-break: break-all; }
