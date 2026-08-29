@@ -235,6 +235,19 @@ ul.profile svg { width: 17px; height: 17px; flex: none; }
     outline: 2px solid var(--link);
     outline-offset: 4px;
 }
+/* A soft edge at the foot of the panel, so a reader can see that the list continues
+   rather than meeting a sentence that appears to stop mid-word. */
+#news { position: relative; }
+#news::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 10px;
+    bottom: 0;
+    height: 36px;
+    background: linear-gradient(to bottom, transparent, var(--bg));
+    pointer-events: none;
+}
 
 /* ---- Gallery ---- */
 ul.gallery {
@@ -532,6 +545,7 @@ main h2[id], main h3[id] { scroll-margin-top: 64px; }
     .head { overflow: hidden; }
     .reveal { opacity: 1 !important; transform: none !important; }
     .newsbox { max-height: none; overflow: visible; }
+    #news::after { display: none; }
     ul.gallery { grid-template-columns: repeat(2, 1fr); }
     ul.profile svg { display: none; }
     ul.profile a { display: block; }
