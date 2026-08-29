@@ -148,45 +148,6 @@ p { margin: 0 0 12px; }
 .topnav .right { display: none; margin-left: auto; }
 :root[data-theme] .topnav .right { display: block; }
 
-/* ---- Filmstrip ---- */
-/* Photographs at their own proportions, scrolling sideways: a person's work and
-   surroundings shown whole rather than cropped square into a grid. It always
-   overflows, so it carries a tabindex and a label; a region that scrolls and cannot
-   be focused is unreachable from the keyboard. */
-.filmwrap { margin: 0 0 30px; }
-.filmstrip {
-    list-style: none;
-    margin: 0;
-    padding: 0 0 10px;
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x proximity;
-}
-.filmstrip:focus-visible {
-    outline: 2px solid var(--link);
-    outline-offset: 4px;
-}
-.filmstrip li { flex: none; }
-.filmstrip img {
-    display: block;
-    height: 260px;
-    width: auto;
-    border-radius: 3px;
-    border: 1px solid var(--rule);
-    scroll-snap-align: start;
-}
-.filmmore {
-    margin: 0;
-    text-align: right;
-    font-size: 0.875rem;
-}
-@media (max-width: 35em) {
-    .filmstrip img { height: 190px; }
-    .filmwrap { margin-bottom: 24px; }
-}
-
 /* ---- Shell ---- */
 /* One centred column. The identity block sits at the top with the photograph floated
    beside the name rather than in a column of its own, which keeps the whole page on a
@@ -221,7 +182,6 @@ h1 a:visited { color: inherit; }
 h1 a:hover { text-decoration: underline; }
 .head p { margin: 0; }
 .head .role { color: var(--muted); }
-.head .where { margin-top: 8px; }
 
 /* A row rather than a column, now that the identity block runs the page width. */
 ul.profile {
@@ -509,7 +469,6 @@ main h2[id], main h3[id] { scroll-margin-top: 64px; }
         --panel: #ffffff;
     }
     body { max-width: none; font-size: 11pt; padding: 0; }
-    .filmwrap { display: none; }
     .topnav, .skip, .pager, .back, .card-more { display: none; }
     a { text-decoration: none; }
     /* On paper an icon is unreadable, so the hidden name is revealed and the row
