@@ -90,7 +90,7 @@ body {
     font-size: 1.0625rem;
     line-height: 1.6;
     margin: 0 auto;
-    max-width: 42em;
+    max-width: 57em;
     padding: 28px 22px 64px;
 }
 a { color: var(--link); text-decoration: underline; }
@@ -120,13 +120,23 @@ p { margin: 0 0 12px; }
 .topnav .right { display: none; margin-left: auto; }
 :root[data-theme] .topnav .right { display: block; }
 
+/* ---- Shell ---- */
+/* The identity column sits beside the content rather than above it. Grid rather
+   than a float, so the two columns cannot overlap, and the sidebar can come first
+   in the document without trapping anyone: the skip link jumps straight past it. */
+.shell {
+    display: grid;
+    grid-template-columns: 13.5em minmax(0, 1fr);
+    column-gap: 3.25em;
+    align-items: start;
+}
+
 /* ---- Identity ---- */
-.head { overflow: hidden; margin-bottom: 26px; }
+.head { margin-bottom: 26px; }
 .head .frame, .head img.portrait {
-    float: right;
     width: 148px;
     height: 148px;
-    margin: 2px 0 12px 24px;
+    margin: 0 0 14px;
     border-radius: 50%;
     border: 1px solid var(--rule);
     box-shadow: 0 2px 10px var(--elevate);
@@ -142,7 +152,7 @@ p { margin: 0 0 12px; }
 }
 .head img.portrait { object-fit: cover; }
 h1 {
-    font-size: 1.875rem;
+    font-size: 1.5rem;
     font-weight: normal;
     margin: 0 0 2px;
     letter-spacing: -0.01em;
@@ -150,40 +160,43 @@ h1 {
 h1 a { color: inherit; text-decoration: none; }
 h1 a:visited { color: inherit; }
 h1 a:hover { text-decoration: underline; }
-.head p { margin: 0; }
+.head p { margin: 0; font-size: 0.9375rem; }
 .head .role { color: var(--muted); }
-.head .links { margin-top: 12px; font-size: 0.9375rem; }
-.head .icons { margin-top: 9px; line-height: 1; }
-.head .icons a {
-    display: inline-block;
-    margin-right: 13px;
+.head .where { margin-top: 7px; }
+.head .mail { margin-top: 7px; overflow-wrap: break-word; }
+
+/* Every profile link carries its own visible label. An icon alone gives a text
+   browser or a translation tool no name to read, and the label also tells a
+   sighted reader where a link goes before they decide to follow it. */
+ul.profile {
+    list-style: none;
+    margin: 17px 0 0;
+    padding: 0;
+    font-size: 0.9375rem;
+}
+ul.profile li { margin-bottom: 7px; }
+ul.profile a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     color: var(--link);
     text-decoration: none;
 }
-.head .icons a:visited { color: var(--link); }
-.head .icons a:hover { color: var(--text); }
-.head .icons svg { width: 19px; height: 19px; display: block; }
+ul.profile a:visited { color: var(--link); }
+ul.profile a:hover { text-decoration: underline; }
+ul.profile svg { width: 17px; height: 17px; flex: none; }
 
-/* Real text inside each icon link, clipped from view but present in the document.
-   aria-label serves screen readers only; text browsers, translation tools and older
-   assistive technology read content. This covers all of them. */
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    /* The deprecated clip is kept for older engines; clip-path is the modern
-       form. Commas are the separator the grammar requires. */
-    clip: rect(0, 0, 0, 0);
-    clip-path: inset(50%);
-    white-space: nowrap;
-    border: 0;
+/* Below this width the two columns would squeeze the text measure, so the
+   identity block returns to the masthead it was: name beside a floated portrait,
+   profile links in a wrapping row. */
+@media (max-width: 52em) {
+    .shell { display: block; }
+    .head { overflow: hidden; }
+    .head .frame, .head img.portrait { float: right; margin: 2px 0 12px 24px; }
+    h1 { font-size: 1.875rem; }
+    ul.profile { display: flex; flex-wrap: wrap; gap: 5px 20px; margin-top: 14px; }
+    ul.profile li { margin-bottom: 0; }
 }
-.head.compact { margin-bottom: 22px; }
-.head.compact h1 { font-size: 1.375rem; }
-.head.compact .role { font-size: 0.9375rem; }
 @media (max-width: 30em) {
     .head .frame, .head img.portrait { float: none; margin: 0 0 14px; }
 }
@@ -425,19 +438,13 @@ main h2[id], main h3[id] { scroll-margin-top: 12px; }
         word-break: break-all;
     }
     h1 a[href^="/"]::after { content: ""; }
-    /* On paper an icon is unreadable, so the label that is hidden on screen is
-       revealed and the row becomes a legible list of profiles. */
-    .head .icons .visually-hidden {
-        position: static;
-        width: auto;
-        height: auto;
-        margin: 0;
-        overflow: visible;
-        clip: auto;
-        clip-path: none;
-    }
-    .head .icons svg { display: none; }
-    .head .icons a { display: block; margin: 0 0 2px; }
+    /* On paper the columns collapse and the icons carry nothing, so they go and
+       the labels alone make a legible list of profiles. */
+    .shell { display: block; }
+    .head { overflow: hidden; }
+    ul.profile svg { display: none; }
+    ul.profile a { display: block; }
+    ul.profile li { margin-bottom: 2px; }
     h2, h3 { page-break-after: avoid; }
     li, .course, blockquote { page-break-inside: avoid; }
     a.card { border: 1px solid #999999; }
