@@ -130,12 +130,6 @@ p { margin: 0 0 12px; }
     border-bottom: 2px solid transparent;
 }
 .topnav .links a:hover { border-bottom-color: var(--rule); }
-/* The CV leaves the site for a file rather than opening a page, so the link says so
-   in place of springing a download on the reader. */
-.topnav .links .ext {
-    font-size: 0.8125rem;
-    color: var(--faint);
-}
 /* The current page is named by a rule beneath it. Colour alone would carry the
    information for sighted readers only, and would also fight the link colour. */
 .topnav .here {
@@ -156,10 +150,23 @@ p { margin: 0 0 12px; }
 /* ---- Identity ---- */
 .head {
     overflow: hidden;
-    margin-bottom: 30px;
-    padding-bottom: 22px;
+    margin-bottom: 24px;
+    padding-bottom: 18px;
     border-bottom: 1px solid var(--rule);
 }
+/* The prose opens straight after the masthead, so the first block adds no heading's
+   worth of space on top of the space the masthead already leaves. */
+.head + .intro > p:first-child { margin-top: 0; }
+main > h1:first-child,
+main > .sechead:first-child > h1 { margin-top: 0; }
+
+/* A sub-page carries the name only, as a line that leads home. The photograph, the
+   role and the profile links belong on the front page and nowhere else. */
+.head.compact { margin-bottom: 20px; padding-bottom: 12px; }
+.head .who { font-size: 1.0625rem; }
+.head .who a { color: var(--text); text-decoration: none; }
+.head .who a:visited { color: var(--text); }
+.head .who a:hover { text-decoration: underline; }
 .head .portrait {
     float: right;
     width: 190px;
@@ -244,18 +251,18 @@ ul.profile svg { width: 21px; height: 21px; display: block; }
 }
 
 /* ---- Sections ---- */
-h2 {
+h2, main h1 {
     position: relative;
     font-size: 1.1875rem;
     font-weight: bold;
-    margin: 36px 0 12px;
+    margin: 30px 0 12px;
     padding-bottom: 5px;
     border-bottom: 1px solid var(--rule);
 }
 h3 { font-size: 1rem; font-weight: bold; margin: 22px 0 8px; }
 
 /* A short rule in the accent colour, sitting on the hairline under a heading. */
-h2::after, .sechead::after {
+h2::after, main h1::after, .sechead::after {
     content: "";
     position: absolute;
     left: 0;
@@ -281,7 +288,15 @@ h2::after, .sechead::after {
 }
 .sechead h2::after, .sechead h3::after { display: none; }
 .sechead .more { font-size: 0.875rem; white-space: nowrap; }
-h3.area { font-style: italic; font-weight: normal; color: var(--muted); }
+h2.area, h3.area {
+    font-style: italic;
+    font-weight: normal;
+    color: var(--muted);
+    border-bottom: 0;
+    padding-bottom: 0;
+    margin-top: 26px;
+}
+h2.area::after { display: none; }
 section { scroll-margin-top: 64px; }
 
 /* ---- Research cards, three across ---- */
