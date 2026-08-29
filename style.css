@@ -118,9 +118,24 @@ p { margin: 0 0 12px; }
     margin-bottom: 26px;
     border-bottom: 1px solid var(--rule);
 }
-.topnav .links { min-width: 0; }
-.topnav .sep { color: var(--faint); }
-.topnav .here { color: var(--muted); }
+.topnav .links {
+    min-width: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 19px;
+}
+.topnav .links a {
+    text-decoration: none;
+    padding: 3px 0;
+    border-bottom: 2px solid transparent;
+}
+.topnav .links a:hover { border-bottom-color: var(--rule); }
+/* The current page is named by a rule beneath it. Colour alone would carry the
+   information for sighted readers only, and would also fight the link colour. */
+.topnav .here {
+    color: var(--text);
+    border-bottom-color: var(--link);
+}
 /* The theme control is hidden until we know scripting is available. The inline
    head script stamps data-theme before first paint, so its presence is the hook,
    and a reader without JavaScript is never offered a button that cannot work. */
@@ -206,6 +221,56 @@ ul.profile svg { width: 17px; height: 17px; flex: none; }
 }
 @media (max-width: 30em) {
     .head .frame, .head img.portrait { float: none; margin: 0 0 14px; }
+}
+
+/* ---- News, as a scrollable panel ---- */
+/* The panel scrolls, so it must be reachable from the keyboard: without tabindex a
+   keyboard-only reader can see the overflow and has no way to move it. */
+.newsbox {
+    max-height: 20em;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+.newsbox:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 4px;
+}
+
+/* ---- Gallery ---- */
+ul.gallery {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    gap: 22px;
+}
+ul.gallery figure { margin: 0; }
+ul.gallery img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--rule);
+    background: var(--panel);
+}
+ul.gallery figcaption {
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 0.9375rem;
+}
+
+/* A note to Waquar, deliberately visible rather than an HTML comment, so it cannot
+   be forgotten in the source. Delete the paragraph once the grid has photographs. */
+.todo {
+    border-left: 3px solid var(--link);
+    background: var(--panel);
+    padding: 12px 14px;
+    margin: 0 0 22px;
+    font-size: 0.9375rem;
+}
+.todo code {
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: 0.875em;
 }
 
 /* ---- Movement ---- */
@@ -466,6 +531,8 @@ main h2[id], main h3[id] { scroll-margin-top: 64px; }
     .shell { display: block; }
     .head { overflow: hidden; }
     .reveal { opacity: 1 !important; transform: none !important; }
+    .newsbox { max-height: none; overflow: visible; }
+    ul.gallery { grid-template-columns: repeat(2, 1fr); }
     ul.profile svg { display: none; }
     ul.profile a { display: block; }
     ul.profile li { margin-bottom: 2px; }
