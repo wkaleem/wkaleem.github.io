@@ -222,7 +222,6 @@ h1 a:hover { text-decoration: underline; }
 .head p { margin: 0; }
 .head .role { color: var(--muted); }
 .head .where { margin-top: 8px; }
-.head .mail { margin-top: 4px; overflow-wrap: break-word; }
 
 /* A row rather than a column, now that the identity block runs the page width. */
 ul.profile {
