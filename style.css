@@ -265,6 +265,14 @@ ul.gallery figcaption {
     color: var(--muted);
     font-size: 0.9375rem;
 }
+/* Photographs vary between portrait and landscape. A fixed aspect keeps the grid
+   from going ragged, and the subject is centred rather than cropped from the top. */
+ul.gallery img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
+}
+ul.gallery + h3 { margin-top: 34px; }
 
 /* A note to Waquar, deliberately visible rather than an HTML comment, so it cannot
    be forgotten in the source. Delete the paragraph once the grid has photographs. */
