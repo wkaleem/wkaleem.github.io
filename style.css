@@ -259,6 +259,25 @@ ul.profile svg { width: 21px; height: 21px; display: block; }
     }
 }
 
+/* ---- Research band ---- */
+/* One photograph at the head of each research page, chosen because it is about that
+   research rather than to decorate it. Nothing sits on top of it, so no text depends
+   on its colours. Hidden on paper, where it would take half a page. */
+.band {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1200 / 340;
+    object-fit: cover;
+    margin: 0 0 22px;
+    border-radius: 3px;
+    border: 1px solid var(--rule);
+}
+.band + h1 { margin-top: 0; }
+@media (max-width: 35em) {
+    .band { aspect-ratio: 3 / 2; margin-bottom: 18px; }
+}
+
 /* ---- Sections ---- */
 h2, main h1 {
     position: relative;
@@ -493,6 +512,7 @@ main h2[id], main h3[id] { scroll-margin-top: 64px; }
         --panel: #ffffff;
     }
     body { max-width: none; font-size: 11pt; padding: 0; }
+    .band { display: none; }
     .topnav, .skip, .pager, .back, .card-more { display: none; }
     a { text-decoration: none; }
     /* On paper an icon is unreadable, so the hidden name is revealed and the row
