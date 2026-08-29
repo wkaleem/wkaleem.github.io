@@ -148,22 +148,43 @@ p { margin: 0 0 12px; }
 .topnav .right { display: none; margin-left: auto; }
 :root[data-theme] .topnav .right { display: block; }
 
-/* ---- Banner ---- */
-/* One photograph across the top of the home page. Decorative, so its alt is empty:
-   it carries nothing a reader would otherwise miss, and announcing it would only get
-   in the way. Hidden on paper, where it would waste half a page. */
-.banner {
+/* ---- Filmstrip ---- */
+/* Photographs at their own proportions, scrolling sideways: a person's work and
+   surroundings shown whole rather than cropped square into a grid. It always
+   overflows, so it carries a tabindex and a label; a region that scrolls and cannot
+   be focused is unreachable from the keyboard. */
+.filmwrap { margin: 0 0 30px; }
+.filmstrip {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 10px;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+}
+.filmstrip:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 4px;
+}
+.filmstrip li { flex: none; }
+.filmstrip img {
     display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 3;
-    object-fit: cover;
-    margin: 0 0 30px;
+    height: 260px;
+    width: auto;
     border-radius: 3px;
     border: 1px solid var(--rule);
+    scroll-snap-align: start;
+}
+.filmmore {
+    margin: 0;
+    text-align: right;
+    font-size: 0.875rem;
 }
 @media (max-width: 35em) {
-    .banner { aspect-ratio: 16 / 5; margin-bottom: 22px; }
+    .filmstrip img { height: 190px; }
+    .filmwrap { margin-bottom: 24px; }
 }
 
 /* ---- Shell ---- */
@@ -551,7 +572,7 @@ main h2[id], main h3[id] { scroll-margin-top: 64px; }
         --panel: #ffffff;
     }
     body { max-width: none; font-size: 11pt; padding: 0; }
-    .banner { display: none; }
+    .filmwrap { display: none; }
     .topnav, .skip, .pager, .back, .card-more { display: none; }
     a { text-decoration: none; }
     a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9pt; word-break: break-all; }
