@@ -228,19 +228,19 @@ ul.profile svg { width: 17px; height: 17px; flex: none; }
    down. Because it scrolls it must be reachable from the keyboard, so site.js gives
    it a tabindex, but only when it really does overflow: a panel that fits should not
    be a pointless tab stop. */
+/* Tall enough to carry the recent entries and the strongest awards before the fade.
+   The panel is here to cap the length of the page, not to hide the best of the
+   record, and everything below the fold is one scroll away. */
 .scrollpanel {
-    max-height: 20em;
+    max-height: 25em;
     overflow-y: auto;
     padding-right: 10px;
 }
-/* Taller, so the honours list clears its strongest lines before the fade. The panel
-   is here to cap the length of the page, not to hide the best of the record. */
-#honors .scrollpanel { max-height: 25em; }
 .scrollpanel:focus-visible {
     outline: 2px solid var(--link);
     outline-offset: 4px;
 }
-#news, #honors { position: relative; }
+#news { position: relative; }
 /* A soft edge at the foot, so a reader can see the list continues rather than
    meeting a sentence that appears to stop mid-word. Added by site.js only when the
    panel overflows: a fade over a list that fits promises a continuation that is
