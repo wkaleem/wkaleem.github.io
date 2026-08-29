@@ -285,7 +285,10 @@ h2::after, main h1::after, .sechead::after {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    gap: 18px;
+    /* On a narrow screen the heading and its onward link cannot share a line, so
+       the link drops beneath rather than pushing the row past the column. */
+    flex-wrap: wrap;
+    gap: 2px 18px;
     margin: 36px 0 12px;
     padding-bottom: 5px;
     border-bottom: 1px solid var(--rule);
