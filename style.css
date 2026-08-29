@@ -274,6 +274,27 @@ ul.gallery img {
 }
 ul.gallery + h3 { margin-top: 34px; }
 
+/* A gap Waquar means to fill, drawn at the same size as a photograph so the grid
+   shows the shape of what is missing rather than closing over it. */
+.slot {
+    aspect-ratio: 4 / 3;
+    border: 1px dashed var(--faint);
+    border-radius: 3px;
+    background: var(--panel);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 14px 16px;
+}
+.slot p { margin: 0; }
+.slot .slot-what { color: var(--muted); font-size: 0.9375rem; }
+.slot .slot-file {
+    margin-top: 9px;
+    color: var(--faint);
+    font-size: 0.8125rem;
+}
+.slot code { font-family: ui-monospace, Menlo, Consolas, monospace; }
+
 /* A note to Waquar, deliberately visible rather than an HTML comment, so it cannot
    be forgotten in the source. Delete the paragraph once the grid has photographs. */
 .todo {
