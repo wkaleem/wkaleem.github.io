@@ -223,39 +223,6 @@ ul.profile svg { width: 17px; height: 17px; flex: none; }
     .head .frame, .head img.portrait { float: none; margin: 0 0 14px; }
 }
 
-/* ---- Scrollable panels ---- */
-/* A long standing list is kept in a panel so it cannot push the rest of the page
-   down. Because it scrolls it must be reachable from the keyboard, so site.js gives
-   it a tabindex, but only when it really does overflow: a panel that fits should not
-   be a pointless tab stop. */
-/* Tall enough to carry the recent entries and the strongest awards before the fade.
-   The panel is here to cap the length of the page, not to hide the best of the
-   record, and everything below the fold is one scroll away. */
-.scrollpanel {
-    max-height: 25em;
-    overflow-y: auto;
-    padding-right: 10px;
-}
-.scrollpanel:focus-visible {
-    outline: 2px solid var(--link);
-    outline-offset: 4px;
-}
-#news { position: relative; }
-/* A soft edge at the foot, so a reader can see the list continues rather than
-   meeting a sentence that appears to stop mid-word. Added by site.js only when the
-   panel overflows: a fade over a list that fits promises a continuation that is
-   not there. */
-.scrolls::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 10px;
-    bottom: 0;
-    height: 36px;
-    background: linear-gradient(to bottom, transparent, var(--bg));
-    pointer-events: none;
-}
-
 /* ---- Gallery ---- */
 ul.gallery {
     list-style: none;
@@ -551,8 +518,6 @@ main h2[id], main h3[id] { scroll-margin-top: 64px; }
     .shell { display: block; }
     .head { overflow: hidden; }
     .reveal { opacity: 1 !important; transform: none !important; }
-    .scrollpanel { max-height: none; overflow: visible; }
-    .scrolls::after { display: none; }
     ul.gallery { grid-template-columns: repeat(2, 1fr); }
     ul.profile svg { display: none; }
     ul.profile a { display: block; }
