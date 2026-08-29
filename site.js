@@ -69,3 +69,27 @@
     }, { rootMargin: "0px 0px -8% 0px" });
     for (var k = 0; k < waiting.length; k++) watcher.observe(waiting[k]);
 })();
+
+/* A panel is marked as scrolling only when its content actually overflows, which
+   depends on the reader's font size as much as on how many entries there are.
+   Re-checked on resize for the same reason. */
+(function () {
+    var panels = document.querySelectorAll(".scrollpanel");
+    if (!panels.length) return;
+    function check() {
+        for (var i = 0; i < panels.length; i++) {
+            var box = panels[i];
+            var section = box.closest ? box.closest("section") : box.parentNode;
+            var over = box.scrollHeight > box.clientHeight + 1;
+            if (section) section.classList.toggle("scrolls", over);
+            /* Only a panel that can actually scroll earns a place in the tab order. */
+            if (over) {
+                box.setAttribute("tabindex", "0");
+            } else {
+                box.removeAttribute("tabindex");
+            }
+        }
+    }
+    check();
+    window.addEventListener("resize", check);
+})();
