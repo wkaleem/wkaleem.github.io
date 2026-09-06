@@ -633,5 +633,5 @@ section#research { margin-top: 44px; }
 .course .when { margin-left: 0; }
 
 /* A heading without the hairline and accent rule beneath it. */
-main h1.norule { border-bottom: 0; padding-bottom: 0; margin-bottom: 14px; }
-main h1.norule::after { display: none; }
+main h1.norule, main h2.norule { border-bottom: 0; padding-bottom: 0; margin-bottom: 14px; }
+main h1.norule::after, main h2.norule::after { display: none; }
