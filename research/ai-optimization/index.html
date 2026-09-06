@@ -55,11 +55,11 @@
 
     <div class="dir">
     <div>
-        <p><span class="label">The challenge:</span> The cost of a strategic decision, such as opening a depot, is the optimal value of an NP-hard routing problem repeated across an astronomical number of designs. Current methods approximate it with closed-form formulas that offer no bound on the error.</p>
+        <p><span class="label">The challenge:</span> The cost of a strategic decision is the optimal value of an NP-hard routing problem, repeated across every candidate design; current methods approximate it with formulas that offer no bound on the error.</p>
         <p><span class="label">My approach:</span> I integrate machine learning, which learns the operational cost a strategic decision induces, with classical algorithms for mixed-integer optimization: the trained network is represented exactly within the program by additional variables and constraints, and the program is solved exactly.</p>
         <p><span class="label">Key contributions:</span></p>
         <ul class="plain">
-            <li>Neural surrogates of routing cost represented exactly within the location-allocation model: within several percent of the best known solutions, over an order of magnitude faster than existing heuristics (<a href="https://doi.org/10.21872/2024iise_6627">IISE 2024</a>, Best Paper Award; <a href="https://openreview.net/forum?id=WCILzWMXq9">NeurIPS DLCA Workshop 2025</a>; <a href="https://arxiv.org/abs/2412.05665">under review at Transportation Research Part E</a>).</li>
+            <li>Neural surrogates of routing cost represented exactly within the location-allocation model: within several percent of the best known solutions, over an order of magnitude faster than heuristics (<a href="https://doi.org/10.21872/2024iise_6627">IISE 2024</a>, Best Paper Award; <a href="https://openreview.net/forum?id=WCILzWMXq9">NeurIPS DLCA Workshop 2025</a>; <a href="https://arxiv.org/abs/2412.05665">under review at Transportation Research Part E</a>).</li>
             <li>One trained model for any number of customers and depots and any solver, transferred without retraining to multi-depot, two-echelon and periodic routing (working paper).</li>
             <li>A unified estimator of routing cost across five variants, with out-of-sample errors two- to fifteen-fold smaller than the best closed-form approximations (submitted, 2026).</li>
             <li>Order assignment over realized rather than planned travel times, cutting late deliveries threefold on public food-delivery data (<a href="https://www.mixedinteger.org/2026/posters.html">MIP Workshop 2026</a>).</li>
@@ -84,7 +84,7 @@
         </ul>
 
     <h2>Research impact</h2>
-    <p>Learned models inside exact mixed-integer programs give planners data-driven costs without giving up exact optimization, and open the way to surrogates with provable bounds and to foundation models of routing cost.</p>
+    <p>Learned models inside exact mixed-integer programs give planners data-driven costs without giving up exact optimization, and point to surrogates with provable bounds and to foundation models of routing cost.</p>
 
     <nav class="pager" aria-label="Research thrusts">
         <a class="prev" href="/research/exascale-gpu/"><span class="dir">&larr; previous</span><span class="what">Optimizing complex systems on exascale and GPU platforms</span></a>
