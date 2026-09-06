@@ -166,7 +166,6 @@ p { margin: 0 0 12px; }
     overflow: hidden;
     margin-bottom: 24px;
     padding-bottom: 18px;
-    border-bottom: 1px solid var(--rule);
 }
 /* The prose opens straight after the masthead, so the first block adds no heading's
    worth of space on top of the space the masthead already leaves. */
