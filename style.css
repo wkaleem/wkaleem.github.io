@@ -639,3 +639,8 @@ main h1.norule::after, main h2.norule::after { display: none; }
 /* ---- Talks: one entry per presentation, grouped by year ---- */
 ul.talks + h3 { margin-top: 30px; }
 ul.talks li { margin-bottom: 14px; }
+
+/* ---- Teaching: numbered entries with room between them ---- */
+ol.entries { list-style: decimal; margin: 0; padding-left: 1.7em; }
+ol.entries > li { margin-bottom: 24px; padding-left: 0.3em; }
+ol.entries > li::marker { color: var(--faint); font-size: 0.9375rem; }
