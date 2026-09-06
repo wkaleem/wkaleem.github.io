@@ -55,16 +55,16 @@
 
     <div class="dir">
     <div>
-        <p><span class="label">The challenge:</span> GPUs, AI accelerators and multi-node supercomputers make previously inconceivable problems reachable, but branch-and-bound, local search and decomposition were engineered for CPUs: a metropolitan-scale siting model cannot even be loaded in the memory of a solver, and attempts to run primal heuristics on GPUs have so far been rather disappointing.</p>
-        <p><span class="label">My approach:</span> I re-design classical algorithms for discrete optimization for these platforms, as decomposition that runs across the partitions of a supercomputer and as search that is native to the GPU rather than a port of a CPU method.</p>
+        <p><span class="label">The challenge:</span> GPUs, AI accelerators and multi-node supercomputers make previously inconceivable problems reachable, but branch-and-bound, local search and decomposition were engineered for CPUs: a metropolitan-scale siting model cannot even be loaded in a solver&rsquo;s memory.</p>
+        <p><span class="label">My approach:</span> I re-design classical algorithms for discrete optimization for these platforms: decomposition across the partitions of a supercomputer, and search native to the GPU rather than a port of a CPU method.</p>
         <p><span class="label">Key contributions:</span></p>
         <ul class="plain">
-            <li>A Lagrangian dual decomposition across 680 CPU cores on partitions that cannot communicate, solving a Chicago instance with nearly half a million households and two thousand candidate stations, a size never addressed in the literature (<a href="https://doi.org/10.1016/j.trb.2026.103403">Transportation Research Part B, 2026</a>).</li>
-            <li>A primal heuristic native to the GPU that enumerates all 2<sup>k</sup> fixings of k integer variables at once, one per thread, with no CPU counterpart; as many feasible solutions as an open-source solver within five minutes and better ones on a quarter of the instances (working paper).</li>
-            <li>Railcar blocking by GPU-accelerated neighborhood search, pricing more than half a million candidate moves in less time than one conventional evaluation (ongoing).</li>
-            <li>Scheduling of decomposition subproblems across partitions that cannot communicate (ongoing), and accepted contributions to NVIDIA&rsquo;s <a href="https://github.com/jump-dev/cuOpt.jl">cuOpt.jl</a> and to <a href="https://github.com/inria-UFF/VRPSolverEasy">VRPSolverEasy</a>.</li>
+            <li>Lagrangian dual decomposition across 680 CPU cores on partitions that cannot communicate, solving Chicago with nearly half a million households and two thousand candidate stations (<a href="https://doi.org/10.1016/j.trb.2026.103403">Transportation Research Part B 2026</a>).</li>
+            <li>A GPU-native primal heuristic that enumerates all 2<sup>k</sup> fixings of k integer variables at once, one per thread, with no CPU counterpart; as many feasible solutions as an open-source solver, better on a quarter of the instances (working paper).</li>
+            <li>Railcar blocking by GPU-accelerated neighborhood search, pricing over half a million candidate moves in less time than one conventional evaluation (ongoing).</li>
+            <li>Accepted contributions to NVIDIA&rsquo;s <a href="https://github.com/jump-dev/cuOpt.jl">cuOpt.jl</a> and to <a href="https://github.com/inria-UFF/VRPSolverEasy">VRPSolverEasy</a>.</li>
         </ul>
-        <p><span class="label">Impact:</span> Models that no single solver can load are solved on the machines the DOE already runs, and search reaches where ports of CPU algorithms do not.</p>
+        <p><span class="label">Impact:</span> Models that no single solver can load are solved on the machines the DOE already runs.</p>
     </div>
     <div>
         <figure>
@@ -105,7 +105,7 @@
         </ul>
 
     <h2>Research impact</h2>
-    <p>Decomposition that scales across an exascale machine and search that is native to the GPU make national-scale freight infrastructure planning and real-time routing on a single GPU concrete targets rather than aspirations.</p>
+    <p>Decomposition that scales across an exascale machine and search native to the GPU make national-scale freight planning and real-time routing on a single GPU concrete targets.</p>
 
     <nav class="pager" aria-label="Research thrusts">
         <a class="prev" href="/research/sequential-decisions/"><span class="dir">&larr; previous</span><span class="what">Sequential decisions in critical infrastructure under uncertainty</span></a>
