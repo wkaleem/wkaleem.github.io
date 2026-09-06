@@ -75,24 +75,3 @@
     for (var k = 0; k < waiting.length; k++) watcher.observe(waiting[k]);
 })();
 
-
-/* A film is only fetched from YouTube when a reader asks for it. Until the button is
-   pressed the page has made no third-party request at all, which is the whole point
-   of drawing the panel ourselves. nocookie is used for the same reason. */
-(function () {
-    var buttons = document.querySelectorAll(".film-play");
-    for (var i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener("click", function () {
-            var id = this.getAttribute("data-id");
-            if (!id) return;
-            var frame = document.createElement("iframe");
-            frame.src = "https://www.youtube-nocookie.com/embed/" + id +
-                "?autoplay=1&rel=0";
-            frame.title = this.getAttribute("aria-label") || "Film";
-            frame.allow = "accelerometer; autoplay; encrypted-media; picture-in-picture";
-            frame.referrerPolicy = "strict-origin-when-cross-origin";
-            frame.allowFullscreen = true;
-            this.parentNode.replaceChild(frame, this);
-        });
-    }
-})();
