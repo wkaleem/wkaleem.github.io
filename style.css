@@ -631,3 +631,7 @@ section#research { margin-top: 44px; }
 /* ---- Teaching: descriptions indented under the course line ---- */
 .course p:not(.what) { margin: 4px 0 0 1.4em; }
 .course .when { margin-left: 0; }
+
+/* A heading without the hairline and accent rule beneath it. */
+main h1.norule { border-bottom: 0; padding-bottom: 0; margin-bottom: 14px; }
+main h1.norule::after { display: none; }
