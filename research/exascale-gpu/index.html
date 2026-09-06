@@ -86,8 +86,8 @@
         <p><span class="label">Key contributions:</span></p>
         <ul class="plain">
             <li>I formulate the siting of charging for electric delivery fleets as an extreme-scale problem and develop a Lagrangian dual decomposition that exploits parallelism across 680 CPU cores, solving Chicago with nearly half a million households and two thousand candidate stations (<a href="https://doi.org/10.1016/j.trb.2026.103403">Transportation Research Part B 2026</a>).</li>
-            <li>With a collaborator at the University of Florida, I replace classical diving with a simultaneous enumeration of all 2<sup>k</sup> fixings on the GPU, one per thread, which has no CPU counterpart and matches an open-source solver on feasible solutions (working paper).</li>
-            <li>In ongoing work, I develop a very large-scale neighborhood search for railcar blocking that prices over half a million candidate moves exactly on the GPU in less time than one conventional evaluation.</li>
+            <li>With a collaborator at the University of Florida, I am developing primal heuristics native to the GPU, with no CPU counterpart, that match an open-source solver on feasible solutions (working paper).</li>
+            <li>In ongoing work, I develop a GPU-accelerated neighborhood search for railcar blocking that evaluates hundreds of thousands of candidate moves in the time of one conventional evaluation.</li>
             <li>I have contributed, with accepted pull requests, to NVIDIA&rsquo;s <a href="https://github.com/jump-dev/cuOpt.jl">cuOpt.jl</a> and to <a href="https://github.com/inria-UFF/VRPSolverEasy">VRPSolverEasy</a>.</li>
         </ul>
         <p><span class="label">Impact:</span> Models that no single solver can load are solved on the machines the DOE already runs, and search reaches where ports of CPU algorithms do not.</p>
@@ -96,7 +96,6 @@
     <h2>Selected publications</h2>
         <ul class="plain">
             <li><span class="venue">Extreme-scale EV charging infrastructure planning for last-mile delivery using high-performance parallel computing.</span> with T. Cokyasar, J. Larson, O. Verbas, T. H. Bhuiyan, A. Subramanyam. Transportation Research Part B, 2026 [<a href="https://doi.org/10.1016/j.trb.2026.103403">doi</a>].</li>
-            <li><span class="venue">An embarrassingly parallel probe, dive, and propagate heuristic on GPU for mixed-integer programming.</span> with A. M. Kazachkov, A. Subramanyam. Working paper.</li>
             <li>Contributor, with accepted pull requests, to <a href="https://github.com/jump-dev/cuOpt.jl">cuOpt.jl</a>, a Julia interface to the NVIDIA cuOpt solver, and <a href="https://github.com/inria-UFF/VRPSolverEasy">VRPSolverEasy</a>, a branch-cut-and-price exact solver for vehicle routing problems.</li>
         </ul>
 

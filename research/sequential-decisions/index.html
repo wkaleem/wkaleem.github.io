@@ -83,16 +83,16 @@
     <circle cx="262" cy="78" r="3.6"/>
   </g>
 </svg></div>
-            <figcaption><span class="label">Policies in sequence.</span> Each stage is an exact mixed-integer program; only the future is approximated, by value functions learned from its dual solutions or by lookaheads over ambiguity sets that depend on the decision.</figcaption>
+            <figcaption><span class="label">Policies in sequence.</span> Each stage is an exact mixed-integer program; only the future is approximated, by learned value functions or by lookaheads over decision-dependent uncertainty.</figcaption>
         </figure>
         <p><span class="label">The challenge:</span> Critical infrastructure is planned for demands unknown in advance, through decisions from the dispatch of a truck within the hour to the siting of stations for decades. Perhaps surprisingly, current methods assume the uncertainties exogenous, although the decisions themselves change them.</p>
         <p><span class="label">My approach:</span> My central premise is to model such a problem once, by state, decision, exogenous information, transition and objective, and to design policies that keep each stage an exact mixed-integer program yet approximate only the future, while ensuring that they are rigorous, scalable and interpretable.</p>
         <p><span class="label">Key contributions:</span></p>
         <ul class="plain">
             <li>At the strategic level, I designed models for siting charging stations when the queues and link flows they serve depend on the siting decision; I exposit that multi-agency collaboration nearly halves the cost of single-agency plans (<a href="https://doi.org/10.1016/j.trb.2026.103403">Transportation Research Part B 2026</a>).</li>
-            <li>For long-distance trips, my model hedges against all distributions in a Wasserstein ball that depends on the siting decisions, and the reformulation remains a mixed-integer linear program (in preparation).</li>
-            <li>At the operational level, I teamed up with Mitsubishi Electric Research Laboratories to schedule depot charging across two time scales with the physics of the state of charge; the method is filed as a joint patent (U.S. Patent and Trademark Office, 2026).</li>
-            <li>At the real-time level, I designed a market-clearing policy for truckload spot markets whose value function is learned online from the clearing&rsquo;s dual solutions; it raises the market surplus by two-thirds over myopic clearing (submitted to TRB 2027).</li>
+            <li>For long-distance trips, I am extending the siting model to flows that are uncertain and depend on the decision (in preparation).</li>
+            <li>At the operational level, I teamed up with Mitsubishi Electric Research Laboratories to schedule depot charging under rich infrastructure and operational constraints; the method is filed as a joint patent (U.S. Patent and Trademark Office, 2026).</li>
+            <li>At the real-time level, I designed a market-clearing policy for truckload spot markets that learns from the market as it runs; it raises the market surplus by two-thirds over myopic clearing (submitted to TRB 2027).</li>
         </ul>
         <p><span class="label">Impact:</span> Practically, the policies are ones an operator can run: the stage decision is exact, the constraints hold, and the prices are dual solutions of the same program.</p>
     </div>
@@ -101,7 +101,6 @@
         <ul class="plain">
             <li><span class="venue">Extreme-scale EV charging infrastructure planning for last-mile delivery using high-performance parallel computing.</span> with T. Cokyasar, J. Larson, O. Verbas, T. H. Bhuiyan, A. Subramanyam. Transportation Research Part B, 2026 [<a href="https://doi.org/10.1016/j.trb.2026.103403">doi</a>].</li>
             <li><span class="venue">Approximate dynamic programming for matching, scheduling, and pricing in truckload freight markets.</span> with T. Cokyasar, A. Ismael, O. Sahin, H. Uhm. Submitted to the Transportation Research Board Annual Meeting, 2027.</li>
-            <li><span class="venue">Generating practically implementable EV charging schedules at depots with rich infrastructure and operational constraints.</span> with A. Subramanyam, A. U. Raghunathan. Working paper.</li>
             <li><span class="venue">Systems and methods for multi-timescale scheduling and control of energy charging infrastructure.</span> with A. U. Raghunathan. Patent filed with the United States Patent and Trademark Office, 2026, jointly with Mitsubishi Electric Research Laboratories.</li>
         </ul>
 
