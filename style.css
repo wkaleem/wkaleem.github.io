@@ -613,7 +613,7 @@ footer {
 /* ---- Research direction pages: figures beside the text, captions beneath ---- */
 .dir {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 2fr;
     gap: 26px;
     align-items: start;
     margin: 10px 0 6px;
