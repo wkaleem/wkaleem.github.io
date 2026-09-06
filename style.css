@@ -411,6 +411,13 @@ a.card .card-text {
     color: var(--muted);
     line-height: 1.45;
 }
+a.card .card-tags {
+    display: block;
+    margin: 0 0 7px;
+    font-size: 0.8125rem;
+    color: var(--faint);
+    letter-spacing: 0.01em;
+}
 a.card .card-more {
     display: block;
     margin-top: auto;
@@ -459,7 +466,15 @@ ul.plain li { margin-bottom: 12px; }
 /* ---- Talks, teaching, news ---- */
 ul.talks { list-style: none; margin: 0; padding: 0; }
 ul.talks li { margin-bottom: 12px; }
-ul.talks .where { display: block; color: var(--muted); font-size: 0.9375rem; }
+ul.talks .where {
+    display: block;
+    color: var(--muted);
+    font-size: 0.9375rem;
+    /* Venues sit indented under the title of the work, with a dash as their marker. */
+    padding-left: 1.4em;
+    text-indent: -1.1em;
+}
+ul.talks .where::before { content: "\2013\00a0\00a0"; color: var(--faint); }
 /* Degrees, positions and courses are parallel entries, so they are a list. The
    marker and indent are removed; only the semantics are wanted. */
 ul.entries { list-style: none; margin: 0; padding: 0; }
