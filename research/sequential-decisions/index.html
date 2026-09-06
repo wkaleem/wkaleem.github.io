@@ -54,19 +54,6 @@
     <h1>Sequential decisions in critical infrastructure under uncertainty</h1>
 
     <div class="dir">
-    <div>
-        <p><span class="label">The challenge:</span> Critical infrastructure is planned for demands unknown in advance, through decisions from a truck&rsquo;s dispatch within the hour to a station&rsquo;s siting for decades, and the decisions themselves change uncertainties that current methods assume exogenous.</p>
-        <p><span class="label">My approach:</span> I model such a problem once, by state, decision, exogenous information, transition and objective, and design policies that keep each stage an exact mixed-integer program yet approximate only the future, by value functions learned from dual solutions or by lookaheads over decision-dependent ambiguity sets.</p>
-        <p><span class="label">Key contributions:</span></p>
-        <ul class="plain">
-            <li>Siting charging stations under congestion, with queues and link flows that depend on the siting decision; multi-agency collaboration nearly halves the cost of single-agency plans (<a href="https://doi.org/10.1016/j.trb.2026.103403">Transportation Research Part B 2026</a>).</li>
-            <li>Distributionally robust siting for long-distance travel, with a Wasserstein ambiguity set that depends on the siting decisions and a reformulation that stays a mixed-integer linear program (in preparation).</li>
-            <li>Depot charging schedules across two time scales, with the physics of the state of charge inside the program; filed as a joint patent with Mitsubishi Electric Research Laboratories (U.S. Patent and Trademark Office, 2026).</li>
-            <li>A market-clearing policy for truckload spot markets whose value function is learned online from the clearing&rsquo;s dual solutions, raising the market surplus by two-thirds over myopic clearing (submitted to TRB 2027).</li>
-        </ul>
-        <p><span class="label">Impact:</span> Policies an operator can run as they are: the stage decision is exact, the constraints hold, and the prices are dual solutions of the same program.</p>
-    </div>
-    <div>
         <figure>
             <div class="frame"><svg class="fig" viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Decisions taken in sequence over time, each followed by the next">
   <g stroke="currentColor" stroke-width="1.1" fill="none" opacity="0.5">
@@ -98,7 +85,16 @@
 </svg></div>
             <figcaption><span class="label">Policies in sequence.</span> Each stage is an exact mixed-integer program; only the future is approximated, by value functions learned from its dual solutions or by lookaheads over ambiguity sets that depend on the decision.</figcaption>
         </figure>
-    </div>
+        <p><span class="label">The challenge:</span> Critical infrastructure is planned for demands unknown in advance, through decisions from the dispatch of a truck within the hour to the siting of stations for decades. Perhaps surprisingly, current methods assume the uncertainties exogenous, although the decisions themselves change them.</p>
+        <p><span class="label">My approach:</span> My central premise is to model such a problem once, by state, decision, exogenous information, transition and objective, and to design policies that keep each stage an exact mixed-integer program yet approximate only the future, while ensuring that they are rigorous, scalable and interpretable.</p>
+        <p><span class="label">Key contributions:</span></p>
+        <ul class="plain">
+            <li>At the strategic level, I designed models for siting charging stations when the queues and link flows they serve depend on the siting decision; I exposit that multi-agency collaboration nearly halves the cost of single-agency plans (<a href="https://doi.org/10.1016/j.trb.2026.103403">Transportation Research Part B 2026</a>).</li>
+            <li>For long-distance trips, my model hedges against all distributions in a Wasserstein ball that depends on the siting decisions, and the reformulation remains a mixed-integer linear program (in preparation).</li>
+            <li>At the operational level, I teamed up with Mitsubishi Electric Research Laboratories to schedule depot charging across two time scales with the physics of the state of charge; the method is filed as a joint patent (U.S. Patent and Trademark Office, 2026).</li>
+            <li>At the real-time level, I designed a market-clearing policy for truckload spot markets whose value function is learned online from the clearing&rsquo;s dual solutions; it raises the market surplus by two-thirds over myopic clearing (submitted to TRB 2027).</li>
+        </ul>
+        <p><span class="label">Impact:</span> Practically, the policies are ones an operator can run: the stage decision is exact, the constraints hold, and the prices are dual solutions of the same program.</p>
     </div>
 
     <h2>Selected publications</h2>
@@ -110,7 +106,7 @@
         </ul>
 
     <h2>Research impact</h2>
-    <p>One framework compares plans, rules and scenario programs as policies of the same problem, and extends from charging networks and freight markets to energy networks and oil and gas fields.</p>
+    <p>I see future work along several directions: energy delivery networks and oil and gas fields developed in sequence, and a tractable theory of multi-stage optimization under decision-dependent uncertainty.</p>
 
     <nav class="pager" aria-label="Research thrusts">
         <a class="prev" href="/research/ai-optimization/"><span class="dir">&larr; previous</span><span class="what">AI-integrated discrete optimization in freight and logistics</span></a>
@@ -120,12 +116,6 @@
 
     </main>
     </div>
-
-    <footer>
-        <a href="mailto:wzk5140@psu.edu">wzk5140@psu.edu</a> &middot;
-        Curriculum vitae [<a href="/Waquar_Kaleem_CV.pdf">pdf</a>].<span id="updated"></span>
-    </footer>
-
     <script src="/site.js"></script>
 
 </body>

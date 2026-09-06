@@ -611,15 +611,11 @@ footer {
 }
 
 /* ---- Research direction pages: figures beside the text, captions beneath ---- */
-.dir {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 26px;
-    align-items: start;
-    margin: 10px 0 6px;
-}
-@media (max-width: 46em) { .dir { grid-template-columns: 1fr; } }
-.dir figure { margin: 0 0 18px; }
+.dir { display: block; margin: 10px 0 6px; }
+.dir::after { content: ""; display: table; clear: both; }
+/* The figure sits at the top right and the text wraps beneath it, so no column is left empty. */
+.dir figure { float: right; width: 40%; margin: 4px 0 14px 26px; }
+@media (max-width: 46em) { .dir figure { float: none; width: 100%; margin: 0 0 18px; } }
 .dir figure .frame {
     border: 1px solid var(--rule);
     background: var(--panel);
@@ -629,3 +625,10 @@ footer {
 .dir figcaption { margin-top: 8px; color: var(--muted); font-size: 0.875rem; line-height: 1.5; }
 .dir .label { font-weight: bold; }
 .dir ul.plain li { margin-bottom: 9px; }
+
+/* ---- Home: air above the research overview ---- */
+section#research { margin-top: 44px; }
+
+/* ---- Teaching: descriptions indented under the course line ---- */
+.course p:not(.what) { margin: 4px 0 0 1.4em; }
+.course .when { margin-left: 0; }
