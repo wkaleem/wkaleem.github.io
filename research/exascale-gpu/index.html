@@ -55,7 +55,7 @@
 
     <div class="dir">
         <figure>
-            <div class="frame">            <div class="frame"><svg class="fig" viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Threads on a GPU beside partitions of a supercomputer">
+            <div class="frame">            <div class="frame">            <div class="frame"><svg class="fig" viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Threads on a GPU beside partitions of a supercomputer">
   <g fill="currentColor" opacity="0.8">
     <rect x="30" y="34" width="10" height="10"/><rect x="48" y="34" width="10" height="10"/><rect x="66" y="34" width="10" height="10"/><rect x="84" y="34" width="10" height="10"/><rect x="102" y="34" width="10" height="10"/><rect x="120" y="34" width="10" height="10"/>
     <rect x="30" y="52" width="10" height="10"/><rect x="48" y="52" width="10" height="10"/><rect x="66" y="52" width="10" height="10"/><rect x="84" y="52" width="10" height="10"/><rect x="102" y="52" width="10" height="10"/><rect x="120" y="52" width="10" height="10"/>
@@ -78,19 +78,19 @@
     <circle cx="212" cy="71" r="2.6"/><circle cx="226" cy="71" r="2.6"/><circle cx="240" cy="71" r="2.6"/>
     <circle cx="212" cy="101" r="2.6"/><circle cx="226" cy="101" r="2.6"/><circle cx="240" cy="101" r="2.6"/><circle cx="254" cy="101" r="2.6"/><circle cx="268" cy="101" r="2.6"/>
   </g>
-</svg></div></div>
-            <figcaption><span class="label">Two ends of the machine.</span> Independent dives on the threads of a GPU, and subproblems spread across partitions of a supercomputer that cannot talk to one another.</figcaption>
+</svg></div></div></div>
+            <figcaption><span class="label">Two ends of the platform.</span> Independent dives on the threads of a GPU, and decomposition subproblems across partitions of a supercomputer that cannot communicate.</figcaption>
         </figure>
-        <p><span class="label">The challenge:</span> GPUs and supercomputers can take on problems that were out of reach, but the standard algorithms of discrete optimization were written for CPUs. A siting model for a whole metropolitan area cannot even be loaded into a solver&rsquo;s memory.</p>
-        <p><span class="label">My approach:</span> I rewrite those algorithms for the new machines. Decomposition runs across the partitions of a supercomputer, and search runs on a GPU as a method built for it rather than a port from a CPU.</p>
+        <p><span class="label">The challenge:</span> The growth of powerful computing paradigms, including GPUs, AI accelerators and heterogeneous multi-node supercomputers, is a unique opportunity to tackle previously inconceivable problems. But it requires re-designing classical algorithms for discrete optimization, as branch-and-bound, local search and decomposition were all engineered for CPUs.</p>
+        <p><span class="label">My approach:</span> I re-design these algorithms so that they effectively exploit modern platforms: decomposition that runs across the partitions of a supercomputer that cannot communicate with one another, and search that is native to the GPU rather than a port of a CPU method.</p>
         <p><span class="label">Key contributions:</span></p>
         <ul class="plain">
-            <li>A decomposition across 680 CPU cores on partitions that cannot talk to one another. It solved a Chicago model with nearly half a million households and two thousand candidate stations, a size no one had solved before (<a href="https://doi.org/10.1016/j.trb.2026.103403">Transportation Research Part B 2026</a>).</li>
-            <li>Primal heuristics that only make sense on a GPU, with a collaborator at the University of Florida. They find feasible solutions on as many benchmark instances as an open-source solver (working paper).</li>
-            <li>A GPU neighborhood search for railcar blocking that evaluates hundreds of thousands of candidate moves in the time it used to take to evaluate one (ongoing).</li>
+            <li>Facility location under congestion at metropolitan scale: a Lagrangian dual decomposition that exploits parallelism across 680 CPU cores on heterogeneous partitions, solving an instance with nearly half a million households and two thousand candidate stations, a size never addressed in the literature (<a href="https://doi.org/10.1016/j.trb.2026.103403">Transportation Research Part B 2026</a>).</li>
+            <li>Primal heuristics native to the GPU, with no meaningful CPU counterpart, that find feasible solutions on as many competition instances as an open-source solver (working paper, with the University of Florida).</li>
+            <li>Railcar blocking by GPU-accelerated neighborhood search, evaluating hundreds of thousands of candidate moves in the time of one conventional evaluation (ongoing).</li>
             <li>Accepted contributions to NVIDIA&rsquo;s <a href="https://github.com/jump-dev/cuOpt.jl">cuOpt.jl</a> and to <a href="https://github.com/inria-UFF/VRPSolverEasy">VRPSolverEasy</a>.</li>
         </ul>
-        <p><span class="label">Impact:</span> Models that no solver can load are solved on the machines the DOE already runs.</p>
+        <p><span class="label">Impact:</span> Models that cannot even be loaded in the memory of a solver are solved on the leadership-class machines the DOE already operates.</p>
     </div>
 
     <h2>Selected publications</h2>
@@ -100,7 +100,7 @@
         </ul>
 
     <h2>Research impact</h2>
-    <p>Next are a GPU-native solver for vehicle routing released as open source, a single model of the national freight infrastructure on leadership-class supercomputers, and learned models and integer decisions optimized together on one device.</p>
+    <p>In the future, I see at least three more promising directions: a GPU-native solver for vehicle routing released as open-source software, the freight infrastructure of a nation planned in one model on leadership-class supercomputers, and optimizing over learned models and integer decisions end to end on a single device.</p>
 
     <nav class="pager" aria-label="Research thrusts">
         <a class="prev" href="/research/sequential-decisions/"><span class="dir">&larr; previous</span><span class="what">Sequential decisions in critical infrastructure under uncertainty</span></a>

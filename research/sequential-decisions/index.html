@@ -55,7 +55,7 @@
 
     <div class="dir">
         <figure>
-            <div class="frame">            <div class="frame"><svg class="fig" viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Decisions taken in sequence over time, each followed by the next">
+            <div class="frame">            <div class="frame">            <div class="frame"><svg class="fig" viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Decisions taken in sequence over time, each followed by the next">
   <g stroke="currentColor" stroke-width="1.1" fill="none" opacity="0.5">
     <line x1="26" y1="126" x2="296" y2="126"/>
     <path d="M290 122 l6 4 l-6 4"/>
@@ -82,19 +82,19 @@
     <circle cx="214" cy="78" r="3.6"/><circle cx="262" cy="95" r="3.6"/>
     <circle cx="262" cy="78" r="3.6"/>
   </g>
-</svg></div></div>
-            <figcaption><span class="label">Decisions in sequence.</span> Each stage is solved exactly. Only what comes after is approximated.</figcaption>
+</svg></div></div></div>
+            <figcaption><span class="label">Policies in sequence.</span> The decision at any stage is an exact mixed-integer program. Only the future is approximated.</figcaption>
         </figure>
-        <p><span class="label">The challenge:</span> Charging stations are sited for decades and trucks are dispatched within the hour, and neither demand is known in advance. The decisions also change the uncertainty. Where stations are built decides which trips need charging. Current methods treat the uncertainty as given.</p>
-        <p><span class="label">My approach:</span> I write the whole sequence as one problem, with a state, a decision, new information, a transition and an objective. Then a plan, a rule of thumb and a scenario model are all policies for the same problem and can be compared. My policies solve each stage exactly and approximate only what comes after.</p>
+        <p><span class="label">The challenge:</span> Critical energy and transportation infrastructure is planned for demands that are unknown when it is planned, through sequences of decisions that range from the hour to the decade. The decisions themselves can actively influence these uncertainties, which current planning methods assume to be exogenous.</p>
+        <p><span class="label">My approach:</span> Current methods are either deterministic plans, redone when the forecast is wrong, or myopic rules that ignore the later stages, or scenario-based programs that sacrifice tractability. My central premise is to model such a problem once, by state, decision, exogenous information, transition and objective, and to design policies that keep the decision at any stage an exact mixed-integer program yet approximate only the future, while ensuring that they are rigorous, scalable and interpretable.</p>
         <p><span class="label">Key contributions:</span></p>
         <ul class="plain">
-            <li>Siting charging stations with the queues they create inside the model. Two agencies planning together nearly halve the cost of planning alone (<a href="https://doi.org/10.1016/j.trb.2026.103403">Transportation Research Part B 2026</a>).</li>
-            <li>Siting stations for long-distance trips whose flows are uncertain and depend on where the stations go (in preparation).</li>
-            <li>Charging schedules for a fleet depot under its real infrastructure limits, with Mitsubishi Electric Research Laboratories. The method is filed as a joint patent (U.S. Patent and Trademark Office, 2026).</li>
-            <li>A market-clearing rule for truckload spot markets that learns as the market runs. It raises the market surplus by two thirds over clearing one week at a time (submitted to TRB 2027).</li>
+            <li>At the strategic level, models for locating charging stations and allocating chargers when the queues and flows they serve depend on the siting decision. Multi-agency collaboration nearly halves the total cost of single-agency plans (<a href="https://doi.org/10.1016/j.trb.2026.103403">Transportation Research Part B 2026</a>).</li>
+            <li>A siting model for long-distance travel whose uncertain flows depend on the siting decisions (in preparation).</li>
+            <li>At the operational level, with Mitsubishi Electric Research Laboratories, a fleet charging schedule under rich infrastructure and operational constraints, filed as a joint patent (U.S. Patent and Trademark Office, 2026).</li>
+            <li>At the real-time level, a market-clearing policy for truckload spot markets that raises the market surplus by two-thirds over myopic clearing (submitted to TRB 2027).</li>
         </ul>
-        <p><span class="label">Impact:</span> Each policy is one an operator can run as it is. The stage decision is exact, every constraint holds, and the prices come from the same model.</p>
+        <p><span class="label">Impact:</span> Practically, the policies never violate operational constraints, scale to real-world network, fleet and market sizes, and yield prices and marginal values as dual solutions of the same program.</p>
     </div>
 
     <h2>Selected publications</h2>
@@ -105,7 +105,7 @@
         </ul>
 
     <h2>Research impact</h2>
-    <p>The same approach fits any infrastructure built in stages under uncertainty it creates, from energy networks to oil and gas fields. On the theory side, I want multi-stage models whose uncertainty sets depend on earlier decisions.</p>
+    <p>I see future work along several directions: infrastructure developed in sequence under decision-dependent uncertainty, from energy delivery networks to oil and gas fields, and a tractable theory of multi-stage optimization in which the ambiguity set of a stage depends on earlier decisions.</p>
 
     <nav class="pager" aria-label="Research thrusts">
         <a class="prev" href="/research/ai-optimization/"><span class="dir">&larr; previous</span><span class="what">AI-integrated discrete optimization in freight and logistics</span></a>
