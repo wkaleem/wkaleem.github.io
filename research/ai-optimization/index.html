@@ -2,12 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=/research/">
-    <meta name="robots" content="noindex">
-    <link rel="canonical" href="https://wkaleem.github.io/research/">
-    <title>Moved &mdash; Waquar Kaleem</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <script>
+        /* We resolve the theme before first paint so the page never flashes the wrong one. */
+        (function () {
+            var stored = null;
+            try { stored = localStorage.getItem("theme"); } catch (e) {}
+            var dark = stored === "dark" || stored === "light" ? stored === "dark"
+                : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+        })();
+    </script>
+    <title>AI-integrated discrete optimization in freight and logistics &mdash; Waquar Kaleem</title>
+    <meta name="description" content="Trained networks represented exactly inside mixed-integer programs, so that strategic decisions in freight and logistics are optimized over the operational costs they induce.">
+    <meta name="author" content="Waquar Kaleem">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://wkaleem.github.io/research/ai-optimization/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI-integrated discrete optimization in freight and logistics &mdash; Waquar Kaleem">
+    <meta property="og:description" content="Trained networks represented exactly inside mixed-integer programs, so that strategic decisions in freight and logistics are optimized over the operational costs they induce.">
+    <meta property="og:url" content="https://wkaleem.github.io/research/ai-optimization/">
+    <meta property="og:site_name" content="Waquar Kaleem">
+
+    <meta property="og:image" content="https://wkaleem.github.io/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Waquar Kaleem, PhD Candidate in Industrial Engineering and Operations Research at The Pennsylvania State University">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://wkaleem.github.io/og.png">
+    <meta name="twitter:title" content="AI-integrated discrete optimization in freight and logistics &mdash; Waquar Kaleem">
+    <meta name="twitter:description" content="Trained networks represented exactly inside mixed-integer programs, so that strategic decisions in freight and logistics are optimized over the operational costs they induce.">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%224%22%20fill%3D%22%230a4a8f%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2222%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2214%22%20fill%3D%22%23fdfcf8%22%3EWK%3C%2Ftext%3E%3C%2Fsvg%3E">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <p>This page has moved to <a href="/research/">Research</a>.</p>
+
+    <a class="skip" href="#main">Skip to content</a>
+
+    <nav class="topnav" aria-label="Site sections">
+        <span class="links"><a href="/">Home</a><a href="/news/">News</a><a href="/research/" class="here" aria-current="page">Research</a><a href="/publications/">Publications</a><a href="/talks/">Talks</a><a href="/teaching/">Teaching</a><a href="/Waquar_Kaleem_CV.pdf">CV<span class="visually-hidden"> (pdf)</span></a></span>
+        <span class="right"><button type="button" id="theme-toggle" class="linkbtn"><svg class="i-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.64 13a1 1 0 0 0-1.05-.14 8.05 8.05 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Z"/></svg><svg class="i-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12 3a1 1 0 0 1 1 1v1a1 1 0 0 1-2 0V4a1 1 0 0 1 1-1Zm0 16a1 1 0 0 1 1 1v1a1 1 0 0 1-2 0v-1a1 1 0 0 1 1-1ZM4 11h1a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2Zm15 0h1a1 1 0 0 1 0 2h-1a1 1 0 0 1 0-2ZM5.64 4.22l.71.71A1 1 0 0 1 4.93 6.34l-.71-.71a1 1 0 0 1 1.42-1.41ZM17.66 16.24l.71.71a1 1 0 0 1-1.41 1.41l-.71-.71a1 1 0 0 1 1.41-1.41ZM19.07 4.22a1 1 0 0 1 0 1.41l-.71.71a1 1 0 1 1-1.41-1.41l.71-.71a1 1 0 0 1 1.41 0ZM6.34 17.66a1 1 0 0 1 0 1.41l-.71.71a1 1 0 0 1-1.41-1.41l.71-.71a1 1 0 0 1 1.41 0Z"/></svg><span class="visually-hidden">dark mode</span></button></span>
+    </nav>
+
+    <div class="shell">
+    <main id="main" tabindex="-1">
+    <h1>AI-integrated discrete optimization in freight and logistics</h1>
+
+    <div class="dir">
+    <div>
+        <figure>
+            <div class="frame"><img src="/assets/fig-neo-lrp.png" width="1225" height="492" alt="A trained network of routing cost embedded in a location-allocation model, followed by a routing solver" decoding="async"></div>
+            <figcaption><span class="label">Vision.</span> A trained network of routing cost is represented exactly within the location-allocation model, by additional variables and constraints; the routes are solved afterwards.</figcaption>
+        </figure>
+    </div>
+    <div>
+        <p><span class="label">The challenge:</span> Freight and logistics networks are designed through decisions at multiple scales, and the cost of a longer-term decision can only be evaluated by optimizing the operations it induces: the cost of opening a depot is the cost of optimally routing the customers assigned to it. Evaluating even one candidate design requires solving an NP-hard routing problem, across an astronomical number of designs. Current methods either replace the routing problem by closed-form formulas that offer no bound on the error, or solve it within the siting model and cannot reach real-world sizes.</p>
+        <p><span class="label">My approach:</span> I integrate machine learning, which can learn the relationship between a strategic decision and the operational cost it induces, with classical algorithms for mixed-integer optimization. A trained network is represented exactly within the mixed-integer program by additional variables and constraints, and the program is solved exactly over the learned model.</p>
+        <p><span class="label">Key contributions:</span></p>
+        <ul class="plain">
+            <li>A neural surrogate of routing cost, built on the permutation invariance of routing costs and mixed-integer reformulations of ReLU networks, represented exactly within the location-allocation model (<a href="https://doi.org/10.21872/2024iise_6627">IISE Annual Conference, 2024</a>, Best Paper Award of the Logistics and Supply Chain Division; <a href="https://openreview.net/forum?id=WCILzWMXq9">NeurIPS DLCA Workshop, 2025</a>; <a href="https://arxiv.org/abs/2412.05665">under review at Transportation Research Part E</a>). On four benchmark sets it is within several percent of the best known solutions, closer on larger instances, and more than an order of magnitude faster than existing heuristics on the largest ones; the same trained model serves any number of customers and depots, and any mixed-integer solver.</li>
+            <li>A unified estimator of routing cost across five variants, from the permutation invariance and sum decomposition of the optimal cost; out-of-sample errors two- to fifteen-fold smaller than the best closed-form approximations (submitted, 2026).</li>
+            <li>Order assignment optimized over realized rather than planned travel times, which cuts late deliveries threefold on two months of public food-delivery data from Shanghai (<a href="https://www.mixedinteger.org/2026/posters.html">MIP Workshop, 2026</a>).</li>
+            <li>Transfer of the trained surrogate, without retraining, to multi-depot, two-echelon and periodic routing, and a survey of optimization with feedforward neural network constraints (working papers).</li>
+        </ul>
+        <p><span class="label">Impact:</span> Strategic decisions are optimized over learned operational costs at sizes exact methods cannot reach, with one trained model serving any instance and any solver.</p>
+    </div>
+    </div>
+
+    <h2>Selected publications</h2>
+        <ul class="plain">
+            <li><span class="venue">Neural embedded mixed-integer optimization for location-routing problems.</span> with D. Lee, C. Kwon, A. Subramanyam. Under review at Transportation Research Part E, 2026 [<a href="https://arxiv.org/abs/2412.05665">arXiv</a>]; NeurIPS Workshop on Differentiable Learning of Combinatorial Algorithms, 2025 [<a href="https://openreview.net/forum?id=WCILzWMXq9">openreview</a>]. Code: [<a href="https://github.com/Subramanyam-Lab/NEO-LRP">NEO-LRP</a>].</li>
+            <li><span class="venue">Neural embedded optimization for integrated location and routing problems.</span> with H. Ayala, A. Subramanyam. IISE Annual Conference Proceedings, 2024 [<a href="https://doi.org/10.21872/2024iise_6627">doi</a>]. Best Paper Award, IISE Logistics and Supply Chain Division.</li>
+            <li><span class="venue">Permutation invariant neural estimators for vehicle routing costs.</span> with A. Subramanyam. Submitted, 2026.</li>
+            <li><span class="venue">A branch-and-cut algorithm for routing a heterogeneous drone-ground vehicle fleet to deliver time-sensitive products.</span> with S. H. Hosseini Dolatabadi, T. H. Bhuiyan, A. Subramanyam, T. Cokyasar. Transportation Research Part C, 2026 [<a href="https://doi.org/10.1016/j.trc.2025.105454">doi</a>].</li>
+        </ul>
+
+    <h2>Research impact</h2>
+    <p>This line of work opens the way to surrogates that yield provable lower bounds on the optimal cost of the original problem, to penalty and decomposition methods for neural network constraints, since transformers admit neither of the exact reformulations available for ReLU networks, and to a foundation model of routing cost pretrained across variants and geographies and adapted to the data of a single carrier. The same models extend to network design in freight and passenger transportation, to production planning on the plant floor, and to oil and gas production.</p>
+
+    <nav class="pager" aria-label="Research thrusts">
+        <a class="prev" href="/research/exascale-gpu/"><span class="dir">&larr; previous</span><span class="what">Optimizing complex systems on exascale and GPU platforms</span></a>
+        <a class="all" href="/research/">all research</a>
+        <a class="next" href="/research/sequential-decisions/"><span class="dir">next &rarr;</span><span class="what">Sequential decisions in critical infrastructure under uncertainty</span></a>
+    </nav>
+
+    </main>
+    </div>
+
+    <footer>
+        <a href="mailto:wzk5140@psu.edu">wzk5140@psu.edu</a> &middot;
+        Curriculum vitae [<a href="/Waquar_Kaleem_CV.pdf">pdf</a>].<span id="updated"></span>
+    </footer>
+
+    <script src="/site.js"></script>
+
 </body>
 </html>

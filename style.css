@@ -609,3 +609,23 @@ footer {
     color: var(--faint);
     font-size: 0.875rem;
 }
+
+/* ---- Research direction pages: figures beside the text, captions beneath ---- */
+.dir {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+    align-items: start;
+    margin: 10px 0 6px;
+}
+@media (max-width: 46em) { .dir { grid-template-columns: 1fr; } }
+.dir figure { margin: 0 0 18px; }
+.dir figure .frame {
+    border: 1px solid var(--rule);
+    background: var(--panel);
+    padding: 10px;
+}
+.dir figure img, .dir figure svg.fig { display: block; width: 100%; height: auto; }
+.dir figcaption { margin-top: 8px; color: var(--muted); font-size: 0.875rem; line-height: 1.5; }
+.dir .label { font-weight: bold; }
+.dir ul.plain li { margin-bottom: 9px; }
