@@ -112,17 +112,17 @@
     <main id="main" tabindex="-1">
     <div class="intro reveal">
         <h2 class="norule">About</h2>
-        <p>I am a PhD candidate in Industrial Engineering and Operations Research at Penn State University, advised by <a href="https://www.ime.psu.edu/department/directory-detail-g.aspx?q=azs7266">Anirudh Subramanyam</a>. My research integrates machine learning and high-performance computing with discrete optimization, for decision-making in freight and logistics and energy systems. Previously, I worked at Argonne National Laboratory as a Givens Associate and at Mitsubishi Electric Research Laboratories as an optimization research intern.</p>
-        <p>My research has appeared in <span class="venue">Transportation Research Part B</span> and <span class="venue">Part C</span>, NeurIPS, the IISE Annual Conference Proceedings and several other journals, and has received best paper awards from IISE and SPE.</p>
+        <p>I am a PhD candidate in Industrial Engineering and Operations Research at Penn State University, advised by <a href="https://www.ime.psu.edu/department/directory-detail-g.aspx?q=azs7266">Anirudh Subramanyam</a>. I work on machine learning, high-performance computing and discrete optimization for decisions in freight, logistics, critical infrastructure and energy systems. I have also worked at Argonne National Laboratory as a Givens Associate and at Mitsubishi Electric Research Laboratories as an optimization research intern.</p>
+        <p>My papers have appeared in <span class="venue">Transportation Research Part B</span> and <span class="venue">Part C</span>, NeurIPS, the IISE Annual Conference Proceedings and other journals, and have received best paper awards from IISE and SPE. Full details are in my <a href="/Waquar_Kaleem_CV.pdf">CV</a>.</p>
     </div>
 
     <section id="research" class="reveal">
         <div class="sechead"><h2>Research overview</h2><a class="more" href="/research/">explore research details &rarr;</a></div>
-        <p>My research centers on three connected thrusts that address fundamental challenges in decision-making for freight and logistics, critical infrastructure and energy systems:</p>
+        <p>My research centers on three thrusts, all about making better decisions in freight, logistics, critical infrastructure and energy systems:</p>
         <ul class="plain">
-            <li><strong>AI-integrated discrete optimization in freight and logistics.</strong> I integrate machine learning with classical algorithms for mixed-integer optimization, so that strategic decisions are optimized over the operational costs they induce.</li>
-            <li><strong>Sequential decisions in critical infrastructure under uncertainty.</strong> I design policies that keep each stage an exact program yet approximate only the future, for uncertainties that the decisions themselves influence.</li>
-            <li><strong>Optimizing complex systems on exascale and GPU platforms.</strong> I re-design classical algorithms for discrete optimization, as decomposition across the partitions of a supercomputer and search native to the GPU.</li>
+            <li><strong>AI-integrated discrete optimization in freight and logistics.</strong> Depots are sited without knowing the routing cost they will cause. I train a network to predict that cost and put it inside the mixed-integer siting model, so the two decisions are made together.</li>
+            <li><strong>Sequential decisions in critical infrastructure under uncertainty.</strong> Charging stations, depots and truck fleets are planned in stages, and each stage changes what is uncertain in the next. I design policies that solve each stage exactly and approximate only what comes after.</li>
+            <li><strong>Optimizing complex systems on exascale and GPU platforms.</strong> Some planning models are too large for any solver to load. I split them across the partitions of a supercomputer, and I write search methods that run on a GPU rather than a CPU.</li>
         </ul>
     </section>
 
