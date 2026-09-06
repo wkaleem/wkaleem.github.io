@@ -15,14 +15,14 @@
         })();
     </script>
     <title>Waquar Kaleem</title>
-    <meta name="description" content="Waquar Kaleem is a PhD candidate in Industrial Engineering and Operations Research at The Pennsylvania State University. Research at the intersection of operations research, machine learning, and high-performance computing for transportation, logistics, and supply chains.">
+    <meta name="description" content="Waquar Kaleem is a PhD candidate in Industrial Engineering and Operations Research at The Pennsylvania State University. AI-integrated discrete optimization, sequential decisions under uncertainty, and exascale and GPU computing, for freight and logistics, supply chain, transportation infrastructure, energy and manufacturing systems.">
     <meta name="author" content="Waquar Kaleem">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://wkaleem.github.io/">
 
     <meta property="og:type" content="profile">
     <meta property="og:title" content="Waquar Kaleem">
-    <meta property="og:description" content="Waquar Kaleem is a PhD candidate in Industrial Engineering and Operations Research at The Pennsylvania State University. Research at the intersection of operations research, machine learning, and high-performance computing for transportation, logistics, and supply chains.">
+    <meta property="og:description" content="Waquar Kaleem is a PhD candidate in Industrial Engineering and Operations Research at The Pennsylvania State University. AI-integrated discrete optimization, sequential decisions under uncertainty, and exascale and GPU computing, for freight and logistics, supply chain, transportation infrastructure, energy and manufacturing systems.">
     <meta property="og:url" content="https://wkaleem.github.io/">
     <meta property="og:site_name" content="Waquar Kaleem">
 
@@ -35,7 +35,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://wkaleem.github.io/og.png">
     <meta name="twitter:title" content="Waquar Kaleem">
-    <meta name="twitter:description" content="Waquar Kaleem is a PhD candidate in Industrial Engineering and Operations Research at The Pennsylvania State University. Research at the intersection of operations research, machine learning, and high-performance computing for transportation, logistics, and supply chains.">
+    <meta name="twitter:description" content="Waquar Kaleem is a PhD candidate in Industrial Engineering and Operations Research at The Pennsylvania State University. AI-integrated discrete optimization, sequential decisions under uncertainty, and exascale and GPU computing, for freight and logistics, supply chain, transportation infrastructure, energy and manufacturing systems.">
 
     <script type="application/ld+json">
     {
@@ -60,8 +60,12 @@
             "Operations Research",
             "Machine Learning",
             "High-Performance Computing",
+            "GPU Computing",
             "Mathematical Optimization",
             "Mixed-Integer Programming",
+            "Sequential Decision Making",
+            "Approximate Dynamic Programming",
+            "Distributionally Robust Optimization",
             "Vehicle Routing",
             "Facility Location",
             "Transportation",
@@ -107,15 +111,15 @@
     </header>
     <main id="main" tabindex="-1">
     <div class="intro reveal">
-        <p>I am a PhD candidate in Industrial Engineering and Operations Research at Penn State, advised by Anirudh Subramanyam. My dissertation, <span class="venue">Scalable AI-integrated optimization for electrified transportation and logistics</span>, builds models and algorithms that put trained machine learning models inside large-scale discrete optimization, so that planning, routing, and pricing decisions can be made at the size real freight networks reach.</p>
-        <p>Parts of that work were done at Argonne National Laboratory, where I have held two summer appointments, and at Mitsubishi Electric Research Laboratories, where research on grid-connected charging schedules led to a joint patent filing.</p>
+        <p>I am a PhD candidate in Industrial Engineering and Operations Research at Penn State, advised by Anirudh Subramanyam. I build models, algorithms and software that put trained machine learning models inside large-scale discrete optimization and solve the result on high-performance and GPU platforms, for decisions in freight and logistics, supply chains, transportation infrastructure, energy and manufacturing systems. My dissertation is titled <span class="venue">Scalable AI-integrated optimization for electrified transportation and logistics</span>.</p>
+        <p>Parts of that work were done at Argonne National Laboratory, where I have held two summer appointments, most recently in the Transportation and Power Systems division, and at Mitsubishi Electric Research Laboratories, where research on grid-connected charging schedules led to a joint patent filing with the U.S. Patent and Trademark Office.</p>
         <p>My work has appeared in <span class="venue">Transportation Research Part B</span> and <span class="venue">Transportation Research Part C</span>, at the NeurIPS Workshop on Differentiable Learning of Combinatorial Algorithms, and in the IISE Annual Conference Proceedings, where it received the Best Paper Award of the Logistics and Supply Chain Division.</p>
         <p>I was selected for the Argonne Training Program on Extreme-Scale Computing, named an IISE Future Faculty Fellow, and reached the final ten for the Lee Schipper Memorial Scholarship of the Volvo Research and Educational Foundations.</p>
     </div>
 
     <section id="research" class="reveal">
         <h2>Research</h2>
-        <p>My research sits at the intersection of operations research, machine learning, and high-performance computing for transportation, logistics, and supply chains. It runs along three connected directions.</p>
+        <p>My research aims at improved designs, efficient operations and better decisions across seemingly different but mathematically similar engineering systems. It runs along three thrusts, each with open questions in applied mathematics, new use cases in engineering, management and public policy, and practical models, algorithms and open-source software.</p>
         <div class="cards">
             <a class="card" href="/research/ai-optimization/">
                 <span class="card-media"><svg class="fig" viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -146,11 +150,11 @@
     <circle cx="240" cy="104" r="3.4"/>
   </g>
 </svg></span>
-                <h3 class="card-title">AI-integrated discrete optimization at scale</h3>
-                <span class="card-text">Neural surrogates embedded as constraints in mixed-integer programs.</span>
+                <h3 class="card-title">AI-integrated discrete optimization in freight and logistics</h3>
+                <span class="card-text">Trained networks represented exactly inside mixed-integer programs, so that strategic decisions are optimized over learned operational costs.</span>
                 <span class="card-more">read more &rarr;</span>
             </a>
-            <a class="card" href="/research/freight-markets/">
+            <a class="card" href="/research/sequential-decisions/">
                 <span class="card-media"><svg class="fig" viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <g stroke="currentColor" stroke-width="1.1" fill="none" opacity="0.5">
     <line x1="26" y1="126" x2="296" y2="126"/>
@@ -179,38 +183,37 @@
     <circle cx="262" cy="78" r="3.6"/>
   </g>
 </svg></span>
-                <h3 class="card-title">Matching, scheduling, and pricing in freight markets</h3>
-                <span class="card-text">Approximate dynamic programming for truckload markets.</span>
+                <h3 class="card-title">Sequential decisions in critical infrastructure under uncertainty</h3>
+                <span class="card-text">Policies that keep each stage an exact program and approximate only the future, for siting, charging and freight markets whose uncertainties depend on the decisions.</span>
                 <span class="card-more">read more &rarr;</span>
             </a>
-            <a class="card" href="/research/electrified-freight/">
+            <a class="card" href="/research/exascale-gpu/">
                 <span class="card-media"><svg class="fig" viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <g fill="none" stroke="currentColor" stroke-width="1.2">
-    <path d="M28 108 V56 l30 -20 l30 20 V108 Z"/>
-    <path d="M28 108 H132"/>
-  </g>
-  <g fill="none" stroke="currentColor" stroke-width="1.15" opacity="0.85">
-    <rect x="98" y="80" width="13" height="22"/>
-    <rect x="119" y="80" width="13" height="22"/>
-    <path d="M104.5 80 V70 h21 V80"/>
-  </g>
   <g fill="currentColor" opacity="0.8">
-    <rect x="43" y="72" width="12" height="12"/>
-    <rect x="62" y="72" width="12" height="12"/>
+    <rect x="30" y="34" width="10" height="10"/><rect x="48" y="34" width="10" height="10"/><rect x="66" y="34" width="10" height="10"/><rect x="84" y="34" width="10" height="10"/><rect x="102" y="34" width="10" height="10"/><rect x="120" y="34" width="10" height="10"/>
+    <rect x="30" y="52" width="10" height="10"/><rect x="48" y="52" width="10" height="10"/><rect x="66" y="52" width="10" height="10"/><rect x="84" y="52" width="10" height="10"/><rect x="102" y="52" width="10" height="10"/><rect x="120" y="52" width="10" height="10"/>
+    <rect x="30" y="70" width="10" height="10"/><rect x="48" y="70" width="10" height="10"/><rect x="66" y="70" width="10" height="10"/><rect x="84" y="70" width="10" height="10"/><rect x="102" y="70" width="10" height="10"/><rect x="120" y="70" width="10" height="10"/>
+    <rect x="30" y="88" width="10" height="10"/><rect x="48" y="88" width="10" height="10"/><rect x="66" y="88" width="10" height="10"/><rect x="84" y="88" width="10" height="10"/><rect x="102" y="88" width="10" height="10"/><rect x="120" y="88" width="10" height="10"/>
   </g>
-  <g stroke="currentColor" stroke-width="1.1" fill="none" opacity="0.5">
-    <line x1="164" y1="108" x2="296" y2="108"/>
-    <line x1="164" y1="108" x2="164" y2="30"/>
+  <g fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.5">
+    <rect x="24" y="28" width="112" height="76" rx="3"/>
   </g>
-  <path d="M164 104 C 196 100, 206 62, 232 54 C 258 46, 274 42, 294 40"
-        fill="none" stroke="currentColor" stroke-width="1.6"/>
-  <g fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"
-     stroke-dasharray="3 3">
-    <line x1="164" y1="40" x2="294" y2="40"/>
+  <g fill="none" stroke="currentColor" stroke-width="1.3">
+    <path d="M150 66 h30"/><path d="M174 61 l6 5 l-6 5"/>
+  </g>
+  <g fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.85">
+    <rect x="200" y="30" width="92" height="22" rx="2"/>
+    <rect x="200" y="60" width="92" height="22" rx="2"/>
+    <rect x="200" y="90" width="92" height="22" rx="2"/>
+  </g>
+  <g fill="currentColor">
+    <circle cx="212" cy="41" r="2.6"/><circle cx="226" cy="41" r="2.6"/><circle cx="240" cy="41" r="2.6"/><circle cx="254" cy="41" r="2.6"/>
+    <circle cx="212" cy="71" r="2.6"/><circle cx="226" cy="71" r="2.6"/><circle cx="240" cy="71" r="2.6"/>
+    <circle cx="212" cy="101" r="2.6"/><circle cx="226" cy="101" r="2.6"/><circle cx="240" cy="101" r="2.6"/><circle cx="254" cy="101" r="2.6"/><circle cx="268" cy="101" r="2.6"/>
   </g>
 </svg></span>
-                <h3 class="card-title">Electrified freight and last-mile delivery</h3>
-                <span class="card-text">Charging infrastructure planning and depot scheduling under uncertainty.</span>
+                <h3 class="card-title">Optimizing complex systems on exascale and GPU platforms</h3>
+                <span class="card-text">Decomposition across the partitions of a supercomputer and search native to the GPU, for models too large for any single solver.</span>
                 <span class="card-more">read more &rarr;</span>
             </a>
         </div>
@@ -219,14 +222,14 @@
             <section id="news" class="reveal">
         <div class="sechead"><h2>News</h2><a class="more" href="/news/">more news &rarr;</a></div>
         <ul class="news">
-    <li><span class="when">Aug 2026</span><span class="what">Presented work on <a href="/research/freight-markets/">approximate dynamic programming for truckload freight markets</a> to the Transportation and Mobility Group at Argonne National Laboratory.</span></li>
+    <li><span class="when">Aug 2026</span><span class="what">Presented work on <a href="/research/sequential-decisions/">approximate dynamic programming for truckload freight markets</a> to the Transportation and Mobility Group at Argonne National Laboratory.</span></li>
     <li><span class="when">Jul 2026</span><span class="what">My research on <a href="/research/ai-optimization/">neural embedded mixed-integer optimization</a> was presented at the INFORMS TSL Conference at MIT.</span></li>
+    <li><span class="when">May 2026</span><span class="what">Poster on <a href="/research/ai-optimization/">offline model-based routing optimization</a> at the Mixed Integer Programming Workshop, Stamford, CT.</span></li>
+    <li><span class="when">May 2026</span><span class="what">Started a summer appointment in the Transportation and Power Systems division at Argonne National Laboratory, on <a href="/research/sequential-decisions/">charging infrastructure planning under decision-dependent uncertainty and truckload freight markets</a>.</span></li>
     <li><span class="when">2026</span><span class="what">Argonne Training Program on Extreme-Scale Computing, U.S. Department of Energy.</span></li>
     <li><span class="when">2026</span><span class="what">Top ten finalist, Lee Schipper Memorial Scholarship, Volvo Research and Educational Foundations, Global Scholar track.</span></li>
-    <li><span class="when">2026</span><span class="what"><a href="/publications/#electrified-freight-and-last-mile-delivery">Our paper</a> on extreme-scale EV charging infrastructure planning published in <span class="venue">Transportation Research Part B</span>.</span></li>
-    <li><span class="when">2025&ndash;2026</span><span class="what">IISE Future Faculty Fellow, selected nationally.</span></li>
-    <li><span class="when">2025</span><span class="what">Marcus Graduate Student Scholarship, Penn State, $10,000, one of six awarded from twenty-two nominees.</span></li>
-    <li><span class="when">2025</span><span class="what">Honorable Mention, Poster Award, Penn State AI Hub. [<a href="https://www.psu.edu/news/institute-computational-and-data-sciences/story/ai-week-spotlights-student-faculty-research" aria-label="coverage for Honorable Mention, Poster Award, Penn State AI Hub">coverage</a>]</span></li>
+    <li><span class="when">2026</span><span class="what"><a href="/publications/#journal-articles">Our paper</a> on extreme-scale EV charging infrastructure planning published in <span class="venue">Transportation Research Part B</span>.</span></li>
+    <li><span class="when">2026</span><span class="what"><a href="/publications/#patents">Joint patent</a> on multi-timescale scheduling and control of charging infrastructure filed with the U.S. Patent and Trademark Office, with Mitsubishi Electric Research Laboratories.</span></li>
         </ul>
     </section>
 

@@ -5,7 +5,7 @@ The Pennsylvania State University
 
 **Website:** https://wkaleem.github.io
 
-Research at the intersection of operations research, machine learning, and high-performance computing for transportation, logistics, and supply chains.
+Three research thrusts: AI-integrated discrete optimization in freight and logistics; sequential decisions in critical infrastructure under uncertainty; optimizing complex systems on exascale and GPU platforms.
 
 **Contact:** wzk5140@psu.edu
 **Scholar:** https://scholar.google.com/citations?hl=en&user=F8d4AS4AAAAJ&view_op=list_works&sortby=pubdate

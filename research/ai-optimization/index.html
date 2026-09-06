@@ -14,15 +14,15 @@
             document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
         })();
     </script>
-    <title>AI-integrated discrete optimization at scale &mdash; Waquar Kaleem</title>
-    <meta name="description" content="Neural surrogates embedded as constraints in mixed-integer programs.">
+    <title>AI-integrated discrete optimization in freight and logistics &mdash; Waquar Kaleem</title>
+    <meta name="description" content="Trained machine learning models represented exactly inside mixed-integer programs, so that strategic decisions in freight and logistics are optimized over learned operational costs.">
     <meta name="author" content="Waquar Kaleem">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://wkaleem.github.io/research/ai-optimization/">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="AI-integrated discrete optimization at scale &mdash; Waquar Kaleem">
-    <meta property="og:description" content="Neural surrogates embedded as constraints in mixed-integer programs.">
+    <meta property="og:title" content="AI-integrated discrete optimization in freight and logistics &mdash; Waquar Kaleem">
+    <meta property="og:description" content="Trained machine learning models represented exactly inside mixed-integer programs, so that strategic decisions in freight and logistics are optimized over learned operational costs.">
     <meta property="og:url" content="https://wkaleem.github.io/research/ai-optimization/">
     <meta property="og:site_name" content="Waquar Kaleem">
 
@@ -34,8 +34,8 @@
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://wkaleem.github.io/og.png">
-    <meta name="twitter:title" content="AI-integrated discrete optimization at scale &mdash; Waquar Kaleem">
-    <meta name="twitter:description" content="Neural surrogates embedded as constraints in mixed-integer programs.">
+    <meta name="twitter:title" content="AI-integrated discrete optimization in freight and logistics &mdash; Waquar Kaleem">
+    <meta name="twitter:description" content="Trained machine learning models represented exactly inside mixed-integer programs, so that strategic decisions in freight and logistics are optimized over learned operational costs.">
 
     <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%224%22%20fill%3D%22%230a4a8f%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2222%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2214%22%20fill%3D%22%23fdfcf8%22%3EWK%3C%2Ftext%3E%3C%2Fsvg%3E">
     <link rel="stylesheet" href="/style.css">
@@ -51,7 +51,7 @@
 
     <div class="shell">
     <main id="main" tabindex="-1">
-    <h1>AI-integrated discrete optimization at scale</h1>
+    <h1>AI-integrated discrete optimization in freight and logistics</h1>
     <p class="figwrap"><svg class="fig lead" viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of a neural network feeding a routing model">
   <g fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55">
     <line x1="34" y1="38" x2="74" y2="30"/><line x1="34" y1="38" x2="74" y2="62"/>
@@ -81,15 +81,26 @@
   </g>
 </svg></p>
 
-    <p>Many planning problems pair a decision that is discrete with a cost that is only known through data. The usual response is to call the learned model as a black box inside a search, which gives the optimizer no structure to reason with. I take the other route and represent the trained network exactly inside a mixed-integer program, so the cost becomes part of the model the solver sees rather than an oracle it queries.</p>
-    <p>Doing this honestly makes the formulation large, so the work runs on to the methods that keep it solvable. That means decomposition, penalty methods for optimizing over deep rectified linear networks, and parallel implementations that reach instance sizes a single solver call cannot. The line began with integrated location and routing, where the routing cost of a cluster of customers is learned once and then reused inside the siting decision.</p>
+    <p>Freight and logistics networks are designed and operated through decisions at multiple scales: siting depots and terminals for decades, sizing fleets for months, routing vehicles and assigning orders within the day. These decisions interact. The longer-term ones constrain the daily ones, and the cost of a longer-term decision can only be evaluated by optimizing the operations it induces. The cost of opening a depot is the cost of optimally routing the customers assigned to it. Yet the decisions at one scale are usually made with the others fixed or approximated: depots sited by straight-line distance, fleets sized with closed-form routing formulas, orders assigned as if drivers followed the planned routes.</p>
+    <p>Exact methods cannot close that gap at real sizes, since every candidate design induces an NP-hard routing problem and there are astronomically many designs. My approach integrates machine learning, which can learn the relationship between a strategic decision and the operational cost it induces, with classical algorithms for mixed-integer optimization. A trained network is represented exactly inside the mixed-integer program by additional variables and constraints, and the program is then solved exactly over the learned model.</p>
+
+    <h2>Results so far</h2>
+    <ul class="plain">
+        <li><strong>Location-routing with neural surrogates.</strong> Using the permutation invariance of routing costs and mixed-integer reformulations of ReLU networks, we built a neural surrogate of routing cost that is represented exactly within the location-allocation model. On four benchmark sets the method is accurate, within several percent of the best known solutions and closer on larger instances, fast, more than an order of magnitude faster than existing heuristics on the largest instances, and modular, since one trained model serves any number of customers and depots and any mixed-integer solver. The first paper received the Best Paper Award of the IISE Logistics and Supply Chain Division. With an undergraduate researcher, I am transferring the same surrogate, without retraining, to multi-depot, two-echelon and periodic routing.</li>
+        <li><strong>Unified estimation of routing costs.</strong> Many planning decisions need routing costs but not routes. Representing an instance as a collection of sets of customers, vehicles and depots, and showing that the optimal cost is permutation invariant and admits a sum decomposition, one estimator handles five routing variants, with capacities, time windows, heterogeneous fleets and multiple depots, and yields out-of-sample errors two- to fifteen-fold smaller than the best closed-form approximations.</li>
+        <li><strong>Data-driven optimization over realized costs.</strong> Drivers do not follow planned routes. A method that learns the realized cost from operational history and embeds it in the order assignment model cuts late deliveries threefold relative to routing-based planning, on two months of public food delivery data from Shanghai, where one in five orders arrives late.</li>
+    </ul>
+
+    <h2>Where this is going</h2>
+    <p>On the methodological side, I want surrogates that yield provable lower bounds on the optimal cost of the original problem, since the predictions of a trained network carry none. Optimizing over trained ReLU networks induces either mixed-integer reformulations that grow with the size of the network or complementarity-based nonlinear reformulations that remain tractable only when all decisions are continuous, and transformers, which give my most accurate surrogates, admit neither. That calls for penalty and decomposition methods for neural network constraints, which I am developing with collaborators in nonlinear and combinatorial optimization. I also want surrogates that are conservative where data is sparse and that are retrained on the routes driven, and I would like to grow the unified estimator into a foundation model of routing cost, pretrained across variants and geographies and adapted to the data of a single carrier.</p>
+    <p>On the applied side, the same models extend to network design in freight and passenger transportation, such as transfer-hub networks for autonomous trucking and last-mile networks served by trucks and drones together, building on exact routing of heterogeneous fleets of drones and ground vehicles; to production planning integrated with the sequencing of changeovers on the plant floor, where I have started on lot-sizing with data from a food manufacturer; and to oil and gas production, where I have built machine learning models of multiphase flow through surface chokes.</p>
 
     <div class="sechead"><h2>Publications</h2><a class="more" href="/publications/">all publications &rarr;</a></div>
         <ul class="plain">
             <li><span class="me">W. Kaleem</span>, D. Lee, C. Kwon, A. Subramanyam.
                 &ldquo;Neural embedded mixed-integer optimization for location-routing problems.&rdquo;
                 Under review at <span class="venue">Transportation Research Part E</span>, 2026.
-                [<a href="https://arxiv.org/abs/2412.05665" aria-label="arXiv:2412.05665 for Neural embedded mixed-integer optimization for location-routing problems">arXiv:2412.05665</a>]<span class="contrib">The routing-cost network is trained on an independently generated dataset, separate from any test instance, then embedded as a surrogate in the location-allocation model. Across four benchmark sets it reaches solutions close to the best known at a fraction of the runtime of state-of-the-art heuristics.</span></li>
+                [<a href="https://arxiv.org/abs/2412.05665" aria-label="arXiv:2412.05665 for Neural embedded mixed-integer optimization for location-routing problems">arXiv:2412.05665</a>]<span class="contrib">The routing-cost network is trained on an independently generated dataset, separate from any test instance, then represented exactly in the location-allocation model. Across four benchmark sets it reaches solutions close to the best known at a fraction of the runtime of state-of-the-art heuristics.</span></li>
             <li><span class="me">W. Kaleem</span>, A. Subramanyam.
                 &ldquo;Permutation invariant neural estimators for vehicle routing costs.&rdquo;
                 Submitted, 2026.</li>
@@ -99,9 +110,13 @@
                 [<a href="https://openreview.net/forum?id=WCILzWMXq9" aria-label="openreview for Neural embedded mixed-integer optimization for location-routing problems">openreview</a>]</li>
             <li><span class="me">W. Kaleem</span>, H. Ayala, A. Subramanyam.
                 &ldquo;Neural embedded optimization for integrated location and routing problems.&rdquo;
-                <span class="venue">IISE Annual Conference Proceedings</span>, 658&ndash;663, 2024.
-                [<a href="https://doi.org/10.21872/2024iise_6627" aria-label="doi for Neural embedded optimization for integrated location and routing…">doi</a>]
-                <span class="tag">Best Paper Award, IISE Logistics and Supply Chain Division. [<a href="https://myemail.constantcontact.com/May-2024-LSC-News.html?soid=1101700049774&amp;aid=65f2qf6TRE8" aria-label="coverage for Neural embedded optimization for integrated location and routing…">coverage</a>]</span><span class="contrib">A permutation-invariant sparse network approximates the optimal routing cost over the customers assigned to a candidate facility, and the resulting mixed-integer program is solved on instances of up to 200 customers.</span></li>
+                <span class="venue">IISE Annual Conference Proceedings</span>, 1&ndash;6, 2024.
+                [<a href="https://doi.org/10.21872/2024iise_6627" aria-label="doi for Neural embedded optimization for integrated location and routing problems">doi</a>]
+                <span class="tag">Best Paper Award, IISE Logistics and Supply Chain Division. [<a href="https://myemail.constantcontact.com/May-2024-LSC-News.html?soid=1101700049774&amp;aid=65f2qf6TRE8" aria-label="coverage for Neural embedded optimization for integrated location and routing problems">coverage</a>]</span><span class="contrib">A permutation-invariant network approximates the optimal routing cost over the customers assigned to a candidate facility, and the resulting mixed-integer program is solved on instances of up to 200 customers.</span></li>
+            <li>S. H. Hosseini Dolatabadi, T. H. Bhuiyan, <span class="me">W. Kaleem</span>, A. Subramanyam, T. Cokyasar.
+                &ldquo;A branch-and-cut algorithm for routing a heterogeneous drone-ground vehicle fleet to deliver time-sensitive products.&rdquo;
+                <span class="venue">Transportation Research Part C: Emerging Technologies</span>, 183:105454, 2026.
+                [<a href="https://doi.org/10.1016/j.trc.2025.105454" aria-label="doi for A branch-and-cut algorithm for routing a heterogeneous drone-ground vehicle fleet">doi</a>]</li>
         </ul>
 
     <h2>Working papers</h2>
@@ -110,37 +125,39 @@
                 &ldquo;Neural embedded mixed-integer optimization for structurally decomposable vehicle routing problems.&rdquo;</li>
             <li><span class="me">W. Kaleem</span>, T. Kwon, H. Lefebvre, A. Subramanyam.
                 &ldquo;A survey on optimization with feedforward neural network constraints: models, methods, and applications.&rdquo;</li>
-            <li><span class="me">W. Kaleem</span>, A. M. Kazachkov, A. Subramanyam.
-                &ldquo;An embarrassingly parallel probe, dive, and propagate heuristic on GPU for mixed-integer programming.&rdquo;</li>
         </ul>
 
     <h2>Software</h2>
         <ul class="plain">
             <li><span class="me">W. Kaleem</span>, D. Lee, C. Kwon, A. Subramanyam.
                 NEO-LRP, neural embedded optimization for location-routing problems.
-                [<a href="https://github.com/Subramanyam-Lab/NEO-LRP" aria-label="github for Lee, C">github</a>]</li>
+                [<a href="https://github.com/Subramanyam-Lab/NEO-LRP" aria-label="github repository for NEO-LRP">github</a>]</li>
         </ul>
 
-    <div class="sechead"><h2>Talks</h2><a class="more" href="/talks/">all talks &rarr;</a></div>
+    <div class="sechead"><h2>Talks and posters</h2><a class="more" href="/talks/">all talks &rarr;</a></div>
         <ul class="talks">
             <li>Neural embedded mixed-integer optimization for location-routing problems.
                 <span class="where">INFORMS TSL Conference, MIT, Cambridge, MA. July 2026.</span>
-                <span class="where">INFORMS Computing Society Conference, Toronto. March 2025.</span></li>
+                <span class="where">AI Week, Penn State. April 2025. Poster. [<a href="https://www.psu.edu/news/institute-computational-and-data-sciences/story/ai-week-spotlights-student-faculty-research" aria-label="coverage of the AI Week poster">coverage</a>]</span>
+                <span class="where">INFORMS Computing Society Conference, Toronto. March 2025.</span>
+                <span class="where">AAAI Bridge Program, Philadelphia, PA. February 2025. Poster.</span></li>
+            <li>Offline model-based routing optimization with MIP-representable deep set surrogates.
+                <span class="where">Mixed Integer Programming Workshop, Stamford, CT. May 2026. Poster. [<a href="https://www.mixedinteger.org/2026/posters.html" aria-label="poster listing for Offline model-based routing optimization with MIP-representable deep set surrogates">poster listing</a>]</span></li>
             <li>Optimization over deep ReLU networks using penalty methods.
                 <span class="where">INFORMS Annual Meeting, Atlanta, GA. October 2025.</span></li>
-            <li>Neural embedded optimization for sets.
-                <span class="where">IISE Annual Conference, Montreal. May 2024.</span>
-                <span class="where">INFORMS Optimization Society Conference, Houston, TX. March 2024.</span></li>
             <li>Neural embedded optimization for integrated location and routing problems.
                 <span class="where">IISE Annual Conference, Montreal. May 2024.</span></li>
-            <li>Offline model-based routing optimization with MIP-representable deep set surrogates.
-                <span class="where">Poster, Mixed Integer Programming Workshop, Stamford, CT. May 2026. [<a href="https://www.mixedinteger.org/2026/posters.html" aria-label="poster listing for Offline model-based routing optimization with MIP-representable deep…">poster listing</a>]</span></li>
+            <li>Neural embedded optimization for sets.
+                <span class="where">IISE Annual Conference, Montreal. May 2024.</span>
+                <span class="where">INFORMS Optimization Society Conference, Houston, TX. March 2024.</span>
+                <span class="where">Symposium on Computational Mathematics, Penn State. November 2023. Poster.</span>
+                <span class="where">ICDS Symposium, Penn State. October 2023. Poster.</span></li>
         </ul>
 
-    <nav class="pager" aria-label="Research areas">
-        <a class="prev" href="/research/electrified-freight/"><span class="dir">&larr; previous</span><span class="what">Electrified freight and last-mile delivery</span></a>
+    <nav class="pager" aria-label="Research thrusts">
+        <a class="prev" href="/research/exascale-gpu/"><span class="dir">&larr; previous</span><span class="what">Optimizing complex systems on exascale and GPU platforms</span></a>
         <a class="all" href="/#research">all research</a>
-        <a class="next" href="/research/freight-markets/"><span class="dir">next &rarr;</span><span class="what">Matching, scheduling, and pricing in freight markets</span></a>
+        <a class="next" href="/research/sequential-decisions/"><span class="dir">next &rarr;</span><span class="what">Sequential decisions in critical infrastructure under uncertainty</span></a>
     </nav>
 
     </main>
