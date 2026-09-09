@@ -691,41 +691,65 @@ a.thrust-feature:visited { color: inherit; }
 .thrust-caption p { margin: 0 0 8px; color: var(--muted); font-size: 1rem; }
 .thrust-more { color: var(--link); font-size: 0.9375rem; }
 a.thrust-feature:hover .thrust-more { text-decoration: underline; }
-.thrust-controls:not([hidden]) {
+.research-nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 16px;
-    margin-top: 14px;
-    padding-top: 8px;
-    border-top: 1px solid var(--rule);
 }
-.thrust-controls button {
+#thrust-playback {
     font: inherit;
-    font-size: 0.9375rem;
-    color: var(--link);
+    font-size: 0.875rem;
+    color: var(--muted);
     background: none;
     border: 0;
     cursor: pointer;
     min-height: 44px;
-    padding: 8px 12px;
+    padding: 8px 4px;
 }
-.thrust-controls button:first-child { padding-left: 0; }
-.thrust-controls button.thrust-next { padding-right: 0; }
-.thrust-controls button:hover { text-decoration: underline; }
-.thrust-position { color: var(--faint); font-size: 0.875rem; }
+#thrust-playback:hover { color: var(--link); text-decoration: underline; }
+.thrust-slide[hidden] { display: none; }
 @media (max-width: 30em) {
     .thrust-tabs button { font-size: 0.875rem; padding: 8px 7px 10px; }
     .thrust-feature img { padding: 4px; }
 }
 @media print {
-    .thrust-tabs, .thrust-controls { display: none !important; }
-    .thrust-carousel.is-ready .thrust-panels { gap: 24px; }
+    .thrust-tabs, #thrust-playback { display: none !important; }
+    .thrust-carousel.is-ready .thrust-panels { gap: 24px; min-height: 0 !important; }
     .thrust-carousel.is-ready .thrust-slide {
+        display: block;
         grid-area: auto;
         visibility: visible;
         break-inside: avoid;
     }
+}
+
+/* Research pages: a figure, brief project records, and links to the full work. */
+.project-list { list-style: none; margin: 0; padding: 0; }
+.project-list > li { margin: 0 0 24px; }
+.project-list h3 { font-size: 1.0625rem; line-height: 1.45; margin: 0 0 5px; }
+.project-list p { margin: 5px 0 0; }
+.project-list .project-meta { color: var(--muted); font-size: 0.9375rem; }
+.research-links { font-size: 0.9375rem; margin-top: 28px; }
+.cards.research-list { grid-template-columns: 1fr; gap: 0; }
+.research-list a.card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+    column-gap: 22px;
+    padding: 22px 0;
+    border: 0;
+    border-bottom: 1px solid var(--rule);
+    background: none;
+    transition: none;
+}
+.research-list a.card:hover { box-shadow: none; transform: none; }
+.research-list .card-media { grid-row: 1 / 4; align-self: center; }
+.research-list a.card .card-title { margin-top: 0; font-size: 1.0625rem; }
+.research-list a.card .card-text { font-size: 0.9375rem; }
+.research-list a.card .card-more { margin-top: 0; }
+@media (max-width: 30em) {
+    .research-list a.card { grid-template-columns: 1fr; }
+    .research-list .card-media { grid-row: auto; margin-bottom: 14px; }
+    .research-nav { gap: 9px; }
 }
 
 /* ---- Teaching: descriptions indented under the course line ---- */

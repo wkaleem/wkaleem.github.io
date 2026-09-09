@@ -15,14 +15,14 @@
         })();
     </script>
     <title>Optimizing complex systems on exascale and GPU platforms &mdash; Waquar Kaleem</title>
-    <meta name="description" content="Extreme-scale network design, GPU-accelerated primal heuristics and railroad neighborhood search, with future work on heterogeneous computing, neural embedded optimization on device and mixed-precision algorithms.">
+    <meta name="description" content="Parallel optimization for charging-network design, GPU-accelerated primal heuristics, and railroad blocking. Selected papers, ongoing work, and software contributions.">
     <meta name="author" content="Waquar Kaleem">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://wkaleem.github.io/research/exascale-gpu/">
 
     <meta property="og:type" content="article">
     <meta property="og:title" content="Optimizing complex systems on exascale and GPU platforms &mdash; Waquar Kaleem">
-    <meta property="og:description" content="Extreme-scale network design, GPU-accelerated primal heuristics and railroad neighborhood search, with future work on heterogeneous computing, neural embedded optimization on device and mixed-precision algorithms.">
+    <meta property="og:description" content="Parallel optimization for charging-network design, GPU-accelerated primal heuristics, and railroad blocking. Selected papers, ongoing work, and software contributions.">
     <meta property="og:url" content="https://wkaleem.github.io/research/exascale-gpu/">
     <meta property="og:site_name" content="Waquar Kaleem">
 
@@ -35,10 +35,10 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://wkaleem.github.io/og.png">
     <meta name="twitter:title" content="Optimizing complex systems on exascale and GPU platforms &mdash; Waquar Kaleem">
-    <meta name="twitter:description" content="Extreme-scale network design, GPU-accelerated primal heuristics and railroad neighborhood search, with future work on heterogeneous computing, neural embedded optimization on device and mixed-precision algorithms.">
+    <meta name="twitter:description" content="Parallel optimization for charging-network design, GPU-accelerated primal heuristics, and railroad blocking. Selected papers, ongoing work, and software contributions.">
 
     <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%224%22%20fill%3D%22%230a4a8f%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2222%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2214%22%20fill%3D%22%23fdfcf8%22%3EWK%3C%2Ftext%3E%3C%2Fsvg%3E">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style.css?v=05c9ab061e">
 </head>
 <body>
 
@@ -53,32 +53,43 @@
     <main id="main" tabindex="-1">
     <h1>Optimizing complex systems on exascale and GPU platforms</h1>
 
+
+    <p>I develop parallel algorithms for large mixed-integer optimization problems, with work on charging-network design, GPU-accelerated primal heuristics and railroad blocking.</p>
+
     <div class="dir">
         <figure>
-            <div class="frame"><a href="/assets/thrust3.pdf" aria-label="Open the Thrust 3 figure as a PDF"><img src="/assets/thrust3.svg" width="2077" height="1000" alt="Mixed-integer programs, national freight networks and neural embedded models linked to GPU-native primal heuristics, distributed decomposition across heterogeneous CPU and GPU hardware, and learning and optimization on device." decoding="async"></a></div>
-            <figcaption><span class="label">Vision for the thrust.</span> GPU-native primal heuristics, distributed decomposition on heterogeneous computers, and learning and optimization on device. <a href="/assets/thrust3.pdf">View PDF</a>.</figcaption>
+            <div class="frame"><a href="/assets/research/chicago-charging-network.pdf" aria-label="Open the Chicago charging-network maps as a PDF"><img src="/assets/research/chicago-charging-network.png" width="1600" height="725" alt="Maps of selected charging stations in the Chicago metropolitan area: existing depots on the left and traffic analysis zone sites on the right, with symbols for charger types." decoding="async"></a></div>
+            <figcaption>Charging stations selected in the Chicago case study. From <a href="https://doi.org/10.1016/j.trb.2026.103403">our extreme-scale planning paper</a>. <a href="/assets/research/chicago-charging-network.pdf">Figure PDF</a> (8 MB).</figcaption>
         </figure>
-        <p><span class="label">The challenge:</span> Advances in extreme-scale computing, GPUs and AI accelerators such as TPUs and Cerebras wafer-scale engines offer a unique opportunity to address previously inconceivable optimization problems and applications. This requires rethinking and redesigning classical algorithms for discrete optimization, such as branch-and-bound, to address sequential bottlenecks and exploit the parallelism of these platforms.</p>
-        <p><span class="label">My approach:</span> My aim is to solve discrete optimization models at the extreme scale and detail of real engineering systems, while preserving feasibility guarantees and valid bounds on solution quality. This work draws on my training through the NERSC HPC Crash Course at Lawrence Berkeley National Laboratory and the Argonne Training Program on Extreme-Scale Computing, supported by the U.S. Department of Energy.</p>
-        <p><span class="label">Key contributions:</span></p>
-        <ul class="plain">
-            <li>Extreme-scale network design in last-mile delivery: I developed a charging-network model with billions of variables and constraints at metropolitan scale. Lagrangian dual decomposition splits the model into station-level subproblems, solved with cutting planes on 680 CPU cores across heterogeneous partitions. Specialized rounding heuristics produced feasible plans for nearly half a million households and two thousand candidate stations in Chicago within six hours, a scale not previously addressed for this charging location-allocation problem (<a href="https://doi.org/10.1016/j.trb.2026.103403">Transportation Research Part B 2026</a>).</li>
-            <li>GPU-native primal heuristics: in ongoing collaborative work, we are developing GPU-accelerated methods to find and improve feasible solutions in mixed-integer optimization. This work grew out of the <a href="https://www.mixedinteger.org/2026/competition/">2026 Land&ndash;Doig MIP Competition</a>, supported by NVIDIA and the Mixed Integer Programming Society. I am the lead developer, implementing GPU kernels in Julia using CUDA.jl.</li>
-            <li>Neighborhood search for railroad blocking: I am experimenting with a GPU-accelerated very large-scale neighborhood search heuristic built on classical neighborhood search. I am the lead developer, implementing GPU kernels in C++ using Kokkos (ongoing).</li>
-            <li>Accepted pull requests to <a href="https://github.com/jump-dev/cuOpt.jl">cuOpt.jl</a>, a Julia interface to the NVIDIA cuOpt solver, and <a href="https://github.com/inria-UFF/VRPSolverEasy">VRPSolverEasy</a>, an exact branch-cut-and-price solver for vehicle routing.</li>
-        </ul>
-        <p><span class="label">Impact:</span> The charging-network model has been used in POLARIS analyses of Chicago&rsquo;s 2050 policy scenarios, intended to inform the Chicago Metropolitan Agency for Planning&rsquo;s regional transportation plan and ComEd&rsquo;s grid investments.</p>
     </div>
 
-    <h2>Selected work</h2>
-        <ul class="plain">
-            <li><span class="venue">Extreme-scale EV charging infrastructure planning for last-mile delivery using high-performance parallel computing.</span> with T. Cokyasar, J. Larson, O. Verbas, T. H. Bhuiyan, A. Subramanyam. Transportation Research Part B, 2026 [<a href="https://doi.org/10.1016/j.trb.2026.103403">doi</a>].</li>
-            <li>Contributor, with accepted pull requests, to <a href="https://github.com/jump-dev/cuOpt.jl">cuOpt.jl</a>, a Julia interface to the NVIDIA cuOpt solver, and <a href="https://github.com/inria-UFF/VRPSolverEasy">VRPSolverEasy</a>, a branch-cut-and-price exact solver for vehicle routing problems.</li>
-        </ul>
+    <h2>Selected research</h2>
+    <ul class="project-list">
+        <li>
+            <h3><a href="https://doi.org/10.1016/j.trb.2026.103403">Extreme-scale EV charging infrastructure planning for last-mile delivery using high-performance parallel computing</a></h3>
+            <p class="project-meta"><span class="venue">Transportation Research Part B</span>, 2026.</p>
+            <p>Lagrangian decomposition and rounding heuristics produced feasible network plans for nearly half a million households and 2,000 candidate stations in Chicago within six hours, using 680 CPU cores.</p>
+        </li>
+    </ul>
 
-    <h2>Future directions</h2>
-    <p>I will build on my decomposition approach to obtain better network designs on heterogeneous computing systems within a fixed computing budget. I will develop methods to assign and schedule the resulting subproblems across CPUs, GPUs and AI accelerators, balancing workloads subject to memory and communication limits.</p>
-    <p>I also plan to solve neural embedded mixed-integer models directly on GPUs and AI accelerators (<a href="/research/ai-optimization/">Thrust 1</a>), keeping trained networks and optimization computations on the same device to reduce data transfers and support repeated solves during retraining. A further direction is mixed-precision algorithms for general mixed-integer programming, motivated by the performance advantage of low-precision matrix arithmetic on AI accelerators.</p>
+    <h2>Ongoing work</h2>
+    <ul class="project-list">
+        <li>
+            <h3>GPU-accelerated primal heuristics</h3>
+            <p>A collaborative project that grew out of the <a href="https://www.mixedinteger.org/2026/competition/">2026 Land&ndash;Doig MIP Competition</a>. I am the lead developer, implementing GPU kernels in Julia using CUDA.jl.</p>
+        </li>
+        <li>
+            <h3>GPU-accelerated neighborhood search for railroad blocking</h3>
+            <p>Experimental very large-scale neighborhood search based on classical algorithms. I am the lead developer, implementing GPU kernels in C++ using Kokkos.</p>
+        </li>
+    </ul>
+
+    <h2>Software and training</h2>
+    <ul class="plain">
+        <li>Contributor, with accepted pull requests, to <a href="https://github.com/jump-dev/cuOpt.jl">cuOpt.jl</a> and <a href="https://github.com/inria-UFF/VRPSolverEasy">VRPSolverEasy</a>.</li>
+        <li>NERSC HPC Crash Course, Lawrence Berkeley National Laboratory; Argonne Training Program on Extreme-Scale Computing, 2026.</li>
+    </ul>
+    <p class="research-links"><a href="/publications/#exascale-and-gpu-platforms">Related publications</a> &middot; <a href="/Waquar_Kaleem_CV.pdf">CV</a></p>
 
     <nav class="pager" aria-label="Research thrusts">
         <a class="prev" href="/research/sequential-decisions/"><span class="dir">&larr; previous</span><span class="what">Sequential decisions in critical infrastructure under uncertainty</span></a>
@@ -88,7 +99,7 @@
 
     </main>
     </div>
-    <script src="/site.js"></script>
+    <script src="/site.js?v=615321d2cc"></script>
 
 </body>
 </html>
