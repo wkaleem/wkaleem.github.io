@@ -164,8 +164,7 @@ p { margin: 0 0 12px; }
 /* ---- Identity ---- */
 .head {
     overflow: hidden;
-    margin-bottom: 24px;
-    padding-bottom: 18px;
+    margin-bottom: 20px;
 }
 /* The prose opens straight after the masthead, so the first block adds no heading's
    worth of space on top of the space the masthead already leaves. */
@@ -177,11 +176,11 @@ main > .sechead:first-child > h1 { margin-top: 0; }
    carries it: a sub-page is about its own contents, not about whose site it is. */
 .head .portrait {
     float: right;
-    width: 190px;
+    width: 160px;
     height: auto;
     aspect-ratio: 4 / 5;
     object-fit: cover;
-    margin: 3px 0 12px 30px;
+    margin: 3px 0 0 30px;
     border-radius: 3px;
     border: 1px solid var(--rule);
     box-shadow: 0 2px 10px var(--elevate);
@@ -239,7 +238,9 @@ ul.profile svg { width: 21px; height: 21px; display: block; }
     h1 { font-size: 1.625rem; }
 }
 @media (max-width: 30em) {
-    .head .portrait { float: none; width: 152px; margin: 0 0 14px; }
+    .head .portrait { width: 80px; margin: 3px 0 10px 14px; }
+    .head h1 { font-size: 1.5rem; }
+    .head .role { font-size: 0.9375rem; }
 }
 
 /* ---- Movement ---- */
@@ -624,7 +625,108 @@ footer {
 .dir ul.plain li { margin-bottom: 9px; }
 
 /* ---- Home: air above the research overview ---- */
-section#research { margin-top: 44px; }
+section#research { margin-top: 28px; }
+
+/* ---- Home research selector ---- */
+.thrust-tabs:not([hidden]) {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 18px;
+}
+.thrust-tabs button {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font: inherit;
+    font-size: 0.9375rem;
+    line-height: 1.35;
+    text-align: left;
+    color: var(--muted);
+    background: none;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    padding: 10px 12px 12px;
+    cursor: pointer;
+}
+.thrust-tabs button:first-child { padding-left: 0; }
+.thrust-tabs button:last-child { padding-right: 0; }
+.thrust-tabs button[aria-selected="true"] {
+    color: var(--link);
+    border-bottom-color: var(--link);
+}
+.thrust-tabs button:hover { color: var(--link); }
+.thrust-number {
+    display: block;
+    color: var(--faint);
+    font-size: 0.8125rem;
+    margin-bottom: 4px;
+}
+.thrust-panels { display: grid; gap: 24px; }
+.thrust-carousel.is-ready .thrust-panels { gap: 0; }
+.thrust-carousel.is-ready .thrust-slide {
+    grid-area: 1 / 1;
+    min-width: 0;
+    visibility: hidden;
+}
+.thrust-carousel.is-ready .thrust-slide.is-active { visibility: visible; }
+a.thrust-feature {
+    display: block;
+    color: inherit;
+    font-weight: normal;
+    text-decoration: none;
+}
+a.thrust-feature:visited { color: inherit; }
+.thrust-feature img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #fff;
+    border: 1px solid var(--rule);
+    padding: 8px;
+}
+.thrust-caption h3 { margin: 14px 0 6px; line-height: 1.4; }
+.thrust-caption p { margin: 0 0 8px; color: var(--muted); font-size: 1rem; }
+.thrust-more { color: var(--link); font-size: 0.9375rem; }
+a.thrust-feature:hover .thrust-more { text-decoration: underline; }
+.thrust-controls:not([hidden]) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 14px;
+    padding-top: 8px;
+    border-top: 1px solid var(--rule);
+}
+.thrust-controls button {
+    font: inherit;
+    font-size: 0.9375rem;
+    color: var(--link);
+    background: none;
+    border: 0;
+    cursor: pointer;
+    min-height: 44px;
+    padding: 8px 12px;
+}
+.thrust-controls button:first-child { padding-left: 0; }
+.thrust-controls button.thrust-next { padding-right: 0; }
+.thrust-controls button:hover { text-decoration: underline; }
+.thrust-position { color: var(--faint); font-size: 0.875rem; }
+@media (max-width: 30em) {
+    .thrust-tabs button { font-size: 0.875rem; padding: 8px 7px 10px; }
+    .thrust-feature img { padding: 4px; }
+}
+@media print {
+    .thrust-tabs, .thrust-controls { display: none !important; }
+    .thrust-carousel.is-ready .thrust-panels { gap: 24px; }
+    .thrust-carousel.is-ready .thrust-slide {
+        grid-area: auto;
+        visibility: visible;
+        break-inside: avoid;
+    }
+}
 
 /* ---- Teaching: descriptions indented under the course line ---- */
 .course p:not(.what) { margin: 4px 0 0 1.4em; }

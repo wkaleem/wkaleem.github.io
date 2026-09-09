@@ -110,23 +110,65 @@
         </ul>
     </header>
     <main id="main" tabindex="-1">
-    <div class="intro reveal">
-        <h2 class="norule">About</h2>
-        <p>I am a PhD candidate in Industrial Engineering and Operations Research in the Industrial and Manufacturing Engineering Department at The Pennsylvania State University, advised by <a href="https://www.ime.psu.edu/department/directory-detail-g.aspx?q=azs7266">Anirudh Subramanyam</a>. My research develops models, algorithms, and software for AI-integrated discrete optimization and sequential decision-making under uncertainty, using high-performance and GPU computing to improve decision-making in supply-chain planning, freight and logistics operations, and critical transportation infrastructure. I have also worked at Argonne National Laboratory as a Givens Associate and at Mitsubishi Electric Research Laboratories as an optimization research intern.</p>
-        <p>My research has appeared in <span class="venue">Transportation Research Part B</span> and <span class="venue">Part C</span>, the NeurIPS Workshop on Differentiable Learning of Combinatorial Algorithms, the IISE Annual Conference Proceedings and other journals. My honors include the IISE Logistics and Supply Chain Division Best Paper Award and Second Runner-Up in the SPE South Asia Regional Student Paper Contest. Full details are in my <a href="/Waquar_Kaleem_CV.pdf">CV</a>.</p>
+    <div class="intro">
+        <p>My research develops models, algorithms, and software for decision-making in supply-chain planning, freight and logistics operations, and critical transportation infrastructure. I combine AI-integrated discrete optimization and sequential decision-making under uncertainty with high-performance and GPU computing. I am advised by <a href="https://www.ime.psu.edu/department/directory-detail-g.aspx?q=azs7266">Anirudh Subramanyam</a> and have worked at Argonne National Laboratory and Mitsubishi Electric Research Laboratories.</p>
     </div>
 
-    <section id="research" class="reveal">
-        <div class="sechead"><h2>Research overview</h2><a class="more" href="/research/">explore research details &rarr;</a></div>
-        <p>My research centers on three thrusts, each with fundamental open questions in computational optimization, novel use cases in engineering, management and public policy, and practical models, algorithms and open-source software:</p>
-        <ul class="plain">
-            <li><strong>AI-integrated discrete optimization in transportation and logistics.</strong> Planning decisions induce operational costs that can be expensive to evaluate or observable only through historical data. I learn surrogates of these costs and embed the trained networks exactly within mixed-integer optimization models.</li>
-            <li><strong>Sequential decisions in critical infrastructure under uncertainty.</strong> I design mixed-integer optimization policies that combine immediate cost with an approximation of future value, subject to capacity and service constraints. My future work extends these policies to infrastructure investments under decision-dependent uncertainty.</li>
-            <li><strong>Optimizing complex systems on exascale and GPU platforms.</strong> I develop algorithms for discrete optimization at the scale and detail of real engineering systems. My work spans distributed decomposition on heterogeneous computers, GPU-accelerated primal heuristics and neighborhood search.</li>
-        </ul>
+    <section id="research" aria-labelledby="research-heading">
+        <div class="sechead"><h2 id="research-heading">Research</h2><a class="more" href="/research/">all research &rarr;</a></div>
+        <div class="thrust-carousel">
+            <div class="thrust-tabs" aria-label="Research thrusts" hidden>
+                <button type="button" id="thrust-tab-1" aria-controls="thrust-panel-1"><span class="thrust-number">Thrust 1</span>AI-integrated optimization</button>
+                <button type="button" id="thrust-tab-2" aria-controls="thrust-panel-2"><span class="thrust-number">Thrust 2</span>Sequential decisions</button>
+                <button type="button" id="thrust-tab-3" aria-controls="thrust-panel-3"><span class="thrust-number">Thrust 3</span>Exascale and GPU computing</button>
+            </div>
+            <div class="thrust-panels">
+                <article class="thrust-slide" id="thrust-panel-1">
+                    <a class="thrust-feature" href="/research/ai-optimization/" aria-labelledby="thrust-title-1">
+                        <img src="/assets/thrust1.svg" width="2077" height="1000" alt="Train, embed, and optimize in a closed loop, with applications in transportation, production and distribution, machining, and drilling." decoding="async">
+                        <div class="thrust-caption">
+                            <h3 id="thrust-title-1">AI-integrated discrete optimization in transportation and logistics</h3>
+                            <p>Learning operational costs and embedding neural surrogates within mixed-integer planning models.</p>
+                            <span class="thrust-more">Explore this research &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+                <article class="thrust-slide" id="thrust-panel-2">
+                    <a class="thrust-feature" href="/research/sequential-decisions/" aria-labelledby="thrust-title-2">
+                        <img src="/assets/thrust2.svg" width="2077" height="1000" alt="Sequential decisions for rail classification yards, EV charging networks and hydrogen corridors, with immediate cost and a future approximation." decoding="async">
+                        <div class="thrust-caption">
+                            <h3 id="thrust-title-2">Sequential decisions in critical infrastructure under uncertainty</h3>
+                            <p>Mixed-integer optimization policies that account for future demand and limited capacity.</p>
+                            <span class="thrust-more">Explore this research &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+                <article class="thrust-slide" id="thrust-panel-3">
+                    <a class="thrust-feature" href="/research/exascale-gpu/" aria-labelledby="thrust-title-3">
+                        <img src="/assets/thrust3.svg" width="2077" height="1000" alt="GPU-native primal heuristics, distributed decomposition on heterogeneous computers, and learning and optimization on device." decoding="async">
+                        <div class="thrust-caption">
+                            <h3 id="thrust-title-3">Optimizing complex systems on exascale and GPU platforms</h3>
+                            <p>Algorithms for discrete optimization at the scale and detail of real engineering systems.</p>
+                            <span class="thrust-more">Explore this research &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+            </div>
+            <div class="thrust-controls" hidden>
+                <button type="button" class="thrust-prev" aria-label="Previous research thrust"><span aria-hidden="true">&larr;</span> Previous</button>
+                <span class="thrust-position" aria-hidden="true">1 / 3</span>
+                <button type="button" class="thrust-next" aria-label="Next research thrust">Next <span aria-hidden="true">&rarr;</span></button>
+                <span class="thrust-status visually-hidden" aria-live="polite" aria-atomic="true"></span>
+            </div>
+        </div>
     </section>
 
-            <section id="news" class="reveal">
+    <section id="recognition" aria-labelledby="recognition-heading">
+        <h2 id="recognition-heading">Publications and recognition</h2>
+        <p>My research has appeared in <span class="venue">Transportation Research Part B</span> and <span class="venue">Part C</span>, the NeurIPS Workshop on Differentiable Learning of Combinatorial Algorithms, the IISE Annual Conference Proceedings and other journals. My honors include the IISE Logistics and Supply Chain Division Best Paper Award and Second Runner-Up in the SPE South Asia Regional Student Paper Contest. See my <a href="/publications/">publications</a> and <a href="/Waquar_Kaleem_CV.pdf">CV</a> for details.</p>
+    </section>
+
+    <section id="news">
         <div class="sechead"><h2>News</h2><a class="more" href="/news/">more news &rarr;</a></div>
         <ul class="news">
     <li><span class="when">Aug 2026</span><span class="what">Presented approximate dynamic programming for truckload freight markets at Argonne&rsquo;s Transportation and Mobility Group.</span></li>
