@@ -497,8 +497,8 @@ ul.entries { list-style: none; margin: 0; padding: 0; }
 ul.news { list-style: none; margin: 0; padding: 0; }
 ul.news li {
     display: grid;
-    grid-template-columns: 6.5em 1fr;
-    gap: 0 0;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    gap: 0 18px;
     margin-bottom: 10px;
 }
 ul.news .when {
@@ -508,6 +508,39 @@ ul.news .when {
 }
 @media (max-width: 30em) {
     ul.news li { grid-template-columns: 1fr; margin-bottom: 14px; }
+}
+
+/* Event photographs stay beside the corresponding news or presentation. */
+.event-photo { display: block; min-width: 0; align-self: start; }
+.event-photo img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); }
+.event-photo--figure { padding: 5px; border: 1px solid var(--rule); background: #fff; }
+.event-photo--figure img { border: 0; }
+ul.news--archive > li {
+    padding: 16px 0;
+    margin: 0;
+    border-bottom: 1px solid var(--rule);
+}
+ul.news--archive > li:first-child { padding-top: 0; }
+ul.news--archive > li:last-child { border-bottom: 0; }
+ul.news li.news-with-photo {
+    grid-template-columns: 5.5rem minmax(0, 1fr) 14rem;
+    column-gap: 18px;
+    align-items: start;
+}
+ul.news--preview li.news-with-photo { grid-template-columns: 5.5rem minmax(0, 1fr) 10rem; margin-block: 16px; }
+ul.talks li.talk-with-photo { display: grid; grid-template-columns: minmax(0, 1fr) 14rem; gap: 22px; }
+li.news-with-photo { scroll-margin-top: 80px; }
+@media (max-width: 38em) {
+    ul.news li.news-with-photo,
+    ul.news--preview li.news-with-photo { grid-template-columns: 5.5rem minmax(0, 1fr); }
+    .news-with-photo .event-photo { grid-column: 2; margin-top: 12px; max-width: 22rem; }
+    ul.talks li.talk-with-photo { grid-template-columns: 1fr; gap: 12px; }
+    .talk-with-photo .event-photo { max-width: 22rem; }
+}
+@media (max-width: 30em) {
+    ul.news li.news-with-photo,
+    ul.news--preview li.news-with-photo { grid-template-columns: 1fr; }
+    .news-with-photo .event-photo { grid-column: 1; }
 }
 
 /* A jump list for the two pages long enough that a reader would otherwise scroll
