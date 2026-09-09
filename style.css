@@ -550,6 +550,7 @@ ul.news li.news-with-photo {
     align-items: start;
 }
 ul.news--preview li.news-with-photo { grid-template-columns: 5.5rem minmax(0, 1fr) 10rem; margin-block: 16px; }
+ul.news--preview li.news-with-group-photo { margin-block: 20px; }
 ul.talks li.talk-with-photo { display: grid; grid-template-columns: minmax(0, 1fr) 14rem; gap: 22px; }
 li.news-with-photo, li.news-with-group-photo { scroll-margin-top: 80px; }
 @media (max-width: 38em) {
