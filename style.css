@@ -450,6 +450,9 @@ svg.fig.lead {
 .count { color: var(--faint); font-size: 0.9375rem; }
 ul.plain { list-style: square; margin: 0; padding-left: 1.4em; }
 ul.plain li { margin-bottom: 12px; }
+ol.publications-list { margin: 0; padding-left: 1.7em; }
+ol.publications-list > li { margin-bottom: 18px; padding-left: 0.25em; }
+ol.publications-list > li::marker { color: var(--faint); font-size: 0.9375rem; }
 .me { font-variant: small-caps; letter-spacing: 0.02em; }
 .venue { font-style: italic; }
 .tag { color: var(--faint); font-size: 0.875rem; }
@@ -723,6 +726,7 @@ a.thrust-feature:hover .thrust-more { text-decoration: underline; }
 .project-list p { margin: 5px 0 0; }
 .project-list .project-meta { color: var(--muted); font-size: 0.9375rem; }
 .paper-figure { margin: 18px 0 28px; }
+.paper-figure--compact { max-width: 35rem; margin-inline: auto; }
 .paper-figure .frame { background: #fff; border: 1px solid var(--rule); padding: 10px; }
 .paper-figure img { display: block; width: 100%; height: auto; }
 .paper-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 0.875rem; line-height: 1.5; }
