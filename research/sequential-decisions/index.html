@@ -15,14 +15,14 @@
         })();
     </script>
     <title>Sequential decisions in critical infrastructure under uncertainty &mdash; Waquar Kaleem</title>
-    <meta name="description" content="Policies that keep each stage an exact mixed-integer program and approximate only the future, for charging infrastructure, fleet depots and truckload markets whose uncertainties depend on the decisions.">
+    <meta name="description" content="Mixed-integer optimization policies for critical transportation infrastructure under uncertainty, with applications in EV charging networks, freight markets and fleet charging, and future extensions to decision-dependent demand.">
     <meta name="author" content="Waquar Kaleem">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://wkaleem.github.io/research/sequential-decisions/">
 
     <meta property="og:type" content="article">
     <meta property="og:title" content="Sequential decisions in critical infrastructure under uncertainty &mdash; Waquar Kaleem">
-    <meta property="og:description" content="Policies that keep each stage an exact mixed-integer program and approximate only the future, for charging infrastructure, fleet depots and truckload markets whose uncertainties depend on the decisions.">
+    <meta property="og:description" content="Mixed-integer optimization policies for critical transportation infrastructure under uncertainty, with applications in EV charging networks, freight markets and fleet charging, and future extensions to decision-dependent demand.">
     <meta property="og:url" content="https://wkaleem.github.io/research/sequential-decisions/">
     <meta property="og:site_name" content="Waquar Kaleem">
 
@@ -35,7 +35,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://wkaleem.github.io/og.png">
     <meta name="twitter:title" content="Sequential decisions in critical infrastructure under uncertainty &mdash; Waquar Kaleem">
-    <meta name="twitter:description" content="Policies that keep each stage an exact mixed-integer program and approximate only the future, for charging infrastructure, fleet depots and truckload markets whose uncertainties depend on the decisions.">
+    <meta name="twitter:description" content="Mixed-integer optimization policies for critical transportation infrastructure under uncertainty, with applications in EV charging networks, freight markets and fleet charging, and future extensions to decision-dependent demand.">
 
     <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%224%22%20fill%3D%22%230a4a8f%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2222%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2214%22%20fill%3D%22%23fdfcf8%22%3EWK%3C%2Ftext%3E%3C%2Fsvg%3E">
     <link rel="stylesheet" href="/style.css">
@@ -55,60 +55,33 @@
 
     <div class="dir">
         <figure>
-            <div class="frame">            <div class="frame">            <div class="frame"><svg class="fig" viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Decisions taken in sequence over time, each followed by the next">
-  <g stroke="currentColor" stroke-width="1.1" fill="none" opacity="0.5">
-    <line x1="26" y1="126" x2="296" y2="126"/>
-    <path d="M290 122 l6 4 l-6 4"/>
-    <line x1="70" y1="122" x2="70" y2="130"/><line x1="118" y1="122" x2="118" y2="130"/>
-    <line x1="166" y1="122" x2="166" y2="130"/><line x1="214" y1="122" x2="214" y2="130"/>
-    <line x1="262" y1="122" x2="262" y2="130"/>
-  </g>
-  <g fill="currentColor" opacity="0.85">
-    <rect x="56" y="26" width="28" height="11"/>
-    <rect x="104" y="44" width="28" height="11"/>
-    <rect x="152" y="26" width="28" height="11"/>
-    <rect x="200" y="53" width="28" height="11"/>
-    <rect x="248" y="35" width="28" height="11"/>
-  </g>
-  <g fill="none" stroke="currentColor" stroke-width="1.15">
-    <path d="M70 37 V78 H118"/>
-    <path d="M118 55 V95 H166"/>
-    <path d="M166 37 V78 H214"/>
-    <path d="M214 64 V95 H262"/>
-    <path d="M262 46 V78"/>
-  </g>
-  <g fill="currentColor">
-    <circle cx="118" cy="78" r="3.6"/><circle cx="166" cy="95" r="3.6"/>
-    <circle cx="214" cy="78" r="3.6"/><circle cx="262" cy="95" r="3.6"/>
-    <circle cx="262" cy="78" r="3.6"/>
-  </g>
-</svg></div></div></div>
-            <figcaption><span class="label">Policies in sequence.</span> The decision at any stage is an exact mixed-integer program. Only the future is approximated.</figcaption>
+            <div class="frame"><a href="/assets/thrust2.pdf" aria-label="Open the Thrust 2 figure as a PDF"><img src="/assets/thrust2.svg" width="2077" height="1000" alt="Rail classification yards, EV charging networks and hydrogen corridors linked to a sequential decision framework and mixed-integer optimization policy. Later investments can induce demand in charging and hydrogen networks." decoding="async"></a></div>
+            <figcaption><span class="label">Vision for the thrust.</span> Sequential decisions under uncertainty, with a mixed-integer optimization policy combining immediate cost and a future approximation. <a href="/assets/thrust2.pdf">View PDF</a>.</figcaption>
         </figure>
-        <p><span class="label">The challenge:</span> Critical energy and transportation infrastructure is planned for demands that are unknown when it is planned, through sequences of decisions that range from the hour to the decade. The decisions themselves can actively influence these uncertainties, which current planning methods assume to be exogenous.</p>
-        <p><span class="label">My approach:</span> Current methods are deterministic plans that are redone when the forecast is wrong, myopic rules that ignore the later stages, or scenario-based programs that sacrifice tractability. My central premise is to model such a problem once, by state, decision, exogenous information, transition and objective, and to design policies that keep the decision at any stage an exact mixed-integer program yet approximate only the future, while ensuring that they are rigorous, scalable and interpretable.</p>
+        <p><span class="label">The challenge:</span> Planning and operating critical transportation infrastructure requires decisions that hedge against uncertainty and adapt as it is revealed over time. In EV charging networks, hydrogen refueling corridors and rail classification yards, uncertainties include flows and induced demand, vehicle arrivals and service times, and train arrivals and processing times. Investments can also influence future demand, creating decision-dependent uncertainty.</p>
+        <p><span class="label">My approach:</span> Building on Powell&rsquo;s unified framework for sequential decision-making under uncertainty, I design mixed-integer optimization policies that minimize immediate cost together with a tractable approximation of future value. My aim is to provide feasibility guarantees under capacity and service constraints at each step, scale to real-world transportation networks, and use dual information from relaxations or decompositions to value scarce capacity.</p>
         <p><span class="label">Key contributions:</span></p>
         <ul class="plain">
-            <li>At the strategic level, models for locating charging stations and allocating chargers when the queues and flows they serve depend on the siting decision. Multi-agency collaboration nearly halves the total cost of single-agency plans (<a href="https://doi.org/10.1016/j.trb.2026.103403">Transportation Research Part B 2026</a>).</li>
-            <li>A siting model for long-distance travel whose uncertain flows depend on the siting decisions (ongoing).</li>
-            <li>At the operational level, with Mitsubishi Electric Research Laboratories, a fleet charging schedule under rich infrastructure and operational constraints, filed as a joint patent (U.S. Patent and Trademark Office, 2026).</li>
-            <li>At the real-time level, a market-clearing policy for truckload spot markets that raises the market surplus by two-thirds over myopic clearing (submitted to TRB 2027).</li>
+            <li>At the strategic level, I designed charging-network models that determine station locations and charger capacities subject to limits on expected waiting and charging time. Each station and charger type is modeled as a multiserver queue. Combining existing depots and newly built stations for shared use by fleet operators nearly halves the cost of building and using the network relative to plans that restrict each operator to the newly built stations it owns (<a href="https://doi.org/10.1016/j.trb.2026.103403">Transportation Research Part B 2026</a>). In ongoing work, we are extending these models to long-distance EV travel under decision-dependent demand, with an exact mixed-integer linear reformulation for a decision-dependent <i>ℓ</i><sub>1</sub>-Wasserstein ambiguity set.</li>
+            <li>At the tactical level, I designed a sequential freight market-clearing policy that matches loads to trucks in multi-load schedules under federal hours-of-service regulations. The policy combines immediate cost with learned marginal truck values that depend on positions and availability. I implemented a specialized branch-price-and-cut algorithm to solve each weekly market clearing exactly. In a case study on a market synthesized from Argonne&rsquo;s POLARIS freight model, the approach increases the freight market surplus by two-thirds over myopic market clearing (submitted to TRB 2027).</li>
+            <li>At the operational level, I worked with Mitsubishi Electric Research Laboratories on depot charging schedules for heterogeneous fleets under power limits, jockey movement constraints and battery charging-power limits. The model produces executable schedules that prioritize charging deadlines, delays and electricity cost. Mitsubishi Electric filed a joint patent application with the U.S. Patent and Trademark Office in 2026. In ongoing work, we are extending the model to sequential charging decisions under uncertain arrival times and states of charge.</li>
         </ul>
-        <p><span class="label">Impact:</span> Practically, the policies never violate operational constraints, scale to real-world network, fleet and market sizes, and yield prices and marginal values as dual solutions of the same program.</p>
+        <p><span class="label">Impact:</span> This work addresses uncertainty at three levels: strategic infrastructure planning, tactical freight market clearing and operational charging of heterogeneous fleets. The existing planning models and sequential freight market-clearing policy motivate extensions that account for both future decisions and decision-dependent uncertainty.</p>
     </div>
 
     <h2>Selected publications</h2>
         <ul class="plain">
             <li><span class="venue">Extreme-scale EV charging infrastructure planning for last-mile delivery using high-performance parallel computing.</span> with T. Cokyasar, J. Larson, O. Verbas, T. H. Bhuiyan, A. Subramanyam. Transportation Research Part B, 2026 [<a href="https://doi.org/10.1016/j.trb.2026.103403">doi</a>].</li>
             <li><span class="venue">Approximate dynamic programming for matching, scheduling, and pricing in truckload freight markets.</span> with T. Cokyasar, A. Ismael, O. Sahin, H. Uhm. Submitted to the Transportation Research Board Annual Meeting, 2027.</li>
-            <li><span class="venue">Systems and methods for multi-timescale scheduling and control of energy charging infrastructure.</span> with A. U. Raghunathan. Patent filed with the United States Patent and Trademark Office, 2026, jointly with Mitsubishi Electric Research Laboratories.</li>
+            <li><span class="venue">Systems and methods for multi-timescale scheduling and control of energy charging infrastructure.</span> with A. U. Raghunathan. Patent application filed with the United States Patent and Trademark Office, 2026, jointly with Mitsubishi Electric Research Laboratories.</li>
         </ul>
 
-    <h2>Research impact</h2>
-    <p>I see future work along several directions: infrastructure developed in sequence under decision-dependent uncertainty, from energy delivery networks to oil and gas fields, and a tractable theory of multi-stage optimization in which the ambiguity set of a stage depends on earlier decisions.</p>
+    <h2>Future directions</h2>
+    <p>I seek to reduce operating costs and service delays with decisions that account for future demand. For freight market clearing, I will approximate the cost of serving future loads for the fleet as a whole with neural models (<a href="/research/ai-optimization/">Thrust 1</a>), accounting for competition among trucks for the same future loads while retaining separate scheduling subproblems for each truck. I will also extend our static EV charging-network planning model to sequential decision-making, developing neural decision rules for capacity expansion under decision-dependent uncertainty in demand.</p>
+    <p>From an applied view, I intend to model the phased expansion of EV charging networks and hydrogen refueling corridors, determining when, where and how much capacity to install as demand responds to earlier investments, subject to limits on expected waiting times. In rail classification yards, I will adapt my scheduling approaches to assign tracks and sequence car movements as freight trains arrive, accounting for uncertain arrivals, processing times and capacity needed by later trains to reduce missed outbound connections.</p>
 
     <nav class="pager" aria-label="Research thrusts">
-        <a class="prev" href="/research/ai-optimization/"><span class="dir">&larr; previous</span><span class="what">AI-integrated discrete optimization in freight and logistics</span></a>
+        <a class="prev" href="/research/ai-optimization/"><span class="dir">&larr; previous</span><span class="what">AI-integrated discrete optimization in transportation and logistics</span></a>
         <a class="all" href="/research/">all research</a>
         <a class="next" href="/research/exascale-gpu/"><span class="dir">next &rarr;</span><span class="what">Optimizing complex systems on exascale and GPU platforms</span></a>
     </nav>

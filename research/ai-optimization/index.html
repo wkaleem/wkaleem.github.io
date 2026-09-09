@@ -14,15 +14,15 @@
             document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
         })();
     </script>
-    <title>AI-integrated discrete optimization in freight and logistics &mdash; Waquar Kaleem</title>
-    <meta name="description" content="Trained networks represented exactly inside mixed-integer programs, so that strategic decisions in freight and logistics are optimized over the operational costs they induce.">
+    <title>AI-integrated discrete optimization in transportation and logistics &mdash; Waquar Kaleem</title>
+    <meta name="description" content="AI-integrated discrete optimization in transportation and logistics: neural surrogates of operational costs embedded exactly within mixed-integer planning models.">
     <meta name="author" content="Waquar Kaleem">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://wkaleem.github.io/research/ai-optimization/">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="AI-integrated discrete optimization in freight and logistics &mdash; Waquar Kaleem">
-    <meta property="og:description" content="Trained networks represented exactly inside mixed-integer programs, so that strategic decisions in freight and logistics are optimized over the operational costs they induce.">
+    <meta property="og:title" content="AI-integrated discrete optimization in transportation and logistics &mdash; Waquar Kaleem">
+    <meta property="og:description" content="AI-integrated discrete optimization in transportation and logistics: neural surrogates of operational costs embedded exactly within mixed-integer planning models.">
     <meta property="og:url" content="https://wkaleem.github.io/research/ai-optimization/">
     <meta property="og:site_name" content="Waquar Kaleem">
 
@@ -34,8 +34,8 @@
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://wkaleem.github.io/og.png">
-    <meta name="twitter:title" content="AI-integrated discrete optimization in freight and logistics &mdash; Waquar Kaleem">
-    <meta name="twitter:description" content="Trained networks represented exactly inside mixed-integer programs, so that strategic decisions in freight and logistics are optimized over the operational costs they induce.">
+    <meta name="twitter:title" content="AI-integrated discrete optimization in transportation and logistics &mdash; Waquar Kaleem">
+    <meta name="twitter:description" content="AI-integrated discrete optimization in transportation and logistics: neural surrogates of operational costs embedded exactly within mixed-integer planning models.">
 
     <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%224%22%20fill%3D%22%230a4a8f%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2222%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2214%22%20fill%3D%22%23fdfcf8%22%3EWK%3C%2Ftext%3E%3C%2Fsvg%3E">
     <link rel="stylesheet" href="/style.css">
@@ -51,23 +51,23 @@
 
     <div class="shell">
     <main id="main" tabindex="-1">
-    <h1>AI-integrated discrete optimization in freight and logistics</h1>
+    <h1>AI-integrated discrete optimization in transportation and logistics</h1>
 
     <div class="dir">
         <figure>
-            <div class="frame"><img src="/assets/fig-neo-lrp.png" width="1225" height="492" alt="A trained network of routing cost inside a location-allocation model, followed by a routing solver" decoding="async"></div>
-            <figcaption><span class="label">Vision for the thrust.</span> A trained network of routing cost is represented exactly within the location-allocation model. Routes are solved afterwards.</figcaption>
+            <div class="frame"><a href="/assets/thrust1.pdf" aria-label="Open the Thrust 1 figure as a PDF"><img src="/assets/thrust1.svg" width="2077" height="1000" alt="Train, embed, and optimize in a closed loop, with applications in transfer-hub networks, production and distribution, machining, and drilling." decoding="async"></a></div>
+            <figcaption><span class="label">Vision for the thrust.</span> Training, embedding and optimizing neural surrogates, followed by evaluation and new observations. <a href="/assets/thrust1.pdf">View PDF</a>.</figcaption>
         </figure>
-        <p><span class="label">The challenge:</span> Freight and logistics networks are designed and operated through decisions at multiple scales, from network-level siting for decades to vehicle-level routing within the day. These decisions interact, and the cost of a longer-term decision can only be evaluated by optimizing the operations it induces. Perhaps surprisingly, the decisions at one scale are often made with those at the other scales fixed or approximated.</p>
-        <p><span class="label">My approach:</span> Existing approaches are fundamentally challenged by such multi-scale interactions, since evaluating even one candidate design requires solving an NP-hard problem, and there are astronomically many designs. I integrate machine learning, which can learn the relationship between strategic decisions and the operational costs they induce, with classical algorithms for mixed-integer optimization: the costs are learned, and the strategic decisions are then optimized exactly over the learned model.</p>
+        <p><span class="label">The challenge:</span> Transportation and logistics networks are planned at multiple time scales, from the strategic siting of facilities to the operational routing and assignment of orders. These decisions interact. The routes and their cost depend on where facilities are sited and how fleets are sized. Ignoring this interaction can produce plans that appear economical but prove costly to execute.</p>
+        <p><span class="label">My approach:</span> The induced operational cost can be computationally expensive to evaluate, available only through a simulator, or observable only through historical data. I integrate machine learning with classical algorithms for mixed-integer optimization to learn surrogates of these costs and represent the trained networks exactly within higher-level planning models.</p>
         <p><span class="label">Key contributions:</span></p>
         <ul class="plain">
-            <li>Location-routing with neural surrogates: a neural surrogate of routing cost represented exactly within the location-allocation model by additional variables and constraints, accurate, fast and modular across four benchmark sets (<a href="https://doi.org/10.21872/2024iise_6627">IISE 2024</a>, Best Paper Award, <a href="https://openreview.net/forum?id=WCILzWMXq9">NeurIPS DLCA Workshop 2025</a>, and <a href="https://arxiv.org/abs/2412.05665">under review at Transportation Research Part E</a>).</li>
-            <li>Unified estimation of routing costs: one estimator across five routing variants, with out-of-sample errors two- to fifteen-fold smaller than the best closed-form approximations (submitted).</li>
-            <li>Data-driven optimization over realized costs: order assignment optimized over realized rather than planned travel times, cutting late deliveries threefold on public data (<a href="https://www.mixedinteger.org/2026/posters.html">MIP Workshop 2026</a>).</li>
-            <li>The same surrogate transferred, without retraining, to further routing variants, with an undergraduate advisee (working paper).</li>
+            <li>Neural embedded optimization for location-routing: I designed a permutation-invariant neural architecture and embedded the trained network exactly within the location-allocation model. Across four benchmark sets, the method produces solutions within several percent of the best known solutions and is more than an order of magnitude faster than existing heuristics on large instances. The same trained network handles any number of customers and depots (<a href="https://doi.org/10.21872/2024iise_6627">IISE 2024</a>, Best Paper Award, <a href="https://openreview.net/forum?id=WCILzWMXq9">NeurIPS DLCA Workshop 2025</a>, and <a href="https://arxiv.org/abs/2412.05665">under review at Transportation Research Part E</a>).</li>
+            <li>Unified neural estimators of routing costs: I developed a multi-set representation of customers, vehicles and depots. Experiments on five routing variants show errors two- to fifteen-fold smaller than those of the best baselines (submitted).</li>
+            <li>Data-driven on-time last-mile delivery: I learned the total time drivers took to deliver a batch of orders and embedded this estimate within an order assignment model. Experiments on two months of food delivery data from Shanghai reduce late deliveries threefold relative to a routing-based baseline (<a href="https://www.mixedinteger.org/2026/posters.html">MIP Workshop 2026</a>).</li>
+            <li>In ongoing collaborative work, I am extending neural embedded optimization to a family of algorithms for multi-depot, two-echelon and periodic routing (working paper).</li>
         </ul>
-        <p><span class="label">Impact:</span> Strategic decisions can be optimized over learned operational costs at sizes that exact methods cannot address, with the same trained model serving any instance and any mixed-integer solver.</p>
+        <p><span class="label">Impact:</span> These models bring operational costs into planning decisions and support fast what-if analyses in logistics, including fleet sizing and service-zone design.</p>
     </div>
 
     <h2>Selected publications</h2>
@@ -78,8 +78,9 @@
             <li><span class="venue">A branch-and-cut algorithm for routing a heterogeneous drone-ground vehicle fleet to deliver time-sensitive products.</span> with S. H. Hosseini Dolatabadi, T. H. Bhuiyan, A. Subramanyam, T. Cokyasar. Transportation Research Part C, 2026 [<a href="https://doi.org/10.1016/j.trc.2025.105454">doi</a>].</li>
         </ul>
 
-    <h2>Research impact</h2>
-    <p>This thrust offers opportunities to advance optimization and learning theory, and applications: surrogates with provable lower bounds on the optimal cost, penalty and decomposition methods for neural network constraints, and the extension of the same models from network design to production planning and oil and gas production.</p>
+    <h2>Future directions</h2>
+    <p>I envision three methodological directions: retraining surrogates with the cost of the decisions they induce, penalty alternating direction methods for neural network embeddings without additional binary variables, and provable lower and upper bounds on the optimal cost of the original planning problem. I also plan to investigate embeddings of trained diffusion and language models.</p>
+    <p>From an applied viewpoint, I seek to reduce costs and improve productivity through transfer-hub network design for autonomous trucking and joint production and distribution planning. Beyond transportation and logistics, I plan to extend the same AI-integrated approach to machining parameters and drilling decisions.</p>
 
     <nav class="pager" aria-label="Research thrusts">
         <a class="prev" href="/research/exascale-gpu/"><span class="dir">&larr; previous</span><span class="what">Optimizing complex systems on exascale and GPU platforms</span></a>

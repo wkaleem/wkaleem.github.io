@@ -395,7 +395,7 @@ a.card:hover {
 }
 a.card .card-media { display: block; color: var(--muted); }
 a.card:hover .card-media { color: var(--link); }
-a.card svg.fig { display: block; width: 100%; height: auto; }
+a.card img.fig { display: block; width: 100%; height: auto; background: #fff; }
 a.card .card-title {
     display: block;
     margin: 11px 0 4px;
@@ -609,15 +609,13 @@ footer {
     font-size: 0.875rem;
 }
 
-/* ---- Research direction pages: figures beside the text, captions beneath ---- */
+/* ---- Research direction pages ---- */
 .dir { display: block; margin: 10px 0 6px; }
 .dir::after { content: ""; display: table; clear: both; }
-/* The figure sits at the top right and the text wraps beneath it, so no column is left empty. */
-.dir figure { float: right; width: 40%; margin: 4px 0 14px 26px; }
-@media (max-width: 46em) { .dir figure { float: none; width: 100%; margin: 0 0 18px; } }
+.dir figure { width: 100%; margin: 4px 0 22px; }
 .dir figure .frame {
     border: 1px solid var(--rule);
-    background: var(--panel);
+    background: #fff;
     padding: 10px;
 }
 .dir figure img, .dir figure svg.fig { display: block; width: 100%; height: auto; }
