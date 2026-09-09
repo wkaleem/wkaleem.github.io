@@ -515,6 +515,27 @@ ul.news .when {
 .event-photo img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); }
 .event-photo--figure { padding: 5px; border: 1px solid var(--rule); background: #fff; }
 .event-photo--figure img { border: 0; }
+.news-group-photo { grid-column: 2; min-width: 0; margin: 14px 0 0; }
+.news-group-photo figcaption { margin-top: 6px; color: var(--muted); font-size: 0.875rem; line-height: 1.5; }
+.annotated-photo { position: relative; }
+.photo-pointer { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.photo-pointer path { fill: none; stroke: #0a4a8f; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.photo-pointer .photo-pointer-halo { stroke: #fff; stroke-width: 3.5; }
+.photo-label {
+    position: absolute;
+    left: 23.0625%;
+    top: 35%;
+    transform: translate(-50%, -100%);
+    padding: 2px 6px;
+    border: 1px solid #fff;
+    border-radius: 2px;
+    background: #0a4a8f;
+    color: #fff;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.3;
+    pointer-events: none;
+}
 ul.news--archive > li {
     padding: 16px 0;
     margin: 0;
@@ -529,7 +550,7 @@ ul.news li.news-with-photo {
 }
 ul.news--preview li.news-with-photo { grid-template-columns: 5.5rem minmax(0, 1fr) 10rem; margin-block: 16px; }
 ul.talks li.talk-with-photo { display: grid; grid-template-columns: minmax(0, 1fr) 14rem; gap: 22px; }
-li.news-with-photo { scroll-margin-top: 80px; }
+li.news-with-photo, li.news-with-group-photo { scroll-margin-top: 80px; }
 @media (max-width: 38em) {
     ul.news li.news-with-photo,
     ul.news--preview li.news-with-photo { grid-template-columns: 5.5rem minmax(0, 1fr); }
@@ -541,6 +562,7 @@ li.news-with-photo { scroll-margin-top: 80px; }
     ul.news li.news-with-photo,
     ul.news--preview li.news-with-photo { grid-template-columns: 1fr; }
     .news-with-photo .event-photo { grid-column: 1; }
+    .news-group-photo { grid-column: 1; }
 }
 
 /* A jump list for the two pages long enough that a reader would otherwise scroll
