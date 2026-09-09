@@ -63,7 +63,7 @@
     for (var k = 0; k < waiting.length; k++) watcher.observe(waiting[k]);
 })();
 
-/* Tabs remain usable when rotation is paused; without JavaScript all figures show. */
+/* Rotate every three seconds; tabs select a figure and restart the interval. */
 (function () {
     var carousel = document.querySelector(".thrust-carousel");
     if (!carousel) return;
@@ -71,33 +71,19 @@
     var tabs = Array.prototype.slice.call(tablist.querySelectorAll("button"));
     var panels = Array.prototype.slice.call(carousel.querySelectorAll(".thrust-slide"));
     var panelBox = carousel.querySelector(".thrust-panels");
-    var playback = document.getElementById("thrust-playback");
-    if (!tabs.length || tabs.length !== panels.length || !playback) return;
-    var motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (!tabs.length || tabs.length !== panels.length) return;
     var active = 0;
-    var rotating = !motion.matches;
-    var hovered = false;
-    var focused = false;
-    var visible = false;
     var timer = null;
 
     function schedule() {
-        window.clearTimeout(timer);
-        if (!rotating || hovered || focused || !visible || document.hidden) return;
-        timer = window.setTimeout(function () {
+        window.clearInterval(timer);
+        timer = window.setInterval(function () {
             select(active + 1, false);
-            schedule();
-        }, 5000);
-    }
-
-    function rotation(enabled) {
-        rotating = enabled;
-        playback.textContent = enabled ? "Pause" : "Play";
-        playback.setAttribute("aria-label", enabled ? "Pause automatic research slides" : "Play automatic research slides");
-        schedule();
+        }, 3000);
     }
 
     function select(index, focus) {
+
         active = (index + tabs.length) % tabs.length;
         for (var i = 0; i < tabs.length; i++) {
             var selected = i === active;
@@ -127,8 +113,8 @@
         panels[index].setAttribute("role", "tabpanel");
         panels[index].setAttribute("aria-labelledby", tab.id);
         tab.addEventListener("click", function () {
-            rotation(false);
             select(index, false);
+            schedule();
         });
         tab.addEventListener("keydown", function (event) {
             var next;
@@ -138,25 +124,9 @@
             else if (event.key === "End") next = tabs.length - 1;
             else return;
             event.preventDefault();
-            rotation(false);
             select(next, true);
+            schedule();
         });
-    });
-    playback.addEventListener("click", function () { rotation(!rotating); });
-    carousel.addEventListener("pointerenter", function (event) {
-        if (event.pointerType === "touch") return;
-        hovered = true;
-        schedule();
-    });
-    carousel.addEventListener("pointerleave", function () { hovered = false; schedule(); });
-    carousel.addEventListener("focusin", function () { focused = true; schedule(); });
-    carousel.addEventListener("focusout", function (event) {
-        focused = carousel.contains(event.relatedTarget);
-        schedule();
-    });
-    document.addEventListener("visibilitychange", schedule);
-    if (motion.addEventListener) motion.addEventListener("change", function (event) {
-        if (event.matches) rotation(false);
     });
     window.addEventListener("resize", measure);
     panels.forEach(function (panel) { panel.querySelector("img").addEventListener("load", measure); });
@@ -165,13 +135,6 @@
     select(0, false);
     carousel.classList.add("is-ready");
     tablist.hidden = false;
-    playback.hidden = false;
     measure();
-    rotation(rotating);
-    if ("IntersectionObserver" in window) {
-        new IntersectionObserver(function (entries) {
-            visible = entries[0].intersectionRatio >= 0.35;
-            schedule();
-        }, { threshold: 0.35 }).observe(panelBox);
-    } else { visible = true; schedule(); }
+    schedule();
 })();

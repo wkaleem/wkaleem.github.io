@@ -691,29 +691,13 @@ a.thrust-feature:visited { color: inherit; }
 .thrust-caption p { margin: 0 0 8px; color: var(--muted); font-size: 1rem; }
 .thrust-more { color: var(--link); font-size: 0.9375rem; }
 a.thrust-feature:hover .thrust-more { text-decoration: underline; }
-.research-nav {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-#thrust-playback {
-    font: inherit;
-    font-size: 0.875rem;
-    color: var(--muted);
-    background: none;
-    border: 0;
-    cursor: pointer;
-    min-height: 44px;
-    padding: 8px 4px;
-}
-#thrust-playback:hover { color: var(--link); text-decoration: underline; }
 .thrust-slide[hidden] { display: none; }
 @media (max-width: 30em) {
     .thrust-tabs button { font-size: 0.875rem; padding: 8px 7px 10px; }
     .thrust-feature img { padding: 4px; }
 }
 @media print {
-    .thrust-tabs, #thrust-playback { display: none !important; }
+    .thrust-tabs { display: none !important; }
     .thrust-carousel.is-ready .thrust-panels { gap: 24px; min-height: 0 !important; }
     .thrust-carousel.is-ready .thrust-slide {
         display: block;
@@ -729,6 +713,10 @@ a.thrust-feature:hover .thrust-more { text-decoration: underline; }
 .project-list h3 { font-size: 1.0625rem; line-height: 1.45; margin: 0 0 5px; }
 .project-list p { margin: 5px 0 0; }
 .project-list .project-meta { color: var(--muted); font-size: 0.9375rem; }
+.paper-figure { margin: 18px 0 28px; }
+.paper-figure .frame { background: #fff; border: 1px solid var(--rule); padding: 10px; }
+.paper-figure img { display: block; width: 100%; height: auto; }
+.paper-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 0.875rem; line-height: 1.5; }
 .research-links { font-size: 0.9375rem; margin-top: 28px; }
 .cards.research-list { grid-template-columns: 1fr; gap: 0; }
 .research-list a.card {
@@ -749,7 +737,6 @@ a.thrust-feature:hover .thrust-more { text-decoration: underline; }
 @media (max-width: 30em) {
     .research-list a.card { grid-template-columns: 1fr; }
     .research-list .card-media { grid-row: auto; margin-bottom: 14px; }
-    .research-nav { gap: 9px; }
 }
 
 /* ---- Teaching: descriptions indented under the course line ---- */
