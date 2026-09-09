@@ -665,13 +665,21 @@ section#research { margin-top: 28px; }
     margin-bottom: 4px;
 }
 .thrust-panels { display: grid; gap: 24px; }
-.thrust-carousel.is-ready .thrust-panels { gap: 0; }
+.thrust-carousel.is-ready .thrust-panels { gap: 0; isolation: isolate; }
 .thrust-carousel.is-ready .thrust-slide {
     grid-area: 1 / 1;
     min-width: 0;
+    background: var(--bg);
+    opacity: 0;
     visibility: hidden;
+    pointer-events: none;
 }
-.thrust-carousel.is-ready .thrust-slide.is-active { visibility: visible; }
+.thrust-carousel.is-ready .thrust-slide.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 1;
+}
 a.thrust-feature {
     display: block;
     color: inherit;
@@ -691,7 +699,6 @@ a.thrust-feature:visited { color: inherit; }
 .thrust-caption p { margin: 0 0 8px; color: var(--muted); font-size: 1rem; }
 .thrust-more { color: var(--link); font-size: 0.9375rem; }
 a.thrust-feature:hover .thrust-more { text-decoration: underline; }
-.thrust-slide[hidden] { display: none; }
 @media (max-width: 30em) {
     .thrust-tabs button { font-size: 0.875rem; padding: 8px 7px 10px; }
     .thrust-feature img { padding: 4px; }
@@ -702,7 +709,9 @@ a.thrust-feature:hover .thrust-more { text-decoration: underline; }
     .thrust-carousel.is-ready .thrust-slide {
         display: block;
         grid-area: auto;
+        opacity: 1;
         visibility: visible;
+        transition: none;
         break-inside: avoid;
     }
 }

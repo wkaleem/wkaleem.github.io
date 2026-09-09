@@ -63,48 +63,26 @@
     for (var k = 0; k < waiting.length; k++) watcher.observe(waiting[k]);
 })();
 
-/* Rotate every three seconds; tabs select a figure and restart the interval. */
+/* Research tabs change figures only when selected by the reader. */
 (function () {
     var carousel = document.querySelector(".thrust-carousel");
     if (!carousel) return;
     var tablist = carousel.querySelector(".thrust-tabs");
     var tabs = Array.prototype.slice.call(tablist.querySelectorAll("button"));
     var panels = Array.prototype.slice.call(carousel.querySelectorAll(".thrust-slide"));
-    var panelBox = carousel.querySelector(".thrust-panels");
     if (!tabs.length || tabs.length !== panels.length) return;
     var active = 0;
-    var timer = null;
-
-    function schedule() {
-        window.clearInterval(timer);
-        timer = window.setInterval(function () {
-            select(active + 1, false);
-        }, 3000);
-    }
-
     function select(index, focus) {
-
         active = (index + tabs.length) % tabs.length;
         for (var i = 0; i < tabs.length; i++) {
             var selected = i === active;
             tabs[i].setAttribute("aria-selected", String(selected));
             tabs[i].tabIndex = selected ? 0 : -1;
             panels[i].classList.toggle("is-active", selected);
-            panels[i].hidden = !selected;
+            panels[i].setAttribute("aria-hidden", String(!selected));
             panels[i].inert = !selected;
         }
         if (focus) tabs[active].focus();
-    }
-
-    /* Reserve the tallest panel so switching tabs never moves the content below. */
-    function measure() {
-        panelBox.style.minHeight = "0";
-        panels.forEach(function (panel) { panel.hidden = false; });
-        var height = Math.max.apply(null, panels.map(function (panel) {
-            return panel.getBoundingClientRect().height;
-        }));
-        panelBox.style.minHeight = Math.ceil(height) + "px";
-        panels.forEach(function (panel, i) { panel.hidden = i !== active; });
     }
 
     tablist.setAttribute("role", "tablist");
@@ -114,7 +92,6 @@
         panels[index].setAttribute("aria-labelledby", tab.id);
         tab.addEventListener("click", function () {
             select(index, false);
-            schedule();
         });
         tab.addEventListener("keydown", function (event) {
             var next;
@@ -125,16 +102,9 @@
             else return;
             event.preventDefault();
             select(next, true);
-            schedule();
         });
     });
-    window.addEventListener("resize", measure);
-    panels.forEach(function (panel) { panel.querySelector("img").addEventListener("load", measure); });
-    if (document.fonts) document.fonts.ready.then(measure);
-
     select(0, false);
     carousel.classList.add("is-ready");
     tablist.hidden = false;
-    measure();
-    schedule();
 })();
