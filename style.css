@@ -1,37 +1,37 @@
-/* Waquar Kaleem. Plain serif academic page, no web fonts, no external requests. */
+/* Waquar Kaleem. System fonts, quiet typography, and no external font requests. */
 
 :root {
-    --bg: #fdfcf8;
-    --text: #1c1b18;
-    --muted: #4a4740;
-    --faint: #726e63;
-    --rule: #d9d4c6;
-    --link: #0a4a8f;
-    --visited: #6a3a8f;
-    --panel: #f6f3ea;
+    --bg: #ffffff;
+    --text: #242424;
+    --muted: #505050;
+    --faint: #666666;
+    --rule: #e3e3e3;
+    --link: #245c91;
+    --visited: #245c91;
+    --panel: #f7f7f7;
     --elevate: rgba(0, 0, 0, 0.09);
 }
 :root[data-theme="dark"] {
-    --bg: #0f1723;
-    --text: #dfe6ef;
-    --muted: #a8b4c4;
-    --faint: #7d8b9d;
-    --rule: #26313f;
-    --link: #8cc0f0;
-    --visited: #c3a9e2;
-    --panel: #16202e;
+    --bg: #202124;
+    --text: #eeeeee;
+    --muted: #cccccc;
+    --faint: #b0b0b0;
+    --rule: #414141;
+    --link: #a9c9e8;
+    --visited: #a9c9e8;
+    --panel: #292a2d;
     --elevate: rgba(0, 0, 0, 0.55);
 }
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-        --bg: #0f1723;
-        --text: #dfe6ef;
-        --muted: #a8b4c4;
-        --faint: #7d8b9d;
-        --rule: #26313f;
-        --link: #8cc0f0;
-        --visited: #c3a9e2;
-        --panel: #16202e;
+        --bg: #202124;
+        --text: #eeeeee;
+        --muted: #cccccc;
+        --faint: #b0b0b0;
+        --rule: #414141;
+        --link: #a9c9e8;
+        --visited: #a9c9e8;
+        --panel: #292a2d;
         --elevate: rgba(0, 0, 0, 0.55);
     }
 }
@@ -88,27 +88,27 @@ main:focus { outline: none; }
 :root[data-theme="dark"] .i-moon { display: none; }
 :root:not([data-theme="dark"]) .i-sun { display: none; }
 body {
-    font-family: Georgia, "Iowan Old Style", "Times New Roman", Times, serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
     /* Relative, so a reader who raises their browser font size scales the body
        text with everything else. 1.0625rem is 17px at the 16px default. */
     font-size: 1.0625rem;
-    line-height: 1.6;
+    line-height: 1.7;
     margin: 0 auto;
-    max-width: 44em;
-    padding: 16px 22px 64px;
+    max-width: 54rem;
+    padding: 24px 24px 72px;
 }
-/* A link is marked by weight rather than by a rule under it. Weight is a cue that
-   does not depend on colour, which is what a link in running text needs, and it
-   leaves the prose unbroken. The underline returns on hover and on focus. */
+/* Underlines identify prose links without making whole sentences bold. */
 a {
     color: var(--link);
-    text-decoration: none;
-    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    font-weight: 400;
 }
 a:visited { color: var(--visited); }
-a:hover { text-decoration: underline; }
+a:hover { text-decoration-thickness: 1px; }
 p { margin: 0 0 12px; }
 
 /* ---- Top line ---- */
@@ -124,36 +124,39 @@ p { margin: 0 0 12px; }
     background: var(--bg);
     display: flex;
     flex-wrap: wrap;
-    align-items: baseline;
+    align-items: center;
     gap: 4px 12px;
-    font-size: 0.9375rem;
-    padding: 12px 0 14px;
-    margin-bottom: 26px;
+    font-size: 1rem;
+    padding: 10px 0 14px;
+    margin-bottom: 36px;
     border-bottom: 1px solid var(--rule);
 }
 .topnav .links {
+    flex: 1;
     min-width: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 2px 19px;
+    gap: 4px 22px;
 }
 .topnav .links a {
-    font-weight: normal;
+    color: var(--muted);
+    font-weight: 500;
     text-decoration: none;
     padding: 3px 0;
     border-bottom: 2px solid transparent;
 }
-.topnav .links a:hover { border-bottom-color: var(--rule); text-decoration: none; }
+.topnav .links a:hover { text-decoration: none; }
 /* The current page is named by a rule beneath it. Colour alone would carry the
    information for sighted readers only, and would also fight the link colour. */
-.topnav .here {
+.topnav .links .here {
     color: var(--text);
-    border-bottom-color: var(--link);
+    border-bottom-color: var(--text);
 }
 /* The theme control is hidden until we know scripting is available. The inline
    head script stamps data-theme before first paint, so its presence is the hook,
    and a reader without JavaScript is never offered a button that cannot work. */
-.topnav .right { display: none; margin-left: auto; }
+.topnav .right { display: none; margin-left: auto; flex-shrink: 0; }
+.topnav .linkbtn { color: var(--muted); }
 :root[data-theme] .topnav .right { display: block; }
 
 /* ---- Shell ---- */
@@ -164,7 +167,7 @@ p { margin: 0 0 12px; }
 /* ---- Identity ---- */
 .head {
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 32px;
 }
 /* The prose opens straight after the masthead, so the first block adds no heading's
    worth of space on top of the space the masthead already leaves. */
@@ -176,18 +179,16 @@ main > .sechead:first-child > h1 { margin-top: 0; }
    carries it: a sub-page is about its own contents, not about whose site it is. */
 .head .portrait {
     float: right;
-    width: 160px;
+    width: 170px;
     height: auto;
     aspect-ratio: 4 / 5;
     object-fit: cover;
     margin: 3px 0 0 30px;
-    border-radius: 3px;
-    border: 1px solid var(--rule);
-    box-shadow: 0 2px 10px var(--elevate);
+    border-radius: 8px;
 }
 h1 {
-    font-size: 2rem;
-    font-weight: normal;
+    font-size: 2.125rem;
+    font-weight: 650;
     margin: 0 0 4px;
     letter-spacing: -0.01em;
 }
@@ -209,10 +210,10 @@ ul.profile {
 ul.profile li { margin: 0; }
 ul.profile a {
     display: block;
-    color: var(--link);
+    color: var(--muted);
     text-decoration: none;
 }
-ul.profile a:visited { color: var(--link); }
+ul.profile a:visited { color: var(--muted); }
 ul.profile a:hover { color: var(--text); }
 ul.profile svg { width: 21px; height: 21px; display: block; }
 
@@ -304,37 +305,17 @@ ul.films { list-style: none; margin: 0; padding: 0; }
 .film-note { margin: 6px 0 0; color: var(--muted); }
 .filmnote { color: var(--faint); font-size: 0.875rem; margin-top: 30px; }
 
-/* A visible note to Waquar rather than an HTML comment, so it cannot be forgotten. */
-.todo {
-    border-left: 3px solid var(--link);
-    background: var(--panel);
-    padding: 12px 14px;
-    margin: 0 0 26px;
-    font-size: 0.9375rem;
-}
-.todo code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.875em; }
-
 /* ---- Sections ---- */
 h2, main h1 {
     position: relative;
-    font-size: 1.1875rem;
-    font-weight: bold;
-    margin: 30px 0 12px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid var(--rule);
+    font-size: 1.375rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 38px 0 18px;
 }
-h3 { font-size: 1rem; font-weight: bold; margin: 22px 0 8px; }
+main h1 { font-size: 2rem; margin: 0 0 24px; }
+h3 { font-size: 1.125rem; font-weight: 600; margin: 26px 0 10px; }
 
-/* A short rule in the accent colour, sitting on the hairline under a heading. */
-h2::after, main h1::after, .sechead::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -1px;
-    width: 40px;
-    height: 2px;
-    background: var(--link);
-}
 .sechead {
     position: relative;
     display: flex;
@@ -346,7 +327,6 @@ h2::after, main h1::after, .sechead::after {
     gap: 2px 18px;
     margin: 36px 0 12px;
     padding-bottom: 5px;
-    border-bottom: 1px solid var(--rule);
 }
 .sechead h2, .sechead h3 {
     margin: 0;
@@ -383,17 +363,11 @@ a.card {
     border: 1px solid var(--rule);
     background: var(--panel);
     padding: 12px 13px 14px;
-    transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
     /* The card is one big link, so its body text opts out of the link weight;
        only the title carries it. */
     font-weight: normal;
 }
 a.card:visited { color: inherit; }
-a.card:hover {
-    border-color: var(--link);
-    box-shadow: 0 4px 14px var(--elevate);
-    transform: translateY(-2px);
-}
 a.card .card-media { display: block; color: var(--muted); }
 a.card:hover .card-media { color: var(--link); }
 a.card img.fig { display: block; width: 100%; height: auto; background: #fff; }
@@ -450,12 +424,15 @@ svg.fig.lead {
 .count { color: var(--faint); font-size: 0.9375rem; }
 ul.plain { list-style: square; margin: 0; padding-left: 1.4em; }
 ul.plain li { margin-bottom: 12px; }
-ol.publications-list { margin: 0; padding-left: 1.7em; }
-ol.publications-list > li { margin-bottom: 18px; padding-left: 0.25em; }
-ol.publications-list > li::marker { color: var(--faint); font-size: 0.9375rem; }
-.me { font-variant: small-caps; letter-spacing: 0.02em; }
+.publications-list { margin: 0; padding-left: 1.25em; }
+.publications-list > li { margin-bottom: 24px; padding-left: 0.25em; }
+.publications-list > li::marker { color: var(--faint); font-size: 0.875rem; }
+.paper-title { display: block; font-weight: 600; }
+.paper-details { display: block; margin-top: 3px; color: var(--muted); font-size: 1rem; }
+.me { font-weight: 500; }
 .venue { font-style: italic; }
 .tag { color: var(--faint); font-size: 0.875rem; }
+.paper-link { white-space: nowrap; font-size: 0.9375rem; }
 
 /* A one-line note on what a paper did, compressed from the paper's own abstract.
    Used only on research pages, where a reader has already gone deep. */
@@ -467,23 +444,24 @@ ol.publications-list > li::marker { color: var(--faint); font-size: 0.9375rem; }
 }
 
 /* ---- Talks, teaching, news ---- */
-ul.talks { list-style: none; margin: 0; padding: 0; }
-ul.talks li { margin-bottom: 12px; }
+ul.talks { list-style: disc; margin: 0; padding-left: 1.25em; }
+ul.talks li { margin-bottom: 24px; padding-left: 0.25em; font-weight: 600; }
+ul.talks li::marker { color: var(--faint); font-size: 0.875rem; }
 ul.talks .where {
     display: block;
     color: var(--muted);
     font-size: 0.9375rem;
-    /* Venues sit indented under the title of the work, with a dash as their marker. */
-    padding-left: 1.4em;
-    text-indent: -1.1em;
+    margin-top: 3px;
+    font-weight: 400;
 }
-ul.talks .where::before { content: "\2013\00a0\00a0"; color: var(--faint); }
 /* Degrees, positions and courses are parallel entries, so they are a list. The
    marker and indent are removed; only the semantics are wanted. */
-ul.entries { list-style: none; margin: 0; padding: 0; }
+ul.entries { list-style: disc; margin: 0; padding-left: 1.25em; }
+ul.entries > li { margin-bottom: 24px; padding-left: 0.25em; }
+ul.entries > li::marker { color: var(--faint); font-size: 0.875rem; }
 
 .course { margin-bottom: 16px; }
-.course .what { font-weight: bold; }
+.course .what { font-weight: 600; }
 /* The institution and dates sit on their own line so a long title cannot leave
    them stranded mid-phrase on the wrap. */
 .course .when {
@@ -512,8 +490,8 @@ ul.news .when {
 
 /* Event photographs stay beside the corresponding news or presentation. */
 .event-photo { display: block; min-width: 0; align-self: start; }
-.event-photo img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); }
-.event-photo--figure { padding: 5px; border: 1px solid var(--rule); background: #fff; }
+.event-photo img { display: block; width: 100%; height: auto; border: 0; border-radius: 8px; }
+.event-photo--figure { padding: 0; border: 0; }
 .event-photo--figure img { border: 0; }
 .news-group-photo { grid-column: 2; min-width: 0; margin: 14px 0 0; }
 .news-group-photo figcaption { margin-top: 6px; color: var(--muted); font-size: 0.875rem; line-height: 1.5; }
@@ -551,13 +529,13 @@ ul.news li.news-with-photo {
 }
 ul.news--preview li.news-with-photo { grid-template-columns: 5.5rem minmax(0, 1fr) 10rem; margin-block: 16px; }
 ul.news--preview li.news-with-group-photo { margin-block: 20px; }
-ul.talks li.talk-with-photo { display: grid; grid-template-columns: minmax(0, 1fr) 14rem; gap: 22px; }
+.talk-photo-layout { display: grid; grid-template-columns: minmax(0, 1fr) 14rem; gap: 22px; }
 li.news-with-photo, li.news-with-group-photo { scroll-margin-top: 80px; }
 @media (max-width: 38em) {
     ul.news li.news-with-photo,
     ul.news--preview li.news-with-photo { grid-template-columns: 5.5rem minmax(0, 1fr); }
     .news-with-photo .event-photo { grid-column: 2; margin-top: 12px; max-width: 22rem; }
-    ul.talks li.talk-with-photo { grid-template-columns: 1fr; gap: 12px; }
+    .talk-photo-layout { grid-template-columns: 1fr; gap: 12px; }
     .talk-with-photo .event-photo { max-width: 22rem; }
 }
 @media (max-width: 30em) {
@@ -675,143 +653,35 @@ footer {
 .dir { display: block; margin: 10px 0 6px; }
 .dir::after { content: ""; display: table; clear: both; }
 .dir figure { width: 100%; margin: 4px 0 22px; }
-.dir figure .frame {
-    border: 1px solid var(--rule);
-    background: #fff;
-    padding: 10px;
-}
-.dir figure img, .dir figure svg.fig { display: block; width: 100%; height: auto; }
+.dir figure .frame { border: 0; background: none; padding: 0; }
+.dir figure img, .dir figure svg.fig { display: block; width: 100%; height: auto; border-radius: 8px; }
 .dir figcaption { margin-top: 8px; color: var(--muted); font-size: 0.875rem; line-height: 1.5; }
 .dir .label { font-weight: bold; }
 .dir ul.plain li { margin-bottom: 9px; }
-
-/* ---- Home: air above the research overview ---- */
-section#research { margin-top: 28px; }
-
-/* ---- Home research selector ---- */
-.thrust-tabs:not([hidden]) {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0;
-    border-bottom: 1px solid var(--rule);
-    margin-bottom: 18px;
-}
-.thrust-tabs button {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    font: inherit;
-    font-size: 0.9375rem;
-    line-height: 1.35;
-    text-align: left;
-    color: var(--muted);
-    background: none;
-    border: 0;
-    border-bottom: 2px solid transparent;
-    padding: 10px 12px 12px;
-    cursor: pointer;
-}
-.thrust-tabs button:first-child { padding-left: 0; }
-.thrust-tabs button:last-child { padding-right: 0; }
-.thrust-tabs button[aria-selected="true"] {
-    color: var(--link);
-    border-bottom-color: var(--link);
-}
-.thrust-tabs button:hover { color: var(--link); }
-.thrust-number {
-    display: block;
-    color: var(--faint);
-    font-size: 0.8125rem;
-    margin-bottom: 4px;
-}
-.thrust-panels { display: grid; gap: 24px; }
-.thrust-carousel.is-ready .thrust-panels { gap: 0; isolation: isolate; }
-.thrust-carousel.is-ready .thrust-slide {
-    grid-area: 1 / 1;
-    min-width: 0;
-    background: var(--bg);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-.thrust-carousel.is-ready .thrust-slide.is-active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    z-index: 1;
-}
-a.thrust-feature {
-    display: block;
-    color: inherit;
-    font-weight: normal;
-    text-decoration: none;
-}
-a.thrust-feature:visited { color: inherit; }
-.thrust-feature img {
-    display: block;
-    width: 100%;
-    height: auto;
-    background: #fff;
-    border: 1px solid var(--rule);
-    padding: 8px;
-}
-.thrust-caption h3 { margin: 14px 0 6px; line-height: 1.4; }
-.thrust-caption p { margin: 0 0 8px; color: var(--muted); font-size: 1rem; }
-.thrust-more { color: var(--link); font-size: 0.9375rem; }
-a.thrust-feature:hover .thrust-more { text-decoration: underline; }
-@media (max-width: 30em) {
-    .thrust-tabs button { font-size: 0.875rem; padding: 8px 7px 10px; }
-    .thrust-feature img { padding: 4px; }
-}
-@media print {
-    .thrust-tabs { display: none !important; }
-    .thrust-carousel.is-ready .thrust-panels { gap: 24px; min-height: 0 !important; }
-    .thrust-carousel.is-ready .thrust-slide {
-        display: block;
-        grid-area: auto;
-        opacity: 1;
-        visibility: visible;
-        transition: none;
-        break-inside: avoid;
-    }
-}
 
 /* Research pages: a figure, brief project records, and links to the full work. */
 .project-list { list-style: none; margin: 0; padding: 0; }
 .project-list > li { margin: 0 0 24px; }
 .project-list h3 { font-size: 1.0625rem; line-height: 1.45; margin: 0 0 5px; }
+.project-list h3 a, .project-list h3 a:visited { color: var(--text); font-weight: 600; }
 .project-list p { margin: 5px 0 0; }
 .project-list .project-meta { color: var(--muted); font-size: 0.9375rem; }
 .paper-figure { margin: 18px 0 28px; }
 .paper-figure--compact { max-width: 35rem; margin-inline: auto; }
-.paper-figure .frame { background: #fff; border: 1px solid var(--rule); padding: 10px; }
-.paper-figure img { display: block; width: 100%; height: auto; }
+.paper-figure .frame { background: none; border: 0; padding: 0; }
+.paper-figure img { display: block; width: 100%; height: auto; border-radius: 8px; }
 .paper-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 0.875rem; line-height: 1.5; }
 .research-links { font-size: 0.9375rem; margin-top: 28px; }
-.cards.research-list { grid-template-columns: 1fr; gap: 0; }
-.research-list a.card {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
-    column-gap: 22px;
-    padding: 22px 0;
-    border: 0;
-    border-bottom: 1px solid var(--rule);
-    background: none;
-    transition: none;
-}
-.research-list a.card:hover { box-shadow: none; transform: none; }
-.research-list .card-media { grid-row: 1 / 4; align-self: center; }
-.research-list a.card .card-title { margin-top: 0; font-size: 1.0625rem; }
-.research-list a.card .card-text { font-size: 0.9375rem; }
-.research-list a.card .card-more { margin-top: 0; }
-@media (max-width: 30em) {
-    .research-list a.card { grid-template-columns: 1fr; }
-    .research-list .card-media { grid-row: auto; margin-bottom: 14px; }
-}
+.research-pillar { margin-bottom: 56px; }
+.research-pillar:first-of-type > h2 { margin-top: 0; }
+.research-pillar > h2 { margin-bottom: 16px; }
+.pillar-figure { margin: 24px 0 28px; }
+.pillar-figure a { display: block; }
+.pillar-figure img { display: block; width: 100%; height: auto; border-radius: 8px; }
+main > h1.visually-hidden + h2 { margin-top: 0; }
 
 /* ---- Teaching: descriptions indented under the course line ---- */
-.course p:not(.what) { margin: 4px 0 0 1.4em; }
+.course p:not(.what) { margin: 4px 0 0; }
 .course .when { margin-left: 0; }
 
 /* A heading without the hairline and accent rule beneath it. */
@@ -819,8 +689,8 @@ main h1.norule, main h2.norule { border-bottom: 0; padding-bottom: 0; margin-bot
 main h1.norule::after, main h2.norule::after { display: none; }
 
 /* ---- Talks: one entry per presentation, grouped by year ---- */
-ul.talks + h3 { margin-top: 30px; }
-ul.talks li { margin-bottom: 14px; }
+ul.talks + h2 { margin-top: 38px; }
+ul.talks li { margin-bottom: 24px; }
 
 /* ---- Teaching: numbered entries with room between them ---- */
 ol.entries { list-style: decimal; margin: 0; padding-left: 1.7em; }

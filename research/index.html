@@ -15,14 +15,14 @@
         })();
     </script>
     <title>Research &mdash; Waquar Kaleem</title>
-    <meta name="description" content="Three research thrusts: AI-integrated discrete optimization in transportation and logistics, sequential decisions in critical infrastructure under uncertainty, and optimizing complex systems on exascale and GPU platforms.">
+    <meta name="description" content="Three research thrusts: AI-integrated discrete optimization in transportation and logistics, sequential decisions in critical infrastructure under uncertainty, and extreme-scale optimization on next-generation computing systems.">
     <meta name="author" content="Waquar Kaleem">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://wkaleem.github.io/research/">
 
     <meta property="og:type" content="article">
     <meta property="og:title" content="Research &mdash; Waquar Kaleem">
-    <meta property="og:description" content="Three research thrusts: AI-integrated discrete optimization in transportation and logistics, sequential decisions in critical infrastructure under uncertainty, and optimizing complex systems on exascale and GPU platforms.">
+    <meta property="og:description" content="Three research thrusts: AI-integrated discrete optimization in transportation and logistics, sequential decisions in critical infrastructure under uncertainty, and extreme-scale optimization on next-generation computing systems.">
     <meta property="og:url" content="https://wkaleem.github.io/research/">
     <meta property="og:site_name" content="Waquar Kaleem">
 
@@ -35,10 +35,10 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://wkaleem.github.io/og.png">
     <meta name="twitter:title" content="Research &mdash; Waquar Kaleem">
-    <meta name="twitter:description" content="Three research thrusts: AI-integrated discrete optimization in transportation and logistics, sequential decisions in critical infrastructure under uncertainty, and optimizing complex systems on exascale and GPU platforms.">
+    <meta name="twitter:description" content="Three research thrusts: AI-integrated discrete optimization in transportation and logistics, sequential decisions in critical infrastructure under uncertainty, and extreme-scale optimization on next-generation computing systems.">
 
     <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%224%22%20fill%3D%22%230a4a8f%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2222%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2214%22%20fill%3D%22%23fdfcf8%22%3EWK%3C%2Ftext%3E%3C%2Fsvg%3E">
-    <link rel="stylesheet" href="/style.css?v=495beba423">
+    <link rel="stylesheet" href="/style.css?v=5c47d68f1e">
 </head>
 <body>
 
@@ -51,36 +51,38 @@
 
     <div class="shell">
     <main id="main" tabindex="-1">
-    <h1>Research</h1>
-    <p>Research interests: AI-integrated discrete optimization, sequential decision-making under uncertainty, and high-performance and GPU computing, with applications in critical transportation infrastructure, supply-chain planning, and freight and logistics operations.</p>
+    <h1 class="visually-hidden">Research</h1>
 
-    <h2>Key research directions</h2>
-    <div class="cards research-list">
-        <a class="card" id="ai-integrated" href="/research/ai-optimization/">
-            <span class="card-media"><img class="fig" src="/assets/thrust1.svg" width="2077" height="1000" alt="" decoding="async"></span>
-            <h3 class="card-title">AI-integrated discrete optimization in transportation and logistics</h3>
-            <span class="card-text">Train, embed, and optimize surrogates of operational costs.</span>
-            <span class="card-more">Selected research &rarr;</span>
-        </a>
-        <a class="card" id="sequential-decisions" href="/research/sequential-decisions/">
-            <span class="card-media"><img class="fig" src="/assets/thrust2.svg" width="2077" height="1000" alt="" decoding="async"></span>
-            <h3 class="card-title">Sequential decisions in critical infrastructure under uncertainty</h3>
-            <span class="card-text">Mixed-integer optimization policies that account for immediate cost and future value.</span>
-            <span class="card-more">Selected research &rarr;</span>
-        </a>
-        <a class="card" id="exascale-gpu" href="/research/exascale-gpu/">
-            <span class="card-media"><img class="fig" src="/assets/thrust3.svg" width="2077" height="1000" alt="" decoding="async"></span>
-            <h3 class="card-title">Optimizing complex systems on exascale and GPU platforms</h3>
-            <span class="card-text">Discrete optimization algorithms for heterogeneous computers and GPUs.</span>
-            <span class="card-more">Selected research &rarr;</span>
-        </a>
-    </div>
+    <section class="research-pillar" id="ai-integrated" aria-labelledby="thrust-title-1">
+        <h2 id="thrust-title-1">AI-integrated discrete optimization in transportation and logistics</h2>
+        <figure class="pillar-figure">
+            <a href="/assets/thrust1.pdf" aria-label="PDF diagram: AI-integrated discrete optimization"><img src="/assets/thrust1.svg" width="2077" height="1000" alt="Train, embed, and optimize in a closed loop, with applications in transportation, production and distribution, machining, and drilling." decoding="async"></a>
+        </figure>
+        <p>Trucks carry more than 12.8 billion tons of U.S. freight a year over networks planned at multiple time scales, from the strategic siting of facilities that last for decades, through the tactical sizing of fleets for months, to the operational routing and assignment of orders within the day. Yet decisions at these scales interact. The operational routes and their cost are a function of where facilities are sited and how fleets are sized. Ignoring this interaction can produce infrastructure decisions that appear economical at first but prove costly in the long term. For example, depots are sited assuming each customer is served from the nearest one, fleets are often sized using static routing-cost formulas, and orders are assigned to drivers assuming they follow prescribed routes (although drivers often deviate from them).</p>
+        <p>This research pillar focuses on training machine learning models to represent operational costs and <a href="https://arxiv.org/pdf/2412.05665">embedding them within planning problems</a>. Advances in the mathematical representation of trained neural networks allow these problems to be optimized using off-the-shelf solvers and specialized algorithms. This growing area of research has applications in complex engineering systems such as transportation, supply chains, power systems and oil and gas.</p>
+    </section>
 
-    <p class="research-links"><a href="/publications/">All publications</a> &middot; <a href="/Waquar_Kaleem_CV.pdf">CV</a></p>
+    <section class="research-pillar" id="sequential-decisions" aria-labelledby="thrust-title-2">
+        <h2 id="thrust-title-2">Sequential decisions in critical infrastructure under uncertainty</h2>
+        <figure class="pillar-figure">
+            <a href="/assets/thrust2.pdf" aria-label="PDF diagram: Sequential decisions under uncertainty"><img src="/assets/thrust2.svg" width="2077" height="1000" alt="Sequential decisions for rail classification yards, EV charging networks and hydrogen corridors, with immediate cost and a future approximation." decoding="async"></a>
+        </figure>
+        <p>The goal of this pillar is to optimize the planning and operation of critical transportation infrastructure, including <a href="https://arxiv.org/pdf/2502.05152">EV charging networks</a>, hydrogen refueling corridors and rail classification yards. The decisions must hedge against uncertainty and adapt as new information becomes available. Relevant uncertainties include network-level link flows and induced demand, vehicle arrivals and charging or refueling times at stations, and train arrivals and processing times in rail yards.</p>
+    </section>
+
+    <section class="research-pillar" id="exascale-gpu" aria-labelledby="thrust-title-3">
+        <h2 id="thrust-title-3">Extreme-scale optimization on next-generation computing systems</h2>
+        <figure class="pillar-figure">
+            <a href="/assets/thrust3.pdf" aria-label="PDF diagram: Optimization on exascale and GPU platforms"><img src="/assets/thrust3.svg" width="2077" height="1000" alt="GPU-native primal heuristics, distributed decomposition on heterogeneous computers, and learning and optimization on device." decoding="async"></a>
+        </figure>
+        <p>Advances in CPUs, GPUs and AI accelerators provide an opportunity to rethink optimization algorithms for <a href="https://arxiv.org/pdf/2502.05152">extreme-scale problems</a>. The aim is to develop hardware-aware methods that use the computing resources powering modern AI to solve large-scale optimization problems. These methods will balance workloads within memory and communication limits to obtain better solutions within a fixed computing budget.</p>
+    </section>
+
+    <p><a href="/Waquar_Kaleem_Research_Statement.pdf">Research statement (PDF)</a></p>
 
     </main>
     </div>
-    <script src="/site.js?v=57ae964058"></script>
+    <script src="/site.js?v=b8fcc1d122"></script>
 
 </body>
 </html>
