@@ -1,6 +1,7 @@
 /* Waquar Kaleem. System fonts, quiet typography, and no external font requests. */
 
 :root {
+    color-scheme: light;
     --bg: #ffffff;
     --text: #242424;
     --muted: #505050;
@@ -12,6 +13,7 @@
     --elevate: rgba(0, 0, 0, 0.09);
 }
 :root[data-theme="dark"] {
+    color-scheme: dark;
     --bg: #202124;
     --text: #eeeeee;
     --muted: #cccccc;
@@ -22,20 +24,6 @@
     --panel: #292a2d;
     --elevate: rgba(0, 0, 0, 0.55);
 }
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-        --bg: #202124;
-        --text: #eeeeee;
-        --muted: #cccccc;
-        --faint: #b0b0b0;
-        --rule: #414141;
-        --link: #a9c9e8;
-        --visited: #a9c9e8;
-        --panel: #292a2d;
-        --elevate: rgba(0, 0, 0, 0.55);
-    }
-}
-
 /* Padding and borders count inside a declared width. Without this a figure at
    width 100% plus padding and a border overflows its column on a narrow screen. */
 *, *::before, *::after { box-sizing: border-box; }
@@ -561,6 +549,9 @@ li.news-with-photo, li.news-with-group-photo { scroll-margin-top: 80px; }
 .pageindex .sep { color: var(--faint); }
 .pageindex a { font-weight: normal; }
 main h2[id], main h3[id] { scroll-margin-top: 64px; }
+@media (max-width: 30em) {
+    section, main h2[id], main h3[id] { scroll-margin-top: 124px; }
+}
 
 .back { font-size: 0.9375rem; margin-top: 30px; }
 
